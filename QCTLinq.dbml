@@ -46,7 +46,7 @@
       <Association Name="Contractor_Licence" Member="Licences" ThisKey="ID" OtherKey="cID" Type="Licence" />
       <Association Name="Contractor_Permit" Member="Permits" ThisKey="ID" OtherKey="cID" Type="Permit" />
       <Association Name="Contractor_Agreement" Member="Agreements" ThisKey="ID" OtherKey="cID" Type="Agreement" />
-      <Association Name="Contractor_Insurance" Member="Insurances" ThisKey="ID" OtherKey="cID" Type="Insurance" />
+      <Association Name="Contractor_InsurancePolicy" Member="InsurancePolicies" Storage="_Insurances" ThisKey="ID" OtherKey="cID" Type="InsurancePolicy" />
     </Type>
   </Table>
   <Table Name="dbo.ContractorsPhone" Member="ContractorsPhones">
@@ -78,22 +78,13 @@
       <Association Name="Department_Division" Member="Department1" ThisKey="Department" OtherKey="ID" Type="Department" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.InsuranceBrokerEmails" Member="InsuranceBrokerEmails">
-    <Type Name="InsuranceBrokerEmail">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="bID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
-      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="InsuranceBroker_InsuranceBrokerEmail" Member="InsuranceBroker" ThisKey="bID" OtherKey="ID" Type="InsuranceBroker" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.InsuranceBrokers" Member="InsuranceBrokers">
     <Type Name="InsuranceBroker">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
       <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="InsuranceBroker_InsurancePolicy" Member="InsurancePolicies" Storage="_Insurances" ThisKey="ID" OtherKey="BrokerID" Type="InsurancePolicy" />
       <Association Name="InsuranceBroker_InsuranceBrokerEmail" Member="InsuranceBrokerEmails" ThisKey="ID" OtherKey="bID" Type="InsuranceBrokerEmail" />
-      <Association Name="InsuranceBroker_Insurance" Member="Insurances" ThisKey="ID" OtherKey="BrokerID" Type="Insurance" />
     </Type>
   </Table>
   <Table Name="dbo.InsuranceCompanies" Member="InsuranceCompanies">
@@ -102,7 +93,7 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="InsuranceCompany_Insurance" Member="Insurances" ThisKey="ID" OtherKey="insID" Type="Insurance" />
+      <Association Name="InsuranceCompany_InsurancePolicy" Member="InsurancePolicies" Storage="_Insurances" ThisKey="ID" OtherKey="insID" Type="InsurancePolicy" />
     </Type>
   </Table>
   <Table Name="dbo.Licences" Member="Licences">
@@ -151,7 +142,7 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Value" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="PolicyLimit_Insurance" Member="Insurances" ThisKey="ID" OtherKey="PolicyLimit" Type="Insurance" />
+      <Association Name="PolicyLimit_InsurancePolicy" Member="InsurancePolicies" Storage="_Insurances" ThisKey="ID" OtherKey="PolicyLimit" Type="InsurancePolicy" />
     </Type>
   </Table>
   <Table Name="dbo.Securities" Member="Securities">
@@ -190,7 +181,7 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Type" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
       <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="TypeOfPolicy_Insurance" Member="Insurances" ThisKey="ID" OtherKey="TypeOfPolicy" Type="Insurance" />
+      <Association Name="TypeOfPolicy_InsurancePolicy" Member="InsurancePolicies" Storage="_Insurances" ThisKey="ID" OtherKey="TypeOfPolicy" Type="InsurancePolicy" />
     </Type>
   </Table>
   <Table Name="dbo.TypeOfWSIBs" Member="TypeOfWSIBs">
@@ -256,8 +247,8 @@
       <Association Name="TypeOfAgreement_Agreement" Member="TypeOfAgreement1" ThisKey="TypeOfAgreement" OtherKey="ID" Type="TypeOfAgreement" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Insurance" Member="Insurances">
-    <Type Name="Insurance">
+  <Table Name="dbo.Insurance" Member="InsurancePolicies">
+    <Type Name="InsurancePolicy">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="cID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CertReqFor" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
@@ -284,11 +275,22 @@
       <Column Name="CertSigned" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="TenantsLegalLiability" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="InsuranceBroker_Insurance" Member="InsuranceBroker" ThisKey="BrokerID" OtherKey="ID" Type="InsuranceBroker" IsForeignKey="true" />
-      <Association Name="Contractor_Insurance" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
-      <Association Name="InsuranceCompany_Insurance" Member="InsuranceCompany1" ThisKey="insID" OtherKey="ID" Type="InsuranceCompany" IsForeignKey="true" />
-      <Association Name="PolicyLimit_Insurance" Member="PolicyLimit1" ThisKey="PolicyLimit" OtherKey="ID" Type="PolicyLimit" IsForeignKey="true" />
-      <Association Name="TypeOfPolicy_Insurance" Member="TypeOfPolicy1" ThisKey="TypeOfPolicy" OtherKey="ID" Type="TypeOfPolicy" IsForeignKey="true" />
+      <Association Name="InsuranceBroker_InsurancePolicy" Member="InsuranceBroker" ThisKey="BrokerID" OtherKey="ID" Type="InsuranceBroker" IsForeignKey="true" />
+      <Association Name="Contractor_InsurancePolicy" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
+      <Association Name="InsuranceCompany_InsurancePolicy" Member="InsuranceCompany1" ThisKey="insID" OtherKey="ID" Type="InsuranceCompany" IsForeignKey="true" />
+      <Association Name="PolicyLimit_InsurancePolicy" Member="PolicyLimit1" ThisKey="PolicyLimit" OtherKey="ID" Type="PolicyLimit" IsForeignKey="true" />
+      <Association Name="TypeOfPolicy_InsurancePolicy" Member="TypeOfPolicy1" ThisKey="TypeOfPolicy" OtherKey="ID" Type="TypeOfPolicy" IsForeignKey="true" />
+      <Association Name="InsuranceBrokerEmail_InsurancePolicy" Member="InsuranceBrokerEmail" ThisKey="BrokerEmailID" OtherKey="ID" Type="InsuranceBrokerEmail" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InsuranceBrokerEmails" Member="InsuranceBrokerEmails">
+    <Type Name="InsuranceBrokerEmail">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="bID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="InsuranceBrokerEmail_InsurancePolicy" Member="InsurancePolicies" ThisKey="ID" OtherKey="BrokerEmailID" Type="InsurancePolicy" />
+      <Association Name="InsuranceBroker_InsuranceBrokerEmail" Member="InsuranceBroker" ThisKey="bID" OtherKey="ID" Type="InsuranceBroker" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

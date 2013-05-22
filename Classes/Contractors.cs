@@ -52,7 +52,7 @@ namespace Qualified_Contractor_Tracking.Classes
 
         public class InsuranceDetails
         {
-            public Qualified_Contractor_Tracking.Insurance Insurance { get; set; }
+            public InsurancePolicy InsurancePolicy { get; set; }
             public string Type { get; set; }
             public string Value { get; set; }
         }
@@ -60,11 +60,11 @@ namespace Qualified_Contractor_Tracking.Classes
         public static List<InsuranceDetails> GetInsurance(int cID)
         {
             QCTLinqDataContext db = new QCTLinqDataContext();
-            var q = from i in db.Insurances
+            var q = from i in db.InsurancePolicies
                     where i.cID == cID
                     select new InsuranceDetails()
                     {
-                        Insurance = i,
+                        InsurancePolicy = i,
                         Type = i.TypeOfPolicy1.Type,
                         Value = i.PolicyLimit.HasValue ? i.PolicyLimit1.Value : i.PolicyLimitOther
                     };

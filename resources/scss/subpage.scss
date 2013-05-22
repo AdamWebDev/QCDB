@@ -1,0 +1,17 @@
+@import "reset";
+@import "base";
+@import "invalid";
+
+#main-content {
+  margin: 0 30px 0 30px;
+  padding: 40px 0 0 0;
+}
+
+label {
+  font-weight: 700;
+}
+
+li {
+  display: block;
+  margin-bottom: 1.5em;
+}

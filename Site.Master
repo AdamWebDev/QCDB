@@ -6,14 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 		<title><asp:ContentPlaceHolder ID="Title" runat="server"></asp:ContentPlaceHolder> - Qualified Contractor Tracking</title>
 		<!--                       CSS                       -->
-		<!-- Reset Stylesheet -->
-
-		<link rel="stylesheet" href="/resources/css/reset.css" type="text/css" media="screen" />
 		<!-- Main Stylesheet -->
-		<link rel="stylesheet" href="/resources/css/style.css" type="text/css" media="screen" />
-		<!-- Invalid Stylesheet. This makes stuff look pretty. Remove it if you want the CSS completely valid -->
-		<link rel="stylesheet" href="/resources/css/invalid.css" type="text/css" media="screen" />	
-        <link rel="stylesheet" href="/resources/css/red.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="/resources/css/main.min.css" type="text/css" media="screen" />
         <link rel="stylesheet" href="/resources/scripts/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
 		<!-- Internet Explorer Fixes Stylesheet -->
 		<!--[if lte IE 7]>

@@ -1,0 +1,62 @@
+form {
+ label {
+  display: block;
+  padding: 0 0 10px;
+  font-weight: bold;
+  &.inline {
+    display: inline-block;
+  }
+ }
+
+ label.inline + div {
+  display: inline;
+ }
+
+ input[type=checkbox] + label {
+  display: inline-block;
+ }
+
+ fieldset legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-top: 10px;
+  }
+  p small {
+    font-size: 0.75em;
+    color: #777;
+  }
+  input.text-input, select, textarea, .wysiwyg {
+    padding: 6px;
+    font-size: 13px;
+    background: white url('../images/bg-form-field.gif') top left repeat-x;
+    border: 1px solid #d5d5d5;
+    color: #333;
+    margin-bottom: 1em;
+  }
+  .small-input {
+    width: 25% !important;
+  }
+  .medium-input {
+    width: 50% !important;
+  }
+  .large-input {
+    width: 97.5% !important;
+    font-size: 16px !important;
+    padding: 8px !important;
+  }
+  textarea {
+    width: 97.5% !important;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  select {
+    padding: 4px;
+    background: #fff;
+  }
+  input {
+    &[type="checkbox"], &[type="radio"] {
+      padding: 0;
+      background: none;
+      border: 0;
+    }
+  }
+}

@@ -7,18 +7,14 @@
 		<title><asp:ContentPlaceHolder ID="Title" runat="server"></asp:ContentPlaceHolder> - Qualified Contractor Tracking</title>
 		<!--                       CSS                       -->
 		<!-- Reset Stylesheet -->
-		<link rel="stylesheet" href="resources/css/reset.css" type="text/css" media="screen" />
-		<!-- Main Stylesheet -->
-
-
-		<!--                       Javascripts                       -->
+        <link rel="stylesheet" href="/resources/css/subpage.min.css" type="text/css" media="screen" />
 		<!-- jQuery -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="resources/scripts/jquery-1.9.1.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="/resources/scripts/jquery-1.9.1.min.js"><\/script>')</script>
 		<!-- jQuery Configuration -->
-		<script type="text/javascript" src="resources/scripts/simpla.jquery.configuration.js"></script>
+		<script type="text/javascript" src="/resources/scripts/simpla.jquery.configuration.js"></script>
 		<!-- Facebox jQuery Plugin -->
-		<script type="text/javascript" src="resources/scripts/fancybox/jquery.fancybox.pack.js"></script>
+		<script type="text/javascript" src="/resources/scripts/fancybox/jquery.fancybox.pack.js"></script>
         <asp:ContentPlaceHolder ID="Scripts" runat="server"></asp:ContentPlaceHolder>
 	</head>
 	<body>
@@ -26,23 +22,10 @@
     <div id="body-wrapper"> <!-- Wrapper for the radial gradient background -->
 		<div id="main-content"> <!-- Main Content Section with everything -->
 			<!-- Page Head -->
-			<div class="content-box"><!-- Start Content Box -->
-				<div class="content-box-header">
-					<h3><asp:ContentPlaceHolder ID="ContentBoxHeader" runat="server"></asp:ContentPlaceHolder></h3>
-                    <asp:ContentPlaceHolder ID="Tabs" runat="server"></asp:ContentPlaceHolder>
-					<div class="clear"></div>
-				</div> <!-- End .content-box-header -->
-				<div class="content-box-content">
-                <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
-				</div> <!-- End .content-box-content -->
-			</div> <!-- End .content-box -->
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+			
 			<div class="clear"></div>
 			<!-- Start Notifications -->
-			<div id="footer">
-				<small>
-						&#169; Copyright 2012 Norfolk County | Powered by <a href="http://themeforest.net/item/simpla-admin-flexible-user-friendly-admin-skin/46073">Simpla Admin</a> | <a href="#">Top</a>
-				</small>
-			</div><!-- End #footer -->
 		</div> <!-- End #main-content -->
 	</div>
     </form>

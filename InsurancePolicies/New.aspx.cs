@@ -171,7 +171,7 @@ namespace Qualified_Contractor_Tracking.InsurancePolicies
             QCTLinqDataContext db = new QCTLinqDataContext();
             int cID = int.Parse(Request.QueryString["cID"]);
             // create and populate!
-            Insurance ins = new Insurance();
+            InsurancePolicy ins = new InsurancePolicy();
             ins.cID = cID;
             ins.TenantsLegalLiability = ddTenantsLiability.Value;
             ins.CertReqFor = txtCertReq.Text;
@@ -191,7 +191,7 @@ namespace Qualified_Contractor_Tracking.InsurancePolicies
             ins.CertSigned = ddCertSigned.Value;
             ins.Active = ddActive.Value;
             // save to database!
-            db.Insurances.InsertOnSubmit(ins);
+            db.InsurancePolicies.InsertOnSubmit(ins);
             db.SubmitChanges();
 
             // let's look at the uploaded file

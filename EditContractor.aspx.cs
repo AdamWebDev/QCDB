@@ -346,9 +346,9 @@ namespace Qualified_Contractor_Tracking
             int phoneCount = phones.Count();
             db.ContractorsPhones.DeleteAllOnSubmit(phones);
 
-            var insurance = db.Insurances.Where(i => i.cID == cID);
+            var insurance = db.InsurancePolicies.Where(i => i.cID == cID);
             int insCount = insurance.Count();
-            db.Insurances.DeleteAllOnSubmit(insurance);
+            db.InsurancePolicies.DeleteAllOnSubmit(insurance);
 
             var licenses = db.Licences.Where(l => l.cID == cID);
             int licCount = licenses.Count();

@@ -61,7 +61,7 @@ namespace Qualified_Contractor_Tracking
                         // populate all fields
                         ltSubTitle.Text = "Edit policy of: " + c.Company;
                         btnDelete.Visible = true;
-                        Insurance ins = Classes.Insurance.GetPolicy(ID);
+                        InsurancePolicy ins = Insurance.GetPolicy(ID);
                         txtCertReq.Text = ins.CertReqFor;
                         ddTenantsLiability.Value = ins.TenantsLegalLiability;
                         ddTypeOfPolicy.SelectedValue = ins.TypeOfPolicy.ToString();
@@ -130,11 +130,11 @@ namespace Qualified_Contractor_Tracking
             int cID = int.Parse(Request.QueryString["cID"]);
             int ID = 0;
             String mode = Request.QueryString["mode"];
-            Insurance ins = new Insurance();
+            InsurancePolicy ins = new InsurancePolicy();
             if (mode.Equals("edit")) // existing policy - load it up!
             {
                 ID = int.Parse(Request.QueryString["ID"]);
-                ins = db.Insurances.Single(i => i.ID == ID);
+                ins = db.InsurancePolicies.Single(i => i.ID == ID);
             }
             else // new insurance policy - add the contractor ID
                 ins.cID = cID;
@@ -156,7 +156,7 @@ namespace Qualified_Contractor_Tracking
             ins.CertSigned = ddCertSigned.Value;
             ins.Active = ddActive.Value;
             if (!mode.Equals("edit")) // if existing, 
-                db.Insurances.InsertOnSubmit(ins);
+                db.InsurancePolicies.InsertOnSubmit(ins);
 
             db.SubmitChanges();
 
@@ -190,8 +190,8 @@ namespace Qualified_Contractor_Tracking
         {
             int ID = int.Parse(Request.QueryString["ID"]);
             QCTLinqDataContext db = new QCTLinqDataContext();
-            Insurance ins = db.Insurances.Single(i => i.ID == ID);
-            db.Insurances.DeleteOnSubmit(ins);
+            InsurancePolicy ins = db.InsurancePolicies.Single(i => i.ID == ID);
+            db.InsurancePolicies.DeleteOnSubmit(ins);
             db.SubmitChanges();
             notIns.Message = "Insurance Policy has been deleted!";
             notIns.Type = "success";

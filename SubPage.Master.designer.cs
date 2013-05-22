@@ -40,24 +40,6 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
         
         /// <summary>
-        /// ContentBoxHeader control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentBoxHeader;
-        
-        /// <summary>
-        /// Tabs control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder Tabs;
-        
-        /// <summary>
         /// MainContent control.
         /// </summary>
         /// <remarks>

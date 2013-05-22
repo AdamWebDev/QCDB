@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
 namespace Qualified_Contractor_Tracking.Classes
 {
     public class Insurance
@@ -29,10 +30,10 @@ namespace Qualified_Contractor_Tracking.Classes
         ///  Get a specific Insurance Policy 
         /// </summary>
         /// <param name="ID">ID of the policy to be returned</param>
-        public static Qualified_Contractor_Tracking.Insurance GetPolicy(int ID)
+        public static InsurancePolicy GetPolicy(int ID)
         {
             QCTLinqDataContext db = new QCTLinqDataContext();
-            return db.Insurances.Single(i => i.ID == ID);
+            return db.InsurancePolicies.Single(i => i.ID == ID);
         }
 
         /// <summary>
@@ -95,7 +96,6 @@ namespace Qualified_Contractor_Tracking.Classes
             return db.InsuranceBrokers.ToList();
         }
 
-        
         /// <summary>
         /// Adds an insurance broker
         /// </summary>
