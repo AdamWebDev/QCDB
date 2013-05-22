@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{452603D1-BB2E-4F40-A15A-0DA10B6DA498}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Qualified_Contractor_Tracking</RootNamespace>
+    <AssemblyName>Qualified Contractor Tracking</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PublishDatabases>false</PublishDatabases>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="contractorsConnectionString-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="dbFullSql">
+            <PreSource Path="" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" />
+            <Source Path="obj\Release\AutoScripts\contractorsConnectionString-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+    <ExcludeGeneratedDebugSymbol>true</ExcludeGeneratedDebugSymbol>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+    <PublishDatabases>false</PublishDatabases>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.60623.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60623\lib\40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60623\lib\40\SanitizerProviders\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="SanitizerProviders">
+      <HintPath>..\packages\AjaxControlToolkit.4.1.60623\lib\40\SanitizerProviders\SanitizerProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Telerik.Web.UI, Version=2010.3.1317.40, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Agreements.aspx" />
+    <Content Include="AutoSuggestWebService.asmx" />
+    <Content Include="InsurancePolicies\Edit.aspx" />
+    <Content Include="InsurancePolicies\New.aspx" />
+    <Content Include="SearchByService.aspx" />
+    <Content Include="tools\AODA.aspx" />
+    <Content Include="tools\UpdateBrokers.aspx" />
+    <Content Include="UserControls\DivisionDD.ascx" />
+    <Content Include="DivisionDropDownService.asmx" />
+    <Content Include="UserControls\DateDropDown.ascx" />
+    <Content Include="InsurancePolicy.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="EditContractor.aspx" />
+    <Content Include="Licences.aspx" />
+    <Content Include="UserControls\NavButton.ascx" />
+    <Content Include="NewContractor.aspx" />
+    <Content Include="UserControls\Notification.ascx" />
+    <Content Include="Permits.aspx" />
+    <Content Include="resources\css\blue.css" />
+    <Content Include="resources\css\ie.css" />
+    <Content Include="resources\css\invalid.css" />
+    <Content Include="resources\css\red.css" />
+    <Content Include="resources\css\reset.css" />
+    <Content Include="resources\css\style.css" />
+    <Content Include="resources\images\b.png" />
+    <Content Include="resources\images\bg-body.gif" />
+    <Content Include="resources\images\bg-button-blue.gif" />
+    <Content Include="resources\images\bg-button-green.gif" />
+    <Content Include="resources\images\bg-button-red.gif" />
+    <Content Include="resources\images\bg-content-box.gif" />
+    <Content Include="resources\images\bg-field.gif" />
+    <Content Include="resources\images\bg-form-field.gif" />
+    <Content Include="resources\images\bg-login-top.png" />
+    <Content Include="resources\images\bg-login.gif" />
+    <Content Include="resources\images\bg-menu-item-blue.gif" />
+    <Content Include="resources\images\bg-menu-item-current.gif" />
+    <Content Include="resources\images\bg-menu-item-green.gif" />
+    <Content Include="resources\images\bg-menu-item-red.gif" />
+    <Content Include="resources\images\bg-radial-gradient.gif" />
+    <Content Include="resources\images\bg-sidebar.gif" />
+    <Content Include="resources\images\bl.png" />
+    <Content Include="resources\images\br.png" />
+    <Content Include="resources\images\closelabel.gif" />
+    <Content Include="resources\images\icons\accept.png" />
+    <Content Include="resources\images\icons\add.png" />
+    <Content Include="resources\images\icons\back.png" />
+    <Content Include="resources\images\icons\bullet_black.png" />
+    <Content Include="resources\images\icons\calendar_background.png" />
+    <Content Include="resources\images\icons\calendar_date.png" />
+    <Content Include="resources\images\icons\comment.png" />
+    <Content Include="resources\images\icons\cross.png" />
+    <Content Include="resources\images\icons\cross_circle.png" />
+    <Content Include="resources\images\icons\cross_grey_small.png" />
+    <Content Include="resources\images\icons\cross_small.png" />
+    <Content Include="resources\images\icons\delete.png" />
+    <Content Include="resources\images\icons\exclamation.png" />
+    <Content Include="resources\images\icons\folder.png" />
+    <Content Include="resources\images\icons\folder_add.png" />
+    <Content Include="resources\images\icons\hammer_screwdriver.png" />
+    <Content Include="resources\images\icons\home.png" />
+    <Content Include="resources\images\icons\info.png" />
+    <Content Include="resources\images\icons\information.png" />
+    <Content Include="resources\images\icons\jquery.wysiwyg.gif" />
+    <Content Include="resources\images\icons\mail.png" />
+    <Content Include="resources\images\icons\mail_sent.png" />
+    <Content Include="resources\images\icons\monitor.png" />
+    <Content Include="resources\images\icons\new_page.png" />
+    <Content Include="resources\images\icons\next.png" />
+    <Content Include="resources\images\icons\page_edit.png" />
+    <Content Include="resources\images\icons\page_preview.png" />
+    <Content Include="resources\images\icons\pencil.png" />
+    <Content Include="resources\images\icons\process.png" />
+    <Content Include="resources\images\icons\rss.png" />
+    <Content Include="resources\images\icons\search.png" />
+    <Content Include="resources\images\icons\sound.png" />
+    <Content Include="resources\images\icons\tick_circle.png" />
+    <Content Include="resources\images\icons\user.png" />
+    <Content Include="resources\images\icons\video.png" />
+    <Content Include="resources\images\icons\window.png" />
+    <Content Include="resources\images\loading.gif" />
+    <Content Include="resources\images\logo.png" />
+    <Content Include="resources\images\menu-current-arrow.gif" />
+    <Content Include="resources\images\shortcut-button-bg.gif" />
+    <Content Include="resources\images\tl.png" />
+    <Content Include="resources\images\tr.png" />
+    <Content Include="resources\scripts\DD_belatedPNG_0.0.7a.js" />
+    <Content Include="resources\scripts\facebox.js" />
+    <Content Include="resources\scripts\fancybox\blank.gif" />
+    <Content Include="resources\scripts\fancybox\fancybox_loading.gif" />
+    <Content Include="resources\scripts\fancybox\fancybox_sprite.png" />
+    <Content Include="resources\scripts\fancybox\helpers\fancybox_buttons.png" />
+    <Content Include="resources\scripts\fancybox\helpers\jquery.fancybox-buttons.css" />
+    <Content Include="resources\scripts\fancybox\helpers\jquery.fancybox-buttons.js" />
+    <Content Include="resources\scripts\fancybox\helpers\jquery.fancybox-thumbs.css" />
+    <Content Include="resources\scripts\fancybox\helpers\jquery.fancybox-thumbs.js" />
+    <Content Include="resources\scripts\fancybox\jquery.fancybox.css" />
+    <Content Include="resources\scripts\fancybox\jquery.fancybox.js" />
+    <Content Include="resources\scripts\fancybox\jquery.fancybox.pack.js" />
+    <Content Include="resources\scripts\jquery-1.3.2.min.js" />
+    <Content Include="resources\scripts\jquery.wysiwyg.js" />
+    <Content Include="resources\scripts\simpla.jquery.configuration.js" />
+    <Content Include="Global.asax" />
+    <Content Include="UserControls\TrueFalseDropDown.ascx" />
+    <Content Include="ViewContractor.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Agreements.aspx.cs">
+      <DependentUpon>Agreements.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Agreements.aspx.designer.cs">
+      <DependentUpon>Agreements.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoSuggestWebService.asmx.cs">
+      <DependentUpon>AutoSuggestWebService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\Agreements.cs" />
+    <Compile Include="Classes\Contractors.cs" />
+    <Compile Include="Classes\Functions.cs" />
+    <Compile Include="Classes\Insurance.cs" />
+    <Compile Include="Classes\Permits.cs" />
+    <Compile Include="InsurancePolicies\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsurancePolicies\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InsurancePolicies\New.aspx.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsurancePolicies\New.aspx.designer.cs">
+      <DependentUpon>New.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="QCTLinq.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QCTLinq.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="SearchByService.aspx.cs">
+      <DependentUpon>SearchByService.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchByService.aspx.designer.cs">
+      <DependentUpon>SearchByService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tools\AODA.aspx.cs">
+      <DependentUpon>AODA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tools\AODA.aspx.designer.cs">
+      <DependentUpon>AODA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tools\CLinq.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CLinq.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="tools\UpdateBrokers.aspx.cs">
+      <DependentUpon>UpdateBrokers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tools\UpdateBrokers.aspx.designer.cs">
+      <DependentUpon>UpdateBrokers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DivisionDD.ascx.cs">
+      <DependentUpon>DivisionDD.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\DivisionDD.ascx.designer.cs">
+      <DependentUpon>DivisionDD.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DivisionDropDownService.asmx.cs">
+      <DependentUpon>DivisionDropDownService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SubPage.Master.cs">
+      <DependentUpon>SubPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubPage.Master.designer.cs">
+      <DependentUpon>SubPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DateDropDown.ascx.cs">
+      <DependentUpon>DateDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\DateDropDown.ascx.designer.cs">
+      <DependentUpon>DateDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="InsurancePolicy.aspx.cs">
+      <DependentUpon>InsurancePolicy.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InsurancePolicy.aspx.designer.cs">
+      <DependentUpon>InsurancePolicy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditContractor.aspx.cs">
+      <DependentUpon>EditContractor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditContractor.aspx.designer.cs">
+      <DependentUpon>EditContractor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Licences.aspx.cs">
+      <DependentUpon>Licences.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Licences.aspx.designer.cs">
+      <DependentUpon>Licences.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\NavButton.ascx.cs">
+      <DependentUpon>NavButton.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\NavButton.ascx.designer.cs">
+      <DependentUpon>NavButton.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NewContractor.aspx.cs">
+      <DependentUpon>NewContractor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewContractor.aspx.designer.cs">
+      <DependentUpon>NewContractor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Notification.ascx.cs">
+      <DependentUpon>Notification.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\Notification.ascx.designer.cs">
+      <DependentUpon>Notification.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Permits.aspx.cs">
+      <DependentUpon>Permits.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Permits.aspx.designer.cs">
+      <DependentUpon>Permits.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TrueFalseDropDown.ascx.cs">
+      <DependentUpon>TrueFalseDropDown.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\TrueFalseDropDown.ascx.designer.cs">
+      <DependentUpon>TrueFalseDropDown.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewContractor.aspx.cs">
+      <DependentUpon>ViewContractor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewContractor.aspx.designer.cs">
+      <DependentUpon>ViewContractor.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="uploads\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Production %28vm40%29.pubxml" />
+    <None Include="Properties\PublishProfiles\Staging %28vm40%29.pubxml" />
+    <None Include="QCTLinq.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>QCTLinq.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="resources\scripts\fancybox\helpers\Thumbs.db" />
+    <Content Include="SubPage.Master" />
+    <None Include="tools\CLinq.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>CLinq.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Web.Staging.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="tools\CLinq.dbml.layout">
+      <DependentUpon>CLinq.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="QCTLinq.dbml.layout">
+      <DependentUpon>QCTLinq.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51472</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

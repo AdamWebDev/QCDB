@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="CLinq">
+  <DataContextMoniker Name="/CLinqDataContext" />
+  <nestedChildShapes>
+    <classShape Id="86405cc6-ac49-4141-ae25-5e2c88945d21" absoluteBounds="3.75, 1.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/CLinqDataContext/lookupTypeOfPolicy" />
+      <nestedChildShapes>
+        <elementListCompartment Id="363e6b40-3277-41da-973b-ee592d7cd168" absoluteBounds="3.7649999999999997, 2.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7a06ae35-a945-4aca-8f7f-2b08fdcca097" absoluteBounds="1.25, 2.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/CLinqDataContext/ReportBrokerInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c69205ea-18d9-48e8-bc7c-64ec01463354" absoluteBounds="1.2650000000000001, 3.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2a8e6fb5-1f7e-496d-88ab-b90fc33c88f9" absoluteBounds="1.375, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/CLinqDataContext/ReportAODA" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2a35e536-5e81-4caa-9485-0b1ebf6c8dbc" absoluteBounds="1.3900000000000001, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
