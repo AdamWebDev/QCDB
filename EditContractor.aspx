@@ -159,12 +159,12 @@
         </HeaderTemplate>
         <ItemTemplate>
             <tr>
-                <td><asp:Literal ID="ltRequested" runat="server" Text='<%# Eval("Insurance.CertReqFor") %>'></asp:Literal></td>
+                <td><asp:Literal ID="ltRequested" runat="server" Text='<%# Eval("InsurancePolicy.CertReqFor") %>'></asp:Literal></td>
                 <td><asp:Literal ID="ltType" runat="server" Text='<%# Eval("Type") %>'></asp:Literal></td>
-                <td><asp:Literal ID="ltPolicyNumber" runat="server" Text='<%# Eval("Insurance.PolicyNumber") %>'></asp:Literal></td>
+                <td><asp:Literal ID="ltPolicyNumber" runat="server" Text='<%# Eval("InsurancePolicy.PolicyNumber") %>'></asp:Literal></td>
                 <td><asp:Literal ID="ltPolicyLimit" runat="server" Text='<%# Eval("Value") %>'></asp:Literal></td>
-                <td><asp:Literal ID="ltExpiryDate" runat="server" Text='<%# Eval("Insurance.ExpiryDate","{0:MMMM d, yyyy}") %>'></asp:Literal></td>
-                <td><asp:HyperLink ID="lnkMore" runat="server" NavigateUrl='<%# String.Format("InsurancePolicy.aspx?ID={0}&cID={1}&mode=edit",Eval("Insurance.ID"),Request.QueryString["ID"]) %>'>View/Edit Details</asp:HyperLink></td>
+                <td><asp:Literal ID="ltExpiryDate" runat="server" Text='<%# Eval("InsurancePolicy.ExpiryDate","{0:MMMM d, yyyy}") %>'></asp:Literal></td>
+                <td><asp:HyperLink ID="lnkMore" runat="server" NavigateUrl='<%# String.Format("InsurancePolicies/Edit.aspx?ID={0}&cID={1}",Eval("InsurancePolicy.ID"), Eval("InsurancePolicy.cID")) %>'>View/Edit Details</asp:HyperLink></td>
             </tr>                
         </ItemTemplate>
         <FooterTemplate>

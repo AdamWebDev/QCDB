@@ -103,6 +103,12 @@ namespace Qualified_Contractor_Tracking
                             case "insadded":
                                 notInsurance.Type = "success";
                                 notInsurance.Message = "Insurance Policy added!";
+                                notInsurance.Visible = true;
+                                break;
+                            case "insedited":
+                                notInsurance.Type = "success";
+                                notInsurance.Message = "Insurance Policy updated!";
+                                notInsurance.Visible = true;
                                 break;
                         }
                     }
@@ -263,7 +269,7 @@ namespace Qualified_Contractor_Tracking
             QCTLinqDataContext db = new QCTLinqDataContext();
             ContractorsPhone phone = new ContractorsPhone { 
                 cID = cID,
-                PhoneType = ddPhoneType.SelectedIndex > 0 ? int.Parse(ddPhoneType.SelectedValue) : (int?)null,
+                PhoneType = int.Parse(ddPhoneType.SelectedValue),
                 PhoneNumber = txtPhoneNumber.Text
             };
             db.ContractorsPhones.InsertOnSubmit(phone);

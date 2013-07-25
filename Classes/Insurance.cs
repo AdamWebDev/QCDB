@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Qualified_Contractor_Tracking.UserControls;
+using Telerik.Web.UI;
+using System.IO;
 
 
 namespace Qualified_Contractor_Tracking.Classes
@@ -87,13 +90,24 @@ namespace Qualified_Contractor_Tracking.Classes
         }
 
         /// <summary>
+        /// Returns a specific insurance broker
+        /// </summary>
+        /// <param name="ID">ID of the insurance broker</param>
+        /// <returns>Insurance broker object</returns>
+        public static InsuranceBroker GetInsuranceBroker(int ID)
+        {
+            QCTLinqDataContext db = new QCTLinqDataContext();
+            return db.InsuranceBrokers.Single(i => i.ID == ID);
+        }
+
+        /// <summary>
         /// Gets all insurance brokers
         /// </summary>
         /// <returns>List of insurance brokers</returns>
         public static List<InsuranceBroker> GetInsuranceBrokers()
         {
             QCTLinqDataContext db = new QCTLinqDataContext();
-            return db.InsuranceBrokers.ToList();
+            return db.InsuranceBrokers.OrderBy(i => i.Name).ToList();
         }
 
         /// <summary>
@@ -140,6 +154,108 @@ namespace Qualified_Contractor_Tracking.Classes
             };
             db.InsuranceBrokerEmails.InsertOnSubmit(e);
             db.SubmitChanges();
+        }
+
+        /// <summary>
+        /// Creates a new insurance policy
+        /// </summary>
+        /// <param name="cID">Contractor ID</param>
+        /// <param name="p">Policy Details</param>
+        public static void AddNewPolicy(int cID, InsurancePolicyEditor p)
+        {
+            QCTLinqDataContext db = new QCTLinqDataContext();
+            
+            // create and populate!
+            InsurancePolicy ins = new InsurancePolicy();
+            ins.cID = cID;
+            ins.TenantsLegalLiability = p.TenantsLiability;
+            ins.CertReqFor = p.CertificateRequestFor;
+            ins.TypeOfPolicy = p.TypeOfPolicy;
+            ins.PerOccurance = p.PerOccurance;
+            ins.ProductsCompletedOps = p.ProductsCompletedOps;
+            ins.NonOwnedAuto = p.NonOwnedAuto;
+            ins.CrossLiability = p.CrossLiability;
+            ins.NCasAddIns = p.NorfolkCountyAsAdditionallyInsured;
+            ins.PolicyNumber = p.PolicyNumber;
+            ins.PolicyLimit = p.PolicyLimit;
+            ins.PolicyLimitOther = p.PolicyLimitOther;
+            ins.ExpiryDate = p.ExpiryDate;
+            ins.insID = p.InsuranceCompany;
+            ins.BrokerID = p.Broker;
+            ins.BrokerEmailID = p.BrokerEmail;
+            ins.CertSigned = p.CertificateSigned;
+            ins.Active = p.Active;
+            // save to database!
+            db.InsurancePolicies.InsertOnSubmit(ins);
+            db.SubmitChanges();
+
+            // let's look at the uploaded file
+            if (p.Files.Count > 0) // see if there's a file to attach...
+                UploadInsuranceDocument(ins.ID, p.Files);
+        }
+
+        public static void EditPolicy(int ID, InsurancePolicyEditor p)
+        {
+            QCTLinqDataContext db = new QCTLinqDataContext();
+
+            // create and populate!
+            InsurancePolicy ins = db.InsurancePolicies.Single(i => i.ID == ID);
+            ins.TenantsLegalLiability = p.TenantsLiability;
+            ins.CertReqFor = p.CertificateRequestFor;
+            ins.TypeOfPolicy = p.TypeOfPolicy;
+            ins.PerOccurance = p.PerOccurance;
+            ins.ProductsCompletedOps = p.ProductsCompletedOps;
+            ins.NonOwnedAuto = p.NonOwnedAuto;
+            ins.CrossLiability = p.CrossLiability;
+            ins.NCasAddIns = p.NorfolkCountyAsAdditionallyInsured;
+            ins.PolicyNumber = p.PolicyNumber;
+            ins.PolicyLimit = p.PolicyLimit;
+            ins.PolicyLimitOther = p.PolicyLimitOther;
+            ins.ExpiryDate = p.ExpiryDate;
+            ins.insID = p.InsuranceCompany;
+            ins.BrokerID = p.Broker;
+            ins.BrokerEmailID = p.BrokerEmail;
+            ins.CertSigned = p.CertificateSigned;
+            ins.Active = p.Active;
+            // save to database!
+            db.SubmitChanges();
+
+            // let's look at the uploaded file
+            if (p.Files.Count > 0) // see if there's a file to attach...
+                UploadInsuranceDocument(ins.ID, p.Files);
+        }
+
+        private static void UploadInsuranceDocument(int ID, UploadedFileCollection files)
+        {
+            String directory = HttpContext.Current.Server.MapPath("uploads");
+            directory = directory + "/" + ID.ToString(); // build the path to the file upload
+            // if the directory doesn't exist already, create it
+            if (!Directory.Exists(directory))
+                Directory.CreateDirectory(directory);
+
+            // upload the file and rename it to attachment.pdf
+            foreach (UploadedFile file in files)
+            {
+                file.SaveAs(directory + "/attachment" + file.GetExtension(), true);
+                String filelnk = "uploads/" + ID.ToString() + "/attachment.pdf";
+            }
+        }
+
+        public static List<ExpiringInsurancePolicy> GetExpiringInsurancePolicies()
+        {
+            return GetExpiringInsurancePolicies("company");
+        }
+
+        public static List<ExpiringInsurancePolicy> GetExpiringInsurancePolicies(string sortby)
+        {
+            ExpiringInsuranceDataContext db = new ExpiringInsuranceDataContext();
+            switch (sortby)
+            {
+                case "expiry":
+                    return db.ExpiringInsurancePolicies.OrderBy(i => i.ExpiryDate).ToList();
+                default:
+                    return db.ExpiringInsurancePolicies.OrderBy(i => i.Company).ToList();
+            }
         }
     }
 }

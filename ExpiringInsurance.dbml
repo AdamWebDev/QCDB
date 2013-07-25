@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="contractors" Class="ExpiringInsuranceDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=contractors;Persist Security Info=True;User ID=contractor" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="contractorsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ExpiringInsurancePolicies" Member="ExpiringInsurancePolicies">
+    <Type Name="ExpiringInsurancePolicy">
+      <Column Name="Company" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="cID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="ExpiryDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CertReqFor" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="InsuranceCompanyEmail" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="InsuranceBroker" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="InsuranceBrokerEmail" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="BrokerEmailID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Count" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

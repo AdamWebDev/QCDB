@@ -74,6 +74,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -92,6 +93,7 @@
   <ItemGroup>
     <Content Include="Agreements.aspx" />
     <Content Include="AutoSuggestWebService.asmx" />
+    <Content Include="ExpiringInsurancePolicies.aspx" />
     <Content Include="InsurancePolicies\Edit.aspx" />
     <Content Include="InsurancePolicies\New.aspx" />
     <Content Include="InsurancePolicies\View.aspx" />
@@ -99,6 +101,7 @@
     <Content Include="resources\css\main.min.css" />
     <Content Include="resources\css\subpage.css" />
     <Content Include="resources\css\subpage.min.css" />
+    <Content Include="resources\scripts\expiring.contracts.js" />
     <Content Include="resources\scripts\jquery-1.9.1.min.js" />
     <Content Include="resources\scss\main.css">
       <DependentUpon>main.scss</DependentUpon>
@@ -113,6 +116,7 @@
       <DependentUpon>_forms.scss</DependentUpon>
     </Content>
     <Content Include="SearchByService.aspx" />
+    <Content Include="Test.aspx" />
     <Content Include="tools\AODA.aspx" />
     <Content Include="tools\UpdateBrokers.aspx" />
     <Content Include="UserControls\DivisionDD.ascx" />
@@ -122,6 +126,7 @@
     <Content Include="Default.aspx" />
     <Content Include="EditContractor.aspx" />
     <Content Include="Licences.aspx" />
+    <Content Include="Forms\InsurancePolicyEditor.ascx" />
     <Content Include="UserControls\NavButton.ascx" />
     <Content Include="NewContractor.aspx" />
     <Content Include="UserControls\Notification.ascx" />
@@ -243,6 +248,18 @@
     <Compile Include="Classes\Functions.cs" />
     <Compile Include="Classes\Insurance.cs" />
     <Compile Include="Classes\Permits.cs" />
+    <Compile Include="ExpiringInsurance.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ExpiringInsurance.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ExpiringInsurancePolicies.aspx.cs">
+      <DependentUpon>ExpiringInsurancePolicies.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExpiringInsurancePolicies.aspx.designer.cs">
+      <DependentUpon>ExpiringInsurancePolicies.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InsurancePolicies\Edit.aspx.cs">
       <DependentUpon>Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -275,6 +292,13 @@
     </Compile>
     <Compile Include="SearchByService.aspx.designer.cs">
       <DependentUpon>SearchByService.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Test.aspx.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Test.aspx.designer.cs">
+      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="tools\AODA.aspx.cs">
       <DependentUpon>AODA.aspx</DependentUpon>
@@ -351,6 +375,13 @@
     <Compile Include="Licences.aspx.designer.cs">
       <DependentUpon>Licences.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forms\InsurancePolicyEditor.ascx.cs">
+      <DependentUpon>InsurancePolicyEditor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\InsurancePolicyEditor.ascx.designer.cs">
+      <DependentUpon>InsurancePolicyEditor.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\NavButton.ascx.cs">
       <DependentUpon>NavButton.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -411,6 +442,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="ExpiringInsurance.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>ExpiringInsurance.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\PublishProfiles\Production %28vm40%29.pubxml" />
     <None Include="Properties\PublishProfiles\Staging %28vm40%29.pubxml" />
     <None Include="QCTLinq.dbml">
@@ -461,6 +497,11 @@
   <ItemGroup>
     <None Include="QCTLinq.dbml.layout">
       <DependentUpon>QCTLinq.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ExpiringInsurance.dbml.layout">
+      <DependentUpon>ExpiringInsurance.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
