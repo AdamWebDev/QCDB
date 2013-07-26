@@ -227,8 +227,8 @@ namespace Qualified_Contractor_Tracking.Classes
 
         private static void UploadInsuranceDocument(int ID, UploadedFileCollection files)
         {
-            String directory = HttpContext.Current.Server.MapPath("uploads");
-            directory = directory + "/" + ID.ToString(); // build the path to the file upload
+            String directory = HttpContext.Current.Server.MapPath("~/uploads");
+            directory = directory + "\\" + ID.ToString(); // build the path to the file upload
             // if the directory doesn't exist already, create it
             if (!Directory.Exists(directory))
                 Directory.CreateDirectory(directory);
@@ -236,8 +236,8 @@ namespace Qualified_Contractor_Tracking.Classes
             // upload the file and rename it to attachment.pdf
             foreach (UploadedFile file in files)
             {
-                file.SaveAs(directory + "/attachment" + file.GetExtension(), true);
-                String filelnk = "uploads/" + ID.ToString() + "/attachment.pdf";
+                String filename = "attachment" + file.GetExtension();
+                file.SaveAs(directory + "\\" + filename, true);
             }
         }
 

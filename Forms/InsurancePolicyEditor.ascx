@@ -117,4 +117,4 @@
     <asp:Label ID="lblFiles" runat="server" Text="Attach Certificate" AssociatedControlID="lnkFiles"></asp:Label>        
     <asp:HyperLink ID="lnkFiles" runat="server"></asp:HyperLink>
 
-    <telerik:radupload ID="uploadCert" runat="server" MaxFileInputsCount="1" ControlObjectsVisibility="none" EnableFileInputSkinning="false"></telerik:RadUpload>
+    <telerik:radupload ID="uploadCert" runat="server" MaxFileInputsCount="1" ControlObjectsVisibility="none" EnableFileInputSkinning="false" ></telerik:RadUpload>

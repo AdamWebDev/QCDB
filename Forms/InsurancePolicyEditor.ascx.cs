@@ -199,8 +199,8 @@ namespace Qualified_Contractor_Tracking.UserControls
 
             // display the attached file (if there is one!)
             String filelnk = "~/uploads/" + ID.ToString() + "/attachment.pdf";
-            String directory = Server.MapPath("uploads");
-            String filepath = directory + "/" + ID.ToString() + "/attachment.pdf";
+            String directory = Server.MapPath("~/uploads");
+            String filepath = directory + "\\" + ID.ToString() + "\\attachment.pdf";
             if (File.Exists(filepath)) // only show it if there is an attached file.
             {
                 lnkFiles.NavigateUrl = filelnk;
