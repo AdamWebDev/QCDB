@@ -116,7 +116,6 @@
       <DependentUpon>_forms.scss</DependentUpon>
     </Content>
     <Content Include="SearchByService.aspx" />
-    <Content Include="Test.aspx" />
     <Content Include="tools\AODA.aspx" />
     <Content Include="tools\UpdateBrokers.aspx" />
     <Content Include="UserControls\DivisionDD.ascx" />
@@ -292,13 +291,6 @@
     </Compile>
     <Compile Include="SearchByService.aspx.designer.cs">
       <DependentUpon>SearchByService.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Test.aspx.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Test.aspx.designer.cs">
-      <DependentUpon>Test.aspx</DependentUpon>
     </Compile>
     <Compile Include="tools\AODA.aspx.cs">
       <DependentUpon>AODA.aspx</DependentUpon>

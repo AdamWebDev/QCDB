@@ -74,6 +74,7 @@ namespace Qualified_Contractor_Tracking
                         txtIDNum.Text = w.IndOpIDNum;
                         ddWSIBExempt.Value = w.WSIBExemptFormRecd;
                         ddAODASubmitted.Value = w.AODAFormSubmit;
+                        ddAODAStandardsCompliance.Value = w.AODAStandardsCompliance;
                         ddNCHS.Value = w.NCHSPolicy;
                         ddContHS.SelectedValue = w.HSPolicy;
                     }
@@ -135,10 +136,7 @@ namespace Qualified_Contractor_Tracking
 
         protected void ddAODASubmitted_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddAODASubmitted.Value == false)
-                notAODA.Visible = true;
-            else
-                notAODA.Visible = false;
+            notAODA.Visible = ddAODASubmitted.Value == false;
         }
 
         protected void ddWSIBCoverage_SelectedIndexChanged(object sender, EventArgs e)
@@ -181,13 +179,18 @@ namespace Qualified_Contractor_Tracking
         protected void btnSaveWSIB_Click(object sender, EventArgs e)
         {
             int cID = Int32.Parse(Request.QueryString["ID"]);
+            bool newWSIB = false;
             QCTLinqDataContext db = new QCTLinqDataContext();
             WSIB w = (from a in db.WSIBs
                             where a.cID == cID
                             select a).SingleOrDefault();
 
-            if (w != null)
-            {
+            if (w == null)  { 
+                w = new WSIB();
+                w.cID = cID;
+                newWSIB = true;
+            }
+
                 w.WSIBCoverage = ddWSIBCoverage.SelectedIndex > 0 ? int.Parse(ddWSIBCoverage.SelectedValue) : (int?)null;
                 w.WSIBCertRecd = ddCertRecd.Value;
                 w.WSIBCertNum = txtCertNum.Text;
@@ -198,15 +201,19 @@ namespace Qualified_Contractor_Tracking
                 w.IndOpIDNum = txtIDNum.Text;
                 w.WSIBExemptFormRecd = ddWSIBExempt.Value;
                 w.AODAFormSubmit = ddAODASubmitted.Value;
+                w.AODAStandardsCompliance = ddAODAStandardsCompliance.Value;
                 w.NCHSPolicy = ddNCHS.Value;
                 w.HSPolicy = ddContHS.SelectedValue;
+
+                if (newWSIB) db.WSIBs.InsertOnSubmit(w);
+
                 db.SubmitChanges();
                 
                 notWSIB.Type = "success";
                 notWSIB.Message = "Changes have been saved!";
                 notWSIB.Visible = true;
                 
-            }
+            
         }
 
         protected void UpdateButton_Click(object sender, EventArgs e)

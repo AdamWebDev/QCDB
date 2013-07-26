@@ -1,25 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="contractors" Class="QCTLinqDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=contractors;User ID=contractor" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="contractorsConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.WSIB" Member="WSIBs">
-    <Type Name="WSIB">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="cID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="WSIBCoverage" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="WSIBCertRecd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="WSIBCertNum" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="WSIBEffDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="WSIBExpDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="CertDescr" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="IndOpLetterRecd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="IndOpIDNum" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="WSIBExemptFormRecd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="AODAFormSubmit" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="NCHSPolicy" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="HSPolicy" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
-      <Association Name="Contractor_WSIB" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
-      <Association Name="TypeOfWSIB_WSIB" Member="TypeOfWSIB" ThisKey="WSIBCoverage" OtherKey="ID" Type="TypeOfWSIB" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.AgreementsSigned" Member="AgreementsSigneds">
     <Type Name="AgreementsSigned">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -41,12 +21,12 @@
       <Column Name="NCContact" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="ExemptFromAuto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="ExemptFromAutoComments" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Contractor_WSIB" Member="WSIBs" ThisKey="ID" OtherKey="cID" Type="WSIB" />
       <Association Name="Contractor_ContractorsPhone" Member="ContractorsPhones" ThisKey="ID" OtherKey="cID" Type="ContractorsPhone" />
       <Association Name="Contractor_Licence" Member="Licences" ThisKey="ID" OtherKey="cID" Type="Licence" />
       <Association Name="Contractor_Permit" Member="Permits" ThisKey="ID" OtherKey="cID" Type="Permit" />
       <Association Name="Contractor_Agreement" Member="Agreements" ThisKey="ID" OtherKey="cID" Type="Agreement" />
       <Association Name="Contractor_InsurancePolicy" Member="InsurancePolicies" Storage="_Insurances" ThisKey="ID" OtherKey="cID" Type="InsurancePolicy" />
+      <Association Name="Contractor_WSIB" Member="WSIBs" ThisKey="ID" OtherKey="cID" Type="WSIB" />
     </Type>
   </Table>
   <Table Name="dbo.ContractorsPhone" Member="ContractorsPhones">
@@ -291,6 +271,27 @@
       <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="InsuranceBrokerEmail_InsurancePolicy" Member="InsurancePolicies" ThisKey="ID" OtherKey="BrokerEmailID" Type="InsurancePolicy" />
       <Association Name="InsuranceBroker_InsuranceBrokerEmail" Member="InsuranceBroker" ThisKey="bID" OtherKey="ID" Type="InsuranceBroker" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WSIB" Member="WSIBs">
+    <Type Name="WSIB">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WSIBCoverage" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WSIBCertRecd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WSIBCertNum" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="WSIBEffDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="WSIBExpDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CertDescr" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IndOpLetterRecd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IndOpIDNum" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="WSIBExemptFormRecd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AODAFormSubmit" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AODAStandardsCompliance" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NCHSPolicy" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HSPolicy" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Association Name="Contractor_WSIB" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
+      <Association Name="TypeOfWSIB_WSIB" Member="TypeOfWSIB" ThisKey="WSIBCoverage" OtherKey="ID" Type="TypeOfWSIB" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

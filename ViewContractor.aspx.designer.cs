@@ -301,6 +301,15 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.WebControls.Literal ltCompSub;
         
         /// <summary>
+        /// ltAODAStandards control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltAODAStandards;
+        
+        /// <summary>
         /// phHealthSafety control.
         /// </summary>
         /// <remarks>

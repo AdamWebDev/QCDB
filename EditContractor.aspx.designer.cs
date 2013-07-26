@@ -589,6 +589,15 @@ namespace Qualified_Contractor_Tracking {
         protected global::Qualified_Contractor_Tracking.Notification notAODA;
         
         /// <summary>
+        /// ddAODAStandardsCompliance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddAODAStandardsCompliance;
+        
+        /// <summary>
         /// phHealthSafety control.
         /// </summary>
         /// <remarks>

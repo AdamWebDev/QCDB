@@ -59,7 +59,7 @@ namespace Qualified_Contractor_Tracking
 
                 if (w != null)
                 {
-                    ltWSIBCoverage.Text = w.TypeOfWSIB.Value;
+                    ltWSIBCoverage.Text = w.WSIBCoverage.HasValue ? w.TypeOfWSIB.Value : "---";
                     if (ltWSIBCoverage.Text.Equals("WSIB Clearance Certificate"))
                         phClearance.Visible = true;
                     else if (ltWSIBCoverage.Text.Equals("Independant Operator Letter"))
@@ -75,8 +75,9 @@ namespace Qualified_Contractor_Tracking
                     ltIDNum.Text = w.IndOpIDNum;
                     ltExemptionRecd.Text = w.WSIBExemptFormRecd.ToYesNoString();
                     ltCompSub.Text = w.AODAFormSubmit.ToYesNoString();
+                    ltAODAStandards.Text = w.AODAStandardsCompliance.ToYesNoString();
                     ltNCHS.Text = w.NCHSPolicy.ToYesNoString();
-                    ltConHS.Text = w.HSPolicy;
+                    ltConHS.Text = w.HSPolicy.Equals(String.Empty) ? "---" : w.HSPolicy;
 
                 }
             }

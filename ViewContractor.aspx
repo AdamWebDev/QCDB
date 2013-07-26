@@ -5,7 +5,7 @@ Qualified Contractor Database
 </asp:Content>
 <asp:Content ID="Buttons" ContentPlaceHolderID="Buttons" runat="server">
     <uc3:NavButton ID="btnCancel" runat="server" Icon="~/resources/images/icons/back.png" AltText="Back" Text="View All Contractors" NavURL="~/Default.aspx" />
-    <uc3:NavButton ID="btnEdit" runat="server" Icon="~/resources/images/icons/page_edit.png" AltText="Edit" Text="Edit this Contractor" />
+    <uc3:NavButton ID="btnEdit" ClientIDMode="Static" runat="server" Icon="~/resources/images/icons/page_edit.png" AltText="Edit" Text="Edit this Contractor" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentBoxHeader" runat="server">
@@ -254,6 +254,9 @@ Contractor Details
     <h4>A.O.D.A.</h4>
         <label>Compliance Form Submitted</label>
         <span><asp:Literal ID="ltCompSub" runat="server"></asp:Literal></span>
+
+        <label>Integrated Accessibility Standards Compliance Form Submitted</label>
+        <span><asp:Literal ID="ltAODAStandards" runat="server"></asp:Literal></span>
     </asp:PlaceHolder>
 
     <asp:PlaceHolder ID="phHealthSafety" runat="server">

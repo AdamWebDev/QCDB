@@ -315,9 +315,12 @@
 
     <asp:PlaceHolder ID="phAODA" runat="server">
     <h4>A.O.D.A.</h4>
-        <label>Compliance Form Submitted</label>
+        <label>Customer Service Compliance Form Submitted</label>
         <uc2:TrueFalseDropDown ID="ddAODASubmitted" CssClass="small-input" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddAODASubmitted_SelectedIndexChanged" />
         <uc4:Notification ID="notAODA" runat="server" Type="attention" Message="Please note that contractors MUST have their AODA Compliance Form submitted before they can be used. There are no exceptions." Visible="false" />
+
+        <label>Integrated Accessibility Standards Compliance Form Submitted</label>
+        <uc2:TrueFalseDropDown ID="ddAODAStandardsCompliance" CssClass="small-input" runat="server" />
     </asp:PlaceHolder>
 
     <asp:PlaceHolder ID="phHealthSafety" runat="server">
@@ -335,6 +338,7 @@
     </asp:PlaceHolder>
     <br />
     <asp:Button ID="btnSaveWSIB" runat="server" Text="Save" CssClass="button" onclick="btnSaveWSIB_Click" />
+
     </ContentTemplate>
     <Triggers>
         <asp:AsyncPostBackTrigger ControlID="ddWSIBCoverage" />
