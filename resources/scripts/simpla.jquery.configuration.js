@@ -1,18 +1,28 @@
 function pageLoad(sender, args) {
 
+    var editLink = $('#lnkLink');
+    var origLink = editLink.attr('href');
+
     // Content box tabs:
     $('.content-box .content-box-content div.tab-content').hide(); // Hide the content divs
 
     // managing hashes and showing/hiding content
     if (document.location.hash != '') {
         var tabname = window.location.hash;
+        console.log(tabname);
         $('ul.content-box-tabs li a[href=' + tabname + ']').addClass('current'); // Add the class "current" to the default tab
         $(tabname).addClass('current').show();
+        
+        var link = editLink.attr("href");
+        link = origLink + tabname;
+        editLink.attr("href", link);
+
     }
     else {
         $('ul.content-box-tabs li a.default-tab').addClass('current'); // Add the class "current" to the default tab
         $('.content-box-content div.default-tab').show(); // Show the div with class "default-tab"
     }
+
 
     // actions for switching tabs!
     $('.content-box ul.content-box-tabs li a').click(function () { // When a tab is clicked...
@@ -22,6 +32,11 @@ function pageLoad(sender, args) {
 		$(currentTab).siblings().hide(); // Hide all content divs
 		$(currentTab).show(); // Show the content div with the id equal to the id of clicked tab
 		window.location.hash = $(this).attr('href');
+
+		var link = editLink.attr("href");
+		link = origLink + currentTab;
+		editLink.attr("href", link);
+
 		return false;
 	});
 

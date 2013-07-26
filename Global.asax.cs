@@ -52,7 +52,7 @@ namespace Qualified_Contractor_Tracking
             {
                 case true: return "Yes";
                 case false: return "No";
-                default: return String.Empty;
+                default: return "---";
             }
         }
     }
