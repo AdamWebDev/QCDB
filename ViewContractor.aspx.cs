@@ -77,7 +77,7 @@ namespace Qualified_Contractor_Tracking
                     ltCompSub.Text = w.AODAFormSubmit.ToYesNoString();
                     ltAODAStandards.Text = w.AODAStandardsCompliance.ToYesNoString();
                     ltNCHS.Text = w.NCHSPolicy.ToYesNoString();
-                    ltConHS.Text = w.HSPolicy.Equals(String.Empty) ? "---" : w.HSPolicy;
+                    ltConHS.Text = w.HSPolicy == null ? "---" : w.HSPolicy;
 
                 }
             }
