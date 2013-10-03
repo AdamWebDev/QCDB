@@ -13,15 +13,6 @@ namespace Qualified_Contractor_Tracking.InsurancePolicies {
     public partial class Edit {
         
         /// <summary>
-        /// ltTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltTitle;
-        
-        /// <summary>
         /// btnCancel control.
         /// </summary>
         /// <remarks>
@@ -31,13 +22,22 @@ namespace Qualified_Contractor_Tracking.InsurancePolicies {
         protected global::Qualified_Contractor_Tracking.NavButton btnCancel;
         
         /// <summary>
-        /// btnDelete control.
+        /// lnkConfirmDelete control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Qualified_Contractor_Tracking.NavButton btnDelete;
+        protected global::System.Web.UI.WebControls.LinkButton lnkConfirmDelete;
+        
+        /// <summary>
+        /// imgDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgDelete;
         
         /// <summary>
         /// ltSubTitle control.

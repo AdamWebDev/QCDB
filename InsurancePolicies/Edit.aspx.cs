@@ -12,10 +12,9 @@ namespace Qualified_Contractor_Tracking.InsurancePolicies
         protected void Page_Load(object sender, EventArgs e)
         {
             Classes.Functions.SecurePage(); // only allow certain people to edit
-            int ID;
-            if (int.TryParse(Request.QueryString["ID"], out ID)) {
-                btnDelete.NavURL = "~/InsurancePolicy/Delete.aspx?ID=" + ID.ToString();
-                //btnCancel.NavURL = "~/EditContractor.aspx?ID=" + ins.cID.ToString() + "#insurance";
+            int ID, cID;
+            if (int.TryParse(Request.QueryString["ID"], out ID) && int.TryParse(Request.QueryString["cID"], out cID)) {
+                btnCancel.NavURL = "~/EditContractor.aspx?ID=" + cID.ToString() + "#insurance";
             }
         }
 
@@ -26,5 +25,20 @@ namespace Qualified_Contractor_Tracking.InsurancePolicies
             Classes.Insurance.EditPolicy(ID, EditInsurance);
             Response.Redirect("~/EditContractor.aspx?ID=" + cID + "&msg=insedited#insurance");
         }
+
+        protected void lnkConfirmDelete_Click(object sender, EventArgs e)
+        {
+            if (Classes.Insurance.DeletePolicy(int.Parse(Request.QueryString["ID"])))
+            {
+                Response.Redirect("~/EditContractor.aspx?ID=" + Request.QueryString["cID"] + "#insurance");
+            }
+            else
+            {
+                notIns.Message = "Oops - something went wrong when we tried to delete this policy!";
+                notIns.Type = "error";
+                notIns.Visible = true;
+            }
+        }
+
     }
 }
