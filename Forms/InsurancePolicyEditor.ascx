@@ -9,13 +9,14 @@
         <asp:ListItem Value="">--Select--</asp:ListItem>
     </asp:DropDownList>
 
-    <asp:Label ID="lblTenantsLiability" runat="server" AssociatedControlID="ddTenantsLiability" Text="Tenants Legal Liability"></asp:Label>
-    <uc2:TrueFalseDropDown ID="ddTenantsLiability" runat="server" CssClass="small-input" />
-                
     <asp:Label ID="lblPerOccurance" runat="server" Text="Per Occurance" AssociatedControlID="ddPerOccurance"></asp:Label>
     <uc2:TrueFalseDropDown ID="ddPerOccurance" runat="server" CssClass="small-input" />
                         
     <div class="CGLDetails hidden">
+
+        <asp:Label ID="lblTenantsLiability" runat="server" AssociatedControlID="ddTenantsLiability" Text="Tenants Legal Liability"></asp:Label>
+        <uc2:TrueFalseDropDown ID="ddTenantsLiability" runat="server" CssClass="small-input" />
+
         <asp:Label ID="lblProductsCompletedOps" runat="server" Text="Products/Completed Operations" AssociatedControlID="ddProductsCompletedOps"></asp:Label>
         <uc2:TrueFalseDropDown ID="ddProductsCompletedOps" runat="server" CssClass="small-input" />
             

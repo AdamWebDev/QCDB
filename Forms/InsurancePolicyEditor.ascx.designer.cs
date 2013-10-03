@@ -49,24 +49,6 @@ namespace Qualified_Contractor_Tracking.UserControls {
         protected global::System.Web.UI.WebControls.DropDownList ddTypeOfPolicy;
         
         /// <summary>
-        /// lblTenantsLiability control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTenantsLiability;
-        
-        /// <summary>
-        /// ddTenantsLiability control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddTenantsLiability;
-        
-        /// <summary>
         /// lblPerOccurance control.
         /// </summary>
         /// <remarks>
@@ -83,6 +65,24 @@ namespace Qualified_Contractor_Tracking.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddPerOccurance;
+        
+        /// <summary>
+        /// lblTenantsLiability control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTenantsLiability;
+        
+        /// <summary>
+        /// ddTenantsLiability control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddTenantsLiability;
         
         /// <summary>
         /// lblProductsCompletedOps control.
