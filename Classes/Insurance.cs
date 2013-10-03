@@ -225,6 +225,29 @@ namespace Qualified_Contractor_Tracking.Classes
                 UploadInsuranceDocument(ins.ID, p.Files);
         }
 
+        public static bool DeletePolicy(int ID)
+        {
+            QCTLinqDataContext db = new QCTLinqDataContext();
+
+            // create and populate!
+            InsurancePolicy ins = db.InsurancePolicies.Single(i => i.ID == ID);
+            if (ins != null)
+            {
+                try {
+                    db.InsurancePolicies.DeleteOnSubmit(ins);
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch {
+                    return false;
+                } 
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private static void UploadInsuranceDocument(int ID, UploadedFileCollection files)
         {
             String directory = HttpContext.Current.Server.MapPath("~/uploads");
