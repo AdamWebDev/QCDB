@@ -9,7 +9,7 @@
         <asp:ListItem Value="">--Select--</asp:ListItem>
     </asp:DropDownList>
 
-    <asp:Label ID="lblPerOccurance" runat="server" Text="Per Occurance" AssociatedControlID="ddPerOccurance"></asp:Label>
+    <asp:Label ID="lblPerOccurance" runat="server" Text="Per Occurrence" AssociatedControlID="ddPerOccurance"></asp:Label>
     <uc2:TrueFalseDropDown ID="ddPerOccurance" runat="server" CssClass="small-input" />
                         
     <div class="CGLDetails hidden">
