@@ -174,3 +174,8 @@ li {
   display: block;
   margin-bottom: 1.5em; }
 
+.fancybox-inner #main-content ul li {
+  background-image: none;
+  list-style-type: none;
+  margin-bottom: 0em; }
+
