@@ -121,7 +121,6 @@
     <Content Include="UserControls\DivisionDD.ascx" />
     <Content Include="DivisionDropDownService.asmx" />
     <Content Include="UserControls\DateDropDown.ascx" />
-    <Content Include="InsurancePolicy.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="EditContractor.aspx" />
     <Content Include="Licences.aspx" />
@@ -335,13 +334,6 @@
     </Compile>
     <Compile Include="UserControls\DateDropDown.ascx.designer.cs">
       <DependentUpon>DateDropDown.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="InsurancePolicy.aspx.cs">
-      <DependentUpon>InsurancePolicy.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="InsurancePolicy.aspx.designer.cs">
-      <DependentUpon>InsurancePolicy.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
