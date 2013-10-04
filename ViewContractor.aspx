@@ -115,7 +115,7 @@ Contractor Details
                 <td><asp:Literal ID="ltPolicyNumber" runat="server" Text='<%# Eval("InsurancePolicy.PolicyNumber") %>'></asp:Literal></td>
                 <td><asp:Literal ID="ltPolicyLimit" runat="server" Text='<%# Eval("Value") %>'></asp:Literal></td>
                 <td><asp:Literal ID="ltExpiryDate" runat="server" Text='<%# Eval("InsurancePolicy.ExpiryDate","{0:MMMM d, yyyy}") %>'></asp:Literal></td>
-                <td><asp:HyperLink ID="lnkMore" runat="server" NavigateUrl='<%# String.Format("InsurancePolicy.aspx?ID={0}&cID={1}&mode=read",Eval("InsurancePolicy.ID"),Request.QueryString["ID"]) %>' rel="insurance" CssClass="fancybox fancybox.ajax">View Details</asp:HyperLink></td>
+                <td><asp:HyperLink ID="lnkMore" runat="server" NavigateUrl='<%# String.Format("InsurancePolicies/View.aspx?ID={0}",Eval("InsurancePolicy.ID"),Request.QueryString["ID"]) %>' rel="insurance" CssClass="fancybox fancybox.ajax">View Details</asp:HyperLink></td>
             </tr>                
         </ItemTemplate>
         <FooterTemplate>
