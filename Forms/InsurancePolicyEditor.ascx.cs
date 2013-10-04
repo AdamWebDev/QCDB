@@ -46,10 +46,10 @@ namespace Qualified_Contractor_Tracking.UserControls
             set { ddProductsCompletedOps.Value = value; }
         }
 
-        public bool? NonOwnedAuto
+        public int? NonOwnedAuto
         {
-            get { return ddNonOwnedAuto.Value; }
-            set { ddNonOwnedAuto.Value = value; }
+            get { return ddNonOwnedAuto.SelectedIndex > 0 ? int.Parse(ddNonOwnedAuto.SelectedValue) : (int?)null; }
+            set { ddNonOwnedAuto.SelectedValue = value.HasValue ? value.ToString() : String.Empty; }
         }
 
         public bool? CrossLiability
@@ -139,6 +139,12 @@ namespace Qualified_Contractor_Tracking.UserControls
                 ddPolicyLimit.DataValueField = "ID";
                 ddPolicyLimit.DataBind();
 
+                // populate Non Owned Audo dropdown
+                ddNonOwnedAuto.DataSource = Insurance.GetNonOwnedAuto();
+                ddNonOwnedAuto.DataTextField = "Value";
+                ddNonOwnedAuto.DataValueField = "ID";
+                ddNonOwnedAuto.DataBind();
+
                 //populate insurance company dropdown
                 PopulateInsuranceCompanies();
 
@@ -170,7 +176,7 @@ namespace Qualified_Contractor_Tracking.UserControls
             ddTypeOfPolicy.SelectedValue = ins.TypeOfPolicy.ToString();
             ddPerOccurance.Value = ins.PerOccurance;
             ddProductsCompletedOps.Value = ins.ProductsCompletedOps;
-            ddNonOwnedAuto.Value = ins.NonOwnedAuto;
+            ddNonOwnedAuto.SelectedValue = ins.NonOwnedAuto.HasValue ? ins.NonOwnedAuto.ToString() : String.Empty;
             ddCrossLiability.Value = ins.CrossLiability;
             ddNCasAddIns.Value = ins.NCasAddIns;
             txtPolicyNumber.Text = ins.PolicyNumber;

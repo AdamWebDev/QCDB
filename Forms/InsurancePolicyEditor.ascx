@@ -21,7 +21,9 @@
         <uc2:TrueFalseDropDown ID="ddProductsCompletedOps" runat="server" CssClass="small-input" />
             
         <asp:Label ID="lblNonOwnedAuto" runat="server" Text="Non-Owned Auto" AssociatedControlID="ddNonOwnedAuto"></asp:Label>
-        <uc2:TrueFalseDropDown ID="ddNonOwnedAuto" runat="server" CssClass="small-input" />
+        <asp:DropDownList ID="ddNonOwnedAuto" runat="server" AppendDataBoundItems="true">
+            <asp:ListItem Value="">--Select--</asp:ListItem>
+        </asp:DropDownList>
             
         <asp:Label ID="lblCrossLiability" runat="server" Text="Cross Liability" AssociatedControlID="ddCrossLiability"></asp:Label>
         <uc2:TrueFalseDropDown ID="ddCrossLiability" runat="server" CssClass="small-input" />

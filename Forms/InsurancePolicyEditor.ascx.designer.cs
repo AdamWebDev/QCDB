@@ -118,7 +118,7 @@ namespace Qualified_Contractor_Tracking.UserControls {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddNonOwnedAuto;
+        protected global::System.Web.UI.WebControls.DropDownList ddNonOwnedAuto;
         
         /// <summary>
         /// lblCrossLiability control.

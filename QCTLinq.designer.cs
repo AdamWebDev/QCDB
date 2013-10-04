@@ -87,15 +87,18 @@ namespace Qualified_Contractor_Tracking
     partial void InsertAgreement(Agreement instance);
     partial void UpdateAgreement(Agreement instance);
     partial void DeleteAgreement(Agreement instance);
-    partial void InsertInsurancePolicy(InsurancePolicy instance);
-    partial void UpdateInsurancePolicy(InsurancePolicy instance);
-    partial void DeleteInsurancePolicy(InsurancePolicy instance);
     partial void InsertInsuranceBrokerEmail(InsuranceBrokerEmail instance);
     partial void UpdateInsuranceBrokerEmail(InsuranceBrokerEmail instance);
     partial void DeleteInsuranceBrokerEmail(InsuranceBrokerEmail instance);
     partial void InsertWSIB(WSIB instance);
     partial void UpdateWSIB(WSIB instance);
     partial void DeleteWSIB(WSIB instance);
+    partial void InsertInsurancePolicy(InsurancePolicy instance);
+    partial void UpdateInsurancePolicy(InsurancePolicy instance);
+    partial void DeleteInsurancePolicy(InsurancePolicy instance);
+    partial void InsertInsuranceNonOwnedAuto(InsuranceNonOwnedAuto instance);
+    partial void UpdateInsuranceNonOwnedAuto(InsuranceNonOwnedAuto instance);
+    partial void DeleteInsuranceNonOwnedAuto(InsuranceNonOwnedAuto instance);
     #endregion
 		
 		public QCTLinqDataContext() : 
@@ -288,14 +291,6 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		public System.Data.Linq.Table<InsurancePolicy> InsurancePolicies
-		{
-			get
-			{
-				return this.GetTable<InsurancePolicy>();
-			}
-		}
-		
 		public System.Data.Linq.Table<InsuranceBrokerEmail> InsuranceBrokerEmails
 		{
 			get
@@ -309,6 +304,22 @@ namespace Qualified_Contractor_Tracking
 			get
 			{
 				return this.GetTable<WSIB>();
+			}
+		}
+		
+		public System.Data.Linq.Table<InsurancePolicy> InsurancePolicies
+		{
+			get
+			{
+				return this.GetTable<InsurancePolicy>();
+			}
+		}
+		
+		public System.Data.Linq.Table<InsuranceNonOwnedAuto> InsuranceNonOwnedAutos
+		{
+			get
+			{
+				return this.GetTable<InsuranceNonOwnedAuto>();
 			}
 		}
 	}
@@ -487,9 +498,9 @@ namespace Qualified_Contractor_Tracking
 		
 		private EntitySet<Agreement> _Agreements;
 		
-		private EntitySet<InsurancePolicy> _Insurances;
-		
 		private EntitySet<WSIB> _WSIBs;
+		
+		private EntitySet<InsurancePolicy> _InsurancePolicies;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -525,8 +536,8 @@ namespace Qualified_Contractor_Tracking
 			this._Licences = new EntitySet<Licence>(new Action<Licence>(this.attach_Licences), new Action<Licence>(this.detach_Licences));
 			this._Permits = new EntitySet<Permit>(new Action<Permit>(this.attach_Permits), new Action<Permit>(this.detach_Permits));
 			this._Agreements = new EntitySet<Agreement>(new Action<Agreement>(this.attach_Agreements), new Action<Agreement>(this.detach_Agreements));
-			this._Insurances = new EntitySet<InsurancePolicy>(new Action<InsurancePolicy>(this.attach_Insurances), new Action<InsurancePolicy>(this.detach_Insurances));
 			this._WSIBs = new EntitySet<WSIB>(new Action<WSIB>(this.attach_WSIBs), new Action<WSIB>(this.detach_WSIBs));
+			this._InsurancePolicies = new EntitySet<InsurancePolicy>(new Action<InsurancePolicy>(this.attach_InsurancePolicies), new Action<InsurancePolicy>(this.detach_InsurancePolicies));
 			OnCreated();
 		}
 		
@@ -802,19 +813,6 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_InsurancePolicy", Storage="_Insurances", ThisKey="ID", OtherKey="cID")]
-		public EntitySet<InsurancePolicy> InsurancePolicies
-		{
-			get
-			{
-				return this._Insurances;
-			}
-			set
-			{
-				this._Insurances.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_WSIB", Storage="_WSIBs", ThisKey="ID", OtherKey="cID")]
 		public EntitySet<WSIB> WSIBs
 		{
@@ -825,6 +823,19 @@ namespace Qualified_Contractor_Tracking
 			set
 			{
 				this._WSIBs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_InsurancePolicy", Storage="_InsurancePolicies", ThisKey="ID", OtherKey="cID")]
+		public EntitySet<InsurancePolicy> InsurancePolicies
+		{
+			get
+			{
+				return this._InsurancePolicies;
+			}
+			set
+			{
+				this._InsurancePolicies.Assign(value);
 			}
 		}
 		
@@ -896,18 +907,6 @@ namespace Qualified_Contractor_Tracking
 			entity.Contractor = null;
 		}
 		
-		private void attach_Insurances(InsurancePolicy entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contractor = this;
-		}
-		
-		private void detach_Insurances(InsurancePolicy entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contractor = null;
-		}
-		
 		private void attach_WSIBs(WSIB entity)
 		{
 			this.SendPropertyChanging();
@@ -915,6 +914,18 @@ namespace Qualified_Contractor_Tracking
 		}
 		
 		private void detach_WSIBs(WSIB entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contractor = null;
+		}
+		
+		private void attach_InsurancePolicies(InsurancePolicy entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contractor = this;
+		}
+		
+		private void detach_InsurancePolicies(InsurancePolicy entity)
 		{
 			this.SendPropertyChanging();
 			entity.Contractor = null;
@@ -1518,9 +1529,9 @@ namespace Qualified_Contractor_Tracking
 		
 		private bool _Active;
 		
-		private EntitySet<InsurancePolicy> _Insurances;
-		
 		private EntitySet<InsuranceBrokerEmail> _InsuranceBrokerEmails;
+		
+		private EntitySet<InsurancePolicy> _InsurancePolicies;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1536,8 +1547,8 @@ namespace Qualified_Contractor_Tracking
 		
 		public InsuranceBroker()
 		{
-			this._Insurances = new EntitySet<InsurancePolicy>(new Action<InsurancePolicy>(this.attach_Insurances), new Action<InsurancePolicy>(this.detach_Insurances));
 			this._InsuranceBrokerEmails = new EntitySet<InsuranceBrokerEmail>(new Action<InsuranceBrokerEmail>(this.attach_InsuranceBrokerEmails), new Action<InsuranceBrokerEmail>(this.detach_InsuranceBrokerEmails));
+			this._InsurancePolicies = new EntitySet<InsurancePolicy>(new Action<InsurancePolicy>(this.attach_InsurancePolicies), new Action<InsurancePolicy>(this.detach_InsurancePolicies));
 			OnCreated();
 		}
 		
@@ -1601,19 +1612,6 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InsuranceBroker_InsurancePolicy", Storage="_Insurances", ThisKey="ID", OtherKey="BrokerID")]
-		public EntitySet<InsurancePolicy> InsurancePolicies
-		{
-			get
-			{
-				return this._Insurances;
-			}
-			set
-			{
-				this._Insurances.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InsuranceBroker_InsuranceBrokerEmail", Storage="_InsuranceBrokerEmails", ThisKey="ID", OtherKey="bID")]
 		public EntitySet<InsuranceBrokerEmail> InsuranceBrokerEmails
 		{
@@ -1624,6 +1622,19 @@ namespace Qualified_Contractor_Tracking
 			set
 			{
 				this._InsuranceBrokerEmails.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InsuranceBroker_InsurancePolicy", Storage="_InsurancePolicies", ThisKey="ID", OtherKey="BrokerID")]
+		public EntitySet<InsurancePolicy> InsurancePolicies
+		{
+			get
+			{
+				return this._InsurancePolicies;
+			}
+			set
+			{
+				this._InsurancePolicies.Assign(value);
 			}
 		}
 		
@@ -1647,18 +1658,6 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		private void attach_Insurances(InsurancePolicy entity)
-		{
-			this.SendPropertyChanging();
-			entity.InsuranceBroker = this;
-		}
-		
-		private void detach_Insurances(InsurancePolicy entity)
-		{
-			this.SendPropertyChanging();
-			entity.InsuranceBroker = null;
-		}
-		
 		private void attach_InsuranceBrokerEmails(InsuranceBrokerEmail entity)
 		{
 			this.SendPropertyChanging();
@@ -1666,6 +1665,18 @@ namespace Qualified_Contractor_Tracking
 		}
 		
 		private void detach_InsuranceBrokerEmails(InsuranceBrokerEmail entity)
+		{
+			this.SendPropertyChanging();
+			entity.InsuranceBroker = null;
+		}
+		
+		private void attach_InsurancePolicies(InsurancePolicy entity)
+		{
+			this.SendPropertyChanging();
+			entity.InsuranceBroker = this;
+		}
+		
+		private void detach_InsurancePolicies(InsurancePolicy entity)
 		{
 			this.SendPropertyChanging();
 			entity.InsuranceBroker = null;
@@ -1686,7 +1697,7 @@ namespace Qualified_Contractor_Tracking
 		
 		private bool _Active;
 		
-		private EntitySet<InsurancePolicy> _Insurances;
+		private EntitySet<InsurancePolicy> _InsurancePolicies;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1704,7 +1715,7 @@ namespace Qualified_Contractor_Tracking
 		
 		public InsuranceCompany()
 		{
-			this._Insurances = new EntitySet<InsurancePolicy>(new Action<InsurancePolicy>(this.attach_Insurances), new Action<InsurancePolicy>(this.detach_Insurances));
+			this._InsurancePolicies = new EntitySet<InsurancePolicy>(new Action<InsurancePolicy>(this.attach_InsurancePolicies), new Action<InsurancePolicy>(this.detach_InsurancePolicies));
 			OnCreated();
 		}
 		
@@ -1788,16 +1799,16 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InsuranceCompany_InsurancePolicy", Storage="_Insurances", ThisKey="ID", OtherKey="insID")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InsuranceCompany_InsurancePolicy", Storage="_InsurancePolicies", ThisKey="ID", OtherKey="insID")]
 		public EntitySet<InsurancePolicy> InsurancePolicies
 		{
 			get
 			{
-				return this._Insurances;
+				return this._InsurancePolicies;
 			}
 			set
 			{
-				this._Insurances.Assign(value);
+				this._InsurancePolicies.Assign(value);
 			}
 		}
 		
@@ -1821,13 +1832,13 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		private void attach_Insurances(InsurancePolicy entity)
+		private void attach_InsurancePolicies(InsurancePolicy entity)
 		{
 			this.SendPropertyChanging();
 			entity.InsuranceCompany1 = this;
 		}
 		
-		private void detach_Insurances(InsurancePolicy entity)
+		private void detach_InsurancePolicies(InsurancePolicy entity)
 		{
 			this.SendPropertyChanging();
 			entity.InsuranceCompany1 = null;
@@ -2674,7 +2685,7 @@ namespace Qualified_Contractor_Tracking
 		
 		private bool _Active;
 		
-		private EntitySet<InsurancePolicy> _Insurances;
+		private EntitySet<InsurancePolicy> _InsurancePolicies;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2690,7 +2701,7 @@ namespace Qualified_Contractor_Tracking
 		
 		public PolicyLimit()
 		{
-			this._Insurances = new EntitySet<InsurancePolicy>(new Action<InsurancePolicy>(this.attach_Insurances), new Action<InsurancePolicy>(this.detach_Insurances));
+			this._InsurancePolicies = new EntitySet<InsurancePolicy>(new Action<InsurancePolicy>(this.attach_InsurancePolicies), new Action<InsurancePolicy>(this.detach_InsurancePolicies));
 			OnCreated();
 		}
 		
@@ -2754,16 +2765,16 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PolicyLimit_InsurancePolicy", Storage="_Insurances", ThisKey="ID", OtherKey="PolicyLimit")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PolicyLimit_InsurancePolicy", Storage="_InsurancePolicies", ThisKey="ID", OtherKey="PolicyLimit")]
 		public EntitySet<InsurancePolicy> InsurancePolicies
 		{
 			get
 			{
-				return this._Insurances;
+				return this._InsurancePolicies;
 			}
 			set
 			{
-				this._Insurances.Assign(value);
+				this._InsurancePolicies.Assign(value);
 			}
 		}
 		
@@ -2787,13 +2798,13 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		private void attach_Insurances(InsurancePolicy entity)
+		private void attach_InsurancePolicies(InsurancePolicy entity)
 		{
 			this.SendPropertyChanging();
 			entity.PolicyLimit1 = this;
 		}
 		
-		private void detach_Insurances(InsurancePolicy entity)
+		private void detach_InsurancePolicies(InsurancePolicy entity)
 		{
 			this.SendPropertyChanging();
 			entity.PolicyLimit1 = null;
@@ -3349,7 +3360,7 @@ namespace Qualified_Contractor_Tracking
 		
 		private System.Nullable<bool> _Active;
 		
-		private EntitySet<InsurancePolicy> _Insurances;
+		private EntitySet<InsurancePolicy> _InsurancePolicies;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3365,7 +3376,7 @@ namespace Qualified_Contractor_Tracking
 		
 		public TypeOfPolicy()
 		{
-			this._Insurances = new EntitySet<InsurancePolicy>(new Action<InsurancePolicy>(this.attach_Insurances), new Action<InsurancePolicy>(this.detach_Insurances));
+			this._InsurancePolicies = new EntitySet<InsurancePolicy>(new Action<InsurancePolicy>(this.attach_InsurancePolicies), new Action<InsurancePolicy>(this.detach_InsurancePolicies));
 			OnCreated();
 		}
 		
@@ -3429,16 +3440,16 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TypeOfPolicy_InsurancePolicy", Storage="_Insurances", ThisKey="ID", OtherKey="TypeOfPolicy")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TypeOfPolicy_InsurancePolicy", Storage="_InsurancePolicies", ThisKey="ID", OtherKey="TypeOfPolicy")]
 		public EntitySet<InsurancePolicy> InsurancePolicies
 		{
 			get
 			{
-				return this._Insurances;
+				return this._InsurancePolicies;
 			}
 			set
 			{
-				this._Insurances.Assign(value);
+				this._InsurancePolicies.Assign(value);
 			}
 		}
 		
@@ -3462,13 +3473,13 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		private void attach_Insurances(InsurancePolicy entity)
+		private void attach_InsurancePolicies(InsurancePolicy entity)
 		{
 			this.SendPropertyChanging();
 			entity.TypeOfPolicy1 = this;
 		}
 		
-		private void detach_Insurances(InsurancePolicy entity)
+		private void detach_InsurancePolicies(InsurancePolicy entity)
 		{
 			this.SendPropertyChanging();
 			entity.TypeOfPolicy1 = null;
@@ -4778,914 +4789,6 @@ namespace Qualified_Contractor_Tracking
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Insurance")]
-	public partial class InsurancePolicy : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private int _cID;
-		
-		private string _CertReqFor;
-		
-		private System.Nullable<int> _TypeOfPolicy;
-		
-		private System.Nullable<bool> _ExemptFromAuto;
-		
-		private System.Nullable<bool> _PerOccurance;
-		
-		private System.Nullable<bool> _ProductsCompletedOps;
-		
-		private System.Nullable<bool> _NonOwnedAuto;
-		
-		private System.Nullable<bool> _CrossLiability;
-		
-		private System.Nullable<bool> _NCasAddIns;
-		
-		private string _PolicyNumber;
-		
-		private System.Nullable<int> _PolicyLimit;
-		
-		private string _PolicyLimitOther;
-		
-		private System.Nullable<System.DateTime> _ExpiryDate;
-		
-		private string _InsuranceCompany;
-		
-		private System.Nullable<int> _insID;
-		
-		private string _Address;
-		
-		private string _InsEmail;
-		
-		private string _BrokerName;
-		
-		private System.Nullable<int> _BrokerID;
-		
-		private System.Nullable<int> _BrokerEmailID;
-		
-		private string _BrokerAddress;
-		
-		private string _BrokerEmail;
-		
-		private System.Nullable<bool> _CertSigned;
-		
-		private System.Nullable<bool> _TenantsLegalLiability;
-		
-		private System.Nullable<bool> _Active;
-		
-		private EntityRef<InsuranceBroker> _InsuranceBroker;
-		
-		private EntityRef<Contractor> _Contractor;
-		
-		private EntityRef<InsuranceCompany> _InsuranceCompany1;
-		
-		private EntityRef<PolicyLimit> _PolicyLimit1;
-		
-		private EntityRef<TypeOfPolicy> _TypeOfPolicy1;
-		
-		private EntityRef<InsuranceBrokerEmail> _InsuranceBrokerEmail;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OncIDChanging(int value);
-    partial void OncIDChanged();
-    partial void OnCertReqForChanging(string value);
-    partial void OnCertReqForChanged();
-    partial void OnTypeOfPolicyChanging(System.Nullable<int> value);
-    partial void OnTypeOfPolicyChanged();
-    partial void OnExemptFromAutoChanging(System.Nullable<bool> value);
-    partial void OnExemptFromAutoChanged();
-    partial void OnPerOccuranceChanging(System.Nullable<bool> value);
-    partial void OnPerOccuranceChanged();
-    partial void OnProductsCompletedOpsChanging(System.Nullable<bool> value);
-    partial void OnProductsCompletedOpsChanged();
-    partial void OnNonOwnedAutoChanging(System.Nullable<bool> value);
-    partial void OnNonOwnedAutoChanged();
-    partial void OnCrossLiabilityChanging(System.Nullable<bool> value);
-    partial void OnCrossLiabilityChanged();
-    partial void OnNCasAddInsChanging(System.Nullable<bool> value);
-    partial void OnNCasAddInsChanged();
-    partial void OnPolicyNumberChanging(string value);
-    partial void OnPolicyNumberChanged();
-    partial void OnPolicyLimitChanging(System.Nullable<int> value);
-    partial void OnPolicyLimitChanged();
-    partial void OnPolicyLimitOtherChanging(string value);
-    partial void OnPolicyLimitOtherChanged();
-    partial void OnExpiryDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnExpiryDateChanged();
-    partial void OnInsuranceCompanyChanging(string value);
-    partial void OnInsuranceCompanyChanged();
-    partial void OninsIDChanging(System.Nullable<int> value);
-    partial void OninsIDChanged();
-    partial void OnAddressChanging(string value);
-    partial void OnAddressChanged();
-    partial void OnInsEmailChanging(string value);
-    partial void OnInsEmailChanged();
-    partial void OnBrokerNameChanging(string value);
-    partial void OnBrokerNameChanged();
-    partial void OnBrokerIDChanging(System.Nullable<int> value);
-    partial void OnBrokerIDChanged();
-    partial void OnBrokerEmailIDChanging(System.Nullable<int> value);
-    partial void OnBrokerEmailIDChanged();
-    partial void OnBrokerAddressChanging(string value);
-    partial void OnBrokerAddressChanged();
-    partial void OnBrokerEmailChanging(string value);
-    partial void OnBrokerEmailChanged();
-    partial void OnCertSignedChanging(System.Nullable<bool> value);
-    partial void OnCertSignedChanged();
-    partial void OnTenantsLegalLiabilityChanging(System.Nullable<bool> value);
-    partial void OnTenantsLegalLiabilityChanged();
-    partial void OnActiveChanging(System.Nullable<bool> value);
-    partial void OnActiveChanged();
-    #endregion
-		
-		public InsurancePolicy()
-		{
-			this._InsuranceBroker = default(EntityRef<InsuranceBroker>);
-			this._Contractor = default(EntityRef<Contractor>);
-			this._InsuranceCompany1 = default(EntityRef<InsuranceCompany>);
-			this._PolicyLimit1 = default(EntityRef<PolicyLimit>);
-			this._TypeOfPolicy1 = default(EntityRef<TypeOfPolicy>);
-			this._InsuranceBrokerEmail = default(EntityRef<InsuranceBrokerEmail>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cID", DbType="Int NOT NULL")]
-		public int cID
-		{
-			get
-			{
-				return this._cID;
-			}
-			set
-			{
-				if ((this._cID != value))
-				{
-					if (this._Contractor.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OncIDChanging(value);
-					this.SendPropertyChanging();
-					this._cID = value;
-					this.SendPropertyChanged("cID");
-					this.OncIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CertReqFor", DbType="NVarChar(255)")]
-		public string CertReqFor
-		{
-			get
-			{
-				return this._CertReqFor;
-			}
-			set
-			{
-				if ((this._CertReqFor != value))
-				{
-					this.OnCertReqForChanging(value);
-					this.SendPropertyChanging();
-					this._CertReqFor = value;
-					this.SendPropertyChanged("CertReqFor");
-					this.OnCertReqForChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeOfPolicy", DbType="Int")]
-		public System.Nullable<int> TypeOfPolicy
-		{
-			get
-			{
-				return this._TypeOfPolicy;
-			}
-			set
-			{
-				if ((this._TypeOfPolicy != value))
-				{
-					if (this._TypeOfPolicy1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTypeOfPolicyChanging(value);
-					this.SendPropertyChanging();
-					this._TypeOfPolicy = value;
-					this.SendPropertyChanged("TypeOfPolicy");
-					this.OnTypeOfPolicyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExemptFromAuto", DbType="Bit")]
-		public System.Nullable<bool> ExemptFromAuto
-		{
-			get
-			{
-				return this._ExemptFromAuto;
-			}
-			set
-			{
-				if ((this._ExemptFromAuto != value))
-				{
-					this.OnExemptFromAutoChanging(value);
-					this.SendPropertyChanging();
-					this._ExemptFromAuto = value;
-					this.SendPropertyChanged("ExemptFromAuto");
-					this.OnExemptFromAutoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PerOccurance", DbType="Bit")]
-		public System.Nullable<bool> PerOccurance
-		{
-			get
-			{
-				return this._PerOccurance;
-			}
-			set
-			{
-				if ((this._PerOccurance != value))
-				{
-					this.OnPerOccuranceChanging(value);
-					this.SendPropertyChanging();
-					this._PerOccurance = value;
-					this.SendPropertyChanged("PerOccurance");
-					this.OnPerOccuranceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductsCompletedOps", DbType="Bit")]
-		public System.Nullable<bool> ProductsCompletedOps
-		{
-			get
-			{
-				return this._ProductsCompletedOps;
-			}
-			set
-			{
-				if ((this._ProductsCompletedOps != value))
-				{
-					this.OnProductsCompletedOpsChanging(value);
-					this.SendPropertyChanging();
-					this._ProductsCompletedOps = value;
-					this.SendPropertyChanged("ProductsCompletedOps");
-					this.OnProductsCompletedOpsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NonOwnedAuto", DbType="Bit")]
-		public System.Nullable<bool> NonOwnedAuto
-		{
-			get
-			{
-				return this._NonOwnedAuto;
-			}
-			set
-			{
-				if ((this._NonOwnedAuto != value))
-				{
-					this.OnNonOwnedAutoChanging(value);
-					this.SendPropertyChanging();
-					this._NonOwnedAuto = value;
-					this.SendPropertyChanged("NonOwnedAuto");
-					this.OnNonOwnedAutoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CrossLiability", DbType="Bit")]
-		public System.Nullable<bool> CrossLiability
-		{
-			get
-			{
-				return this._CrossLiability;
-			}
-			set
-			{
-				if ((this._CrossLiability != value))
-				{
-					this.OnCrossLiabilityChanging(value);
-					this.SendPropertyChanging();
-					this._CrossLiability = value;
-					this.SendPropertyChanged("CrossLiability");
-					this.OnCrossLiabilityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NCasAddIns", DbType="Bit")]
-		public System.Nullable<bool> NCasAddIns
-		{
-			get
-			{
-				return this._NCasAddIns;
-			}
-			set
-			{
-				if ((this._NCasAddIns != value))
-				{
-					this.OnNCasAddInsChanging(value);
-					this.SendPropertyChanging();
-					this._NCasAddIns = value;
-					this.SendPropertyChanged("NCasAddIns");
-					this.OnNCasAddInsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PolicyNumber", DbType="NVarChar(50)")]
-		public string PolicyNumber
-		{
-			get
-			{
-				return this._PolicyNumber;
-			}
-			set
-			{
-				if ((this._PolicyNumber != value))
-				{
-					this.OnPolicyNumberChanging(value);
-					this.SendPropertyChanging();
-					this._PolicyNumber = value;
-					this.SendPropertyChanged("PolicyNumber");
-					this.OnPolicyNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PolicyLimit", DbType="Int")]
-		public System.Nullable<int> PolicyLimit
-		{
-			get
-			{
-				return this._PolicyLimit;
-			}
-			set
-			{
-				if ((this._PolicyLimit != value))
-				{
-					if (this._PolicyLimit1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPolicyLimitChanging(value);
-					this.SendPropertyChanging();
-					this._PolicyLimit = value;
-					this.SendPropertyChanged("PolicyLimit");
-					this.OnPolicyLimitChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PolicyLimitOther", DbType="NChar(10)")]
-		public string PolicyLimitOther
-		{
-			get
-			{
-				return this._PolicyLimitOther;
-			}
-			set
-			{
-				if ((this._PolicyLimitOther != value))
-				{
-					this.OnPolicyLimitOtherChanging(value);
-					this.SendPropertyChanging();
-					this._PolicyLimitOther = value;
-					this.SendPropertyChanged("PolicyLimitOther");
-					this.OnPolicyLimitOtherChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpiryDate", DbType="Date")]
-		public System.Nullable<System.DateTime> ExpiryDate
-		{
-			get
-			{
-				return this._ExpiryDate;
-			}
-			set
-			{
-				if ((this._ExpiryDate != value))
-				{
-					this.OnExpiryDateChanging(value);
-					this.SendPropertyChanging();
-					this._ExpiryDate = value;
-					this.SendPropertyChanged("ExpiryDate");
-					this.OnExpiryDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsuranceCompany", DbType="NVarChar(255)")]
-		public string InsuranceCompany
-		{
-			get
-			{
-				return this._InsuranceCompany;
-			}
-			set
-			{
-				if ((this._InsuranceCompany != value))
-				{
-					this.OnInsuranceCompanyChanging(value);
-					this.SendPropertyChanging();
-					this._InsuranceCompany = value;
-					this.SendPropertyChanged("InsuranceCompany");
-					this.OnInsuranceCompanyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_insID", DbType="Int")]
-		public System.Nullable<int> insID
-		{
-			get
-			{
-				return this._insID;
-			}
-			set
-			{
-				if ((this._insID != value))
-				{
-					if (this._InsuranceCompany1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OninsIDChanging(value);
-					this.SendPropertyChanging();
-					this._insID = value;
-					this.SendPropertyChanged("insID");
-					this.OninsIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(255)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this.OnAddressChanging(value);
-					this.SendPropertyChanging();
-					this._Address = value;
-					this.SendPropertyChanged("Address");
-					this.OnAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsEmail", DbType="NVarChar(100)")]
-		public string InsEmail
-		{
-			get
-			{
-				return this._InsEmail;
-			}
-			set
-			{
-				if ((this._InsEmail != value))
-				{
-					this.OnInsEmailChanging(value);
-					this.SendPropertyChanging();
-					this._InsEmail = value;
-					this.SendPropertyChanged("InsEmail");
-					this.OnInsEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrokerName", DbType="NVarChar(255)")]
-		public string BrokerName
-		{
-			get
-			{
-				return this._BrokerName;
-			}
-			set
-			{
-				if ((this._BrokerName != value))
-				{
-					this.OnBrokerNameChanging(value);
-					this.SendPropertyChanging();
-					this._BrokerName = value;
-					this.SendPropertyChanged("BrokerName");
-					this.OnBrokerNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrokerID", DbType="Int")]
-		public System.Nullable<int> BrokerID
-		{
-			get
-			{
-				return this._BrokerID;
-			}
-			set
-			{
-				if ((this._BrokerID != value))
-				{
-					if (this._InsuranceBroker.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBrokerIDChanging(value);
-					this.SendPropertyChanging();
-					this._BrokerID = value;
-					this.SendPropertyChanged("BrokerID");
-					this.OnBrokerIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrokerEmailID", DbType="Int")]
-		public System.Nullable<int> BrokerEmailID
-		{
-			get
-			{
-				return this._BrokerEmailID;
-			}
-			set
-			{
-				if ((this._BrokerEmailID != value))
-				{
-					if (this._InsuranceBrokerEmail.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnBrokerEmailIDChanging(value);
-					this.SendPropertyChanging();
-					this._BrokerEmailID = value;
-					this.SendPropertyChanged("BrokerEmailID");
-					this.OnBrokerEmailIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrokerAddress", DbType="NVarChar(255)")]
-		public string BrokerAddress
-		{
-			get
-			{
-				return this._BrokerAddress;
-			}
-			set
-			{
-				if ((this._BrokerAddress != value))
-				{
-					this.OnBrokerAddressChanging(value);
-					this.SendPropertyChanging();
-					this._BrokerAddress = value;
-					this.SendPropertyChanged("BrokerAddress");
-					this.OnBrokerAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrokerEmail", DbType="NVarChar(100)")]
-		public string BrokerEmail
-		{
-			get
-			{
-				return this._BrokerEmail;
-			}
-			set
-			{
-				if ((this._BrokerEmail != value))
-				{
-					this.OnBrokerEmailChanging(value);
-					this.SendPropertyChanging();
-					this._BrokerEmail = value;
-					this.SendPropertyChanged("BrokerEmail");
-					this.OnBrokerEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CertSigned", DbType="Bit")]
-		public System.Nullable<bool> CertSigned
-		{
-			get
-			{
-				return this._CertSigned;
-			}
-			set
-			{
-				if ((this._CertSigned != value))
-				{
-					this.OnCertSignedChanging(value);
-					this.SendPropertyChanging();
-					this._CertSigned = value;
-					this.SendPropertyChanged("CertSigned");
-					this.OnCertSignedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenantsLegalLiability", DbType="Bit")]
-		public System.Nullable<bool> TenantsLegalLiability
-		{
-			get
-			{
-				return this._TenantsLegalLiability;
-			}
-			set
-			{
-				if ((this._TenantsLegalLiability != value))
-				{
-					this.OnTenantsLegalLiabilityChanging(value);
-					this.SendPropertyChanging();
-					this._TenantsLegalLiability = value;
-					this.SendPropertyChanged("TenantsLegalLiability");
-					this.OnTenantsLegalLiabilityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit")]
-		public System.Nullable<bool> Active
-		{
-			get
-			{
-				return this._Active;
-			}
-			set
-			{
-				if ((this._Active != value))
-				{
-					this.OnActiveChanging(value);
-					this.SendPropertyChanging();
-					this._Active = value;
-					this.SendPropertyChanged("Active");
-					this.OnActiveChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InsuranceBroker_InsurancePolicy", Storage="_InsuranceBroker", ThisKey="BrokerID", OtherKey="ID", IsForeignKey=true)]
-		public InsuranceBroker InsuranceBroker
-		{
-			get
-			{
-				return this._InsuranceBroker.Entity;
-			}
-			set
-			{
-				InsuranceBroker previousValue = this._InsuranceBroker.Entity;
-				if (((previousValue != value) 
-							|| (this._InsuranceBroker.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._InsuranceBroker.Entity = null;
-						previousValue.InsurancePolicies.Remove(this);
-					}
-					this._InsuranceBroker.Entity = value;
-					if ((value != null))
-					{
-						value.InsurancePolicies.Add(this);
-						this._BrokerID = value.ID;
-					}
-					else
-					{
-						this._BrokerID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("InsuranceBroker");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_InsurancePolicy", Storage="_Contractor", ThisKey="cID", OtherKey="ID", IsForeignKey=true)]
-		public Contractor Contractor
-		{
-			get
-			{
-				return this._Contractor.Entity;
-			}
-			set
-			{
-				Contractor previousValue = this._Contractor.Entity;
-				if (((previousValue != value) 
-							|| (this._Contractor.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Contractor.Entity = null;
-						previousValue.InsurancePolicies.Remove(this);
-					}
-					this._Contractor.Entity = value;
-					if ((value != null))
-					{
-						value.InsurancePolicies.Add(this);
-						this._cID = value.ID;
-					}
-					else
-					{
-						this._cID = default(int);
-					}
-					this.SendPropertyChanged("Contractor");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InsuranceCompany_InsurancePolicy", Storage="_InsuranceCompany1", ThisKey="insID", OtherKey="ID", IsForeignKey=true)]
-		public InsuranceCompany InsuranceCompany1
-		{
-			get
-			{
-				return this._InsuranceCompany1.Entity;
-			}
-			set
-			{
-				InsuranceCompany previousValue = this._InsuranceCompany1.Entity;
-				if (((previousValue != value) 
-							|| (this._InsuranceCompany1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._InsuranceCompany1.Entity = null;
-						previousValue.InsurancePolicies.Remove(this);
-					}
-					this._InsuranceCompany1.Entity = value;
-					if ((value != null))
-					{
-						value.InsurancePolicies.Add(this);
-						this._insID = value.ID;
-					}
-					else
-					{
-						this._insID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("InsuranceCompany1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PolicyLimit_InsurancePolicy", Storage="_PolicyLimit1", ThisKey="PolicyLimit", OtherKey="ID", IsForeignKey=true)]
-		public PolicyLimit PolicyLimit1
-		{
-			get
-			{
-				return this._PolicyLimit1.Entity;
-			}
-			set
-			{
-				PolicyLimit previousValue = this._PolicyLimit1.Entity;
-				if (((previousValue != value) 
-							|| (this._PolicyLimit1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PolicyLimit1.Entity = null;
-						previousValue.InsurancePolicies.Remove(this);
-					}
-					this._PolicyLimit1.Entity = value;
-					if ((value != null))
-					{
-						value.InsurancePolicies.Add(this);
-						this._PolicyLimit = value.ID;
-					}
-					else
-					{
-						this._PolicyLimit = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("PolicyLimit1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TypeOfPolicy_InsurancePolicy", Storage="_TypeOfPolicy1", ThisKey="TypeOfPolicy", OtherKey="ID", IsForeignKey=true)]
-		public TypeOfPolicy TypeOfPolicy1
-		{
-			get
-			{
-				return this._TypeOfPolicy1.Entity;
-			}
-			set
-			{
-				TypeOfPolicy previousValue = this._TypeOfPolicy1.Entity;
-				if (((previousValue != value) 
-							|| (this._TypeOfPolicy1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TypeOfPolicy1.Entity = null;
-						previousValue.InsurancePolicies.Remove(this);
-					}
-					this._TypeOfPolicy1.Entity = value;
-					if ((value != null))
-					{
-						value.InsurancePolicies.Add(this);
-						this._TypeOfPolicy = value.ID;
-					}
-					else
-					{
-						this._TypeOfPolicy = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("TypeOfPolicy1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InsuranceBrokerEmail_InsurancePolicy", Storage="_InsuranceBrokerEmail", ThisKey="BrokerEmailID", OtherKey="ID", IsForeignKey=true)]
-		public InsuranceBrokerEmail InsuranceBrokerEmail
-		{
-			get
-			{
-				return this._InsuranceBrokerEmail.Entity;
-			}
-			set
-			{
-				InsuranceBrokerEmail previousValue = this._InsuranceBrokerEmail.Entity;
-				if (((previousValue != value) 
-							|| (this._InsuranceBrokerEmail.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._InsuranceBrokerEmail.Entity = null;
-						previousValue.InsurancePolicies.Remove(this);
-					}
-					this._InsuranceBrokerEmail.Entity = value;
-					if ((value != null))
-					{
-						value.InsurancePolicies.Add(this);
-						this._BrokerEmailID = value.ID;
-					}
-					else
-					{
-						this._BrokerEmailID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("InsuranceBrokerEmail");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.InsuranceBrokerEmails")]
 	public partial class InsuranceBrokerEmail : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -6366,6 +5469,1093 @@ namespace Qualified_Contractor_Tracking
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Insurance")]
+	public partial class InsurancePolicy : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private int _cID;
+		
+		private string _CertReqFor;
+		
+		private System.Nullable<int> _TypeOfPolicy;
+		
+		private System.Nullable<bool> _ExemptFromAuto;
+		
+		private System.Nullable<bool> _PerOccurance;
+		
+		private System.Nullable<bool> _ProductsCompletedOps;
+		
+		private System.Nullable<int> _NonOwnedAuto;
+		
+		private System.Nullable<bool> _CrossLiability;
+		
+		private System.Nullable<bool> _NCasAddIns;
+		
+		private string _PolicyNumber;
+		
+		private System.Nullable<int> _PolicyLimit;
+		
+		private string _PolicyLimitOther;
+		
+		private System.Nullable<System.DateTime> _ExpiryDate;
+		
+		private string _InsuranceCompany;
+		
+		private System.Nullable<int> _insID;
+		
+		private string _Address;
+		
+		private string _InsEmail;
+		
+		private string _BrokerName;
+		
+		private System.Nullable<int> _BrokerID;
+		
+		private System.Nullable<int> _BrokerEmailID;
+		
+		private string _BrokerAddress;
+		
+		private string _BrokerEmail;
+		
+		private System.Nullable<bool> _CertSigned;
+		
+		private System.Nullable<bool> _TenantsLegalLiability;
+		
+		private System.Nullable<bool> _Active;
+		
+		private EntityRef<InsuranceBroker> _InsuranceBroker;
+		
+		private EntityRef<Contractor> _Contractor;
+		
+		private EntityRef<InsuranceBrokerEmail> _InsuranceBrokerEmail;
+		
+		private EntityRef<InsuranceCompany> _InsuranceCompany1;
+		
+		private EntityRef<PolicyLimit> _PolicyLimit1;
+		
+		private EntityRef<TypeOfPolicy> _TypeOfPolicy1;
+		
+		private EntityRef<InsuranceNonOwnedAuto> _InsuranceNonOwnedAuto;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OncIDChanging(int value);
+    partial void OncIDChanged();
+    partial void OnCertReqForChanging(string value);
+    partial void OnCertReqForChanged();
+    partial void OnTypeOfPolicyChanging(System.Nullable<int> value);
+    partial void OnTypeOfPolicyChanged();
+    partial void OnExemptFromAutoChanging(System.Nullable<bool> value);
+    partial void OnExemptFromAutoChanged();
+    partial void OnPerOccuranceChanging(System.Nullable<bool> value);
+    partial void OnPerOccuranceChanged();
+    partial void OnProductsCompletedOpsChanging(System.Nullable<bool> value);
+    partial void OnProductsCompletedOpsChanged();
+    partial void OnNonOwnedAutoChanging(System.Nullable<int> value);
+    partial void OnNonOwnedAutoChanged();
+    partial void OnCrossLiabilityChanging(System.Nullable<bool> value);
+    partial void OnCrossLiabilityChanged();
+    partial void OnNCasAddInsChanging(System.Nullable<bool> value);
+    partial void OnNCasAddInsChanged();
+    partial void OnPolicyNumberChanging(string value);
+    partial void OnPolicyNumberChanged();
+    partial void OnPolicyLimitChanging(System.Nullable<int> value);
+    partial void OnPolicyLimitChanged();
+    partial void OnPolicyLimitOtherChanging(string value);
+    partial void OnPolicyLimitOtherChanged();
+    partial void OnExpiryDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnExpiryDateChanged();
+    partial void OnInsuranceCompanyChanging(string value);
+    partial void OnInsuranceCompanyChanged();
+    partial void OninsIDChanging(System.Nullable<int> value);
+    partial void OninsIDChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnInsEmailChanging(string value);
+    partial void OnInsEmailChanged();
+    partial void OnBrokerNameChanging(string value);
+    partial void OnBrokerNameChanged();
+    partial void OnBrokerIDChanging(System.Nullable<int> value);
+    partial void OnBrokerIDChanged();
+    partial void OnBrokerEmailIDChanging(System.Nullable<int> value);
+    partial void OnBrokerEmailIDChanged();
+    partial void OnBrokerAddressChanging(string value);
+    partial void OnBrokerAddressChanged();
+    partial void OnBrokerEmailChanging(string value);
+    partial void OnBrokerEmailChanged();
+    partial void OnCertSignedChanging(System.Nullable<bool> value);
+    partial void OnCertSignedChanged();
+    partial void OnTenantsLegalLiabilityChanging(System.Nullable<bool> value);
+    partial void OnTenantsLegalLiabilityChanged();
+    partial void OnActiveChanging(System.Nullable<bool> value);
+    partial void OnActiveChanged();
+    #endregion
+		
+		public InsurancePolicy()
+		{
+			this._InsuranceBroker = default(EntityRef<InsuranceBroker>);
+			this._Contractor = default(EntityRef<Contractor>);
+			this._InsuranceBrokerEmail = default(EntityRef<InsuranceBrokerEmail>);
+			this._InsuranceCompany1 = default(EntityRef<InsuranceCompany>);
+			this._PolicyLimit1 = default(EntityRef<PolicyLimit>);
+			this._TypeOfPolicy1 = default(EntityRef<TypeOfPolicy>);
+			this._InsuranceNonOwnedAuto = default(EntityRef<InsuranceNonOwnedAuto>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cID", DbType="Int NOT NULL")]
+		public int cID
+		{
+			get
+			{
+				return this._cID;
+			}
+			set
+			{
+				if ((this._cID != value))
+				{
+					if (this._Contractor.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OncIDChanging(value);
+					this.SendPropertyChanging();
+					this._cID = value;
+					this.SendPropertyChanged("cID");
+					this.OncIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CertReqFor", DbType="NVarChar(255)")]
+		public string CertReqFor
+		{
+			get
+			{
+				return this._CertReqFor;
+			}
+			set
+			{
+				if ((this._CertReqFor != value))
+				{
+					this.OnCertReqForChanging(value);
+					this.SendPropertyChanging();
+					this._CertReqFor = value;
+					this.SendPropertyChanged("CertReqFor");
+					this.OnCertReqForChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TypeOfPolicy", DbType="Int")]
+		public System.Nullable<int> TypeOfPolicy
+		{
+			get
+			{
+				return this._TypeOfPolicy;
+			}
+			set
+			{
+				if ((this._TypeOfPolicy != value))
+				{
+					if (this._TypeOfPolicy1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTypeOfPolicyChanging(value);
+					this.SendPropertyChanging();
+					this._TypeOfPolicy = value;
+					this.SendPropertyChanged("TypeOfPolicy");
+					this.OnTypeOfPolicyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExemptFromAuto", DbType="Bit")]
+		public System.Nullable<bool> ExemptFromAuto
+		{
+			get
+			{
+				return this._ExemptFromAuto;
+			}
+			set
+			{
+				if ((this._ExemptFromAuto != value))
+				{
+					this.OnExemptFromAutoChanging(value);
+					this.SendPropertyChanging();
+					this._ExemptFromAuto = value;
+					this.SendPropertyChanged("ExemptFromAuto");
+					this.OnExemptFromAutoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PerOccurance", DbType="Bit")]
+		public System.Nullable<bool> PerOccurance
+		{
+			get
+			{
+				return this._PerOccurance;
+			}
+			set
+			{
+				if ((this._PerOccurance != value))
+				{
+					this.OnPerOccuranceChanging(value);
+					this.SendPropertyChanging();
+					this._PerOccurance = value;
+					this.SendPropertyChanged("PerOccurance");
+					this.OnPerOccuranceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProductsCompletedOps", DbType="Bit")]
+		public System.Nullable<bool> ProductsCompletedOps
+		{
+			get
+			{
+				return this._ProductsCompletedOps;
+			}
+			set
+			{
+				if ((this._ProductsCompletedOps != value))
+				{
+					this.OnProductsCompletedOpsChanging(value);
+					this.SendPropertyChanging();
+					this._ProductsCompletedOps = value;
+					this.SendPropertyChanged("ProductsCompletedOps");
+					this.OnProductsCompletedOpsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NonOwnedAuto", DbType="Int")]
+		public System.Nullable<int> NonOwnedAuto
+		{
+			get
+			{
+				return this._NonOwnedAuto;
+			}
+			set
+			{
+				if ((this._NonOwnedAuto != value))
+				{
+					if (this._InsuranceNonOwnedAuto.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnNonOwnedAutoChanging(value);
+					this.SendPropertyChanging();
+					this._NonOwnedAuto = value;
+					this.SendPropertyChanged("NonOwnedAuto");
+					this.OnNonOwnedAutoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CrossLiability", DbType="Bit")]
+		public System.Nullable<bool> CrossLiability
+		{
+			get
+			{
+				return this._CrossLiability;
+			}
+			set
+			{
+				if ((this._CrossLiability != value))
+				{
+					this.OnCrossLiabilityChanging(value);
+					this.SendPropertyChanging();
+					this._CrossLiability = value;
+					this.SendPropertyChanged("CrossLiability");
+					this.OnCrossLiabilityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NCasAddIns", DbType="Bit")]
+		public System.Nullable<bool> NCasAddIns
+		{
+			get
+			{
+				return this._NCasAddIns;
+			}
+			set
+			{
+				if ((this._NCasAddIns != value))
+				{
+					this.OnNCasAddInsChanging(value);
+					this.SendPropertyChanging();
+					this._NCasAddIns = value;
+					this.SendPropertyChanged("NCasAddIns");
+					this.OnNCasAddInsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PolicyNumber", DbType="NVarChar(50)")]
+		public string PolicyNumber
+		{
+			get
+			{
+				return this._PolicyNumber;
+			}
+			set
+			{
+				if ((this._PolicyNumber != value))
+				{
+					this.OnPolicyNumberChanging(value);
+					this.SendPropertyChanging();
+					this._PolicyNumber = value;
+					this.SendPropertyChanged("PolicyNumber");
+					this.OnPolicyNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PolicyLimit", DbType="Int")]
+		public System.Nullable<int> PolicyLimit
+		{
+			get
+			{
+				return this._PolicyLimit;
+			}
+			set
+			{
+				if ((this._PolicyLimit != value))
+				{
+					if (this._PolicyLimit1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPolicyLimitChanging(value);
+					this.SendPropertyChanging();
+					this._PolicyLimit = value;
+					this.SendPropertyChanged("PolicyLimit");
+					this.OnPolicyLimitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PolicyLimitOther", DbType="NChar(10)")]
+		public string PolicyLimitOther
+		{
+			get
+			{
+				return this._PolicyLimitOther;
+			}
+			set
+			{
+				if ((this._PolicyLimitOther != value))
+				{
+					this.OnPolicyLimitOtherChanging(value);
+					this.SendPropertyChanging();
+					this._PolicyLimitOther = value;
+					this.SendPropertyChanged("PolicyLimitOther");
+					this.OnPolicyLimitOtherChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpiryDate", DbType="Date")]
+		public System.Nullable<System.DateTime> ExpiryDate
+		{
+			get
+			{
+				return this._ExpiryDate;
+			}
+			set
+			{
+				if ((this._ExpiryDate != value))
+				{
+					this.OnExpiryDateChanging(value);
+					this.SendPropertyChanging();
+					this._ExpiryDate = value;
+					this.SendPropertyChanged("ExpiryDate");
+					this.OnExpiryDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsuranceCompany", DbType="NVarChar(255)")]
+		public string InsuranceCompany
+		{
+			get
+			{
+				return this._InsuranceCompany;
+			}
+			set
+			{
+				if ((this._InsuranceCompany != value))
+				{
+					this.OnInsuranceCompanyChanging(value);
+					this.SendPropertyChanging();
+					this._InsuranceCompany = value;
+					this.SendPropertyChanged("InsuranceCompany");
+					this.OnInsuranceCompanyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_insID", DbType="Int")]
+		public System.Nullable<int> insID
+		{
+			get
+			{
+				return this._insID;
+			}
+			set
+			{
+				if ((this._insID != value))
+				{
+					if (this._InsuranceCompany1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OninsIDChanging(value);
+					this.SendPropertyChanging();
+					this._insID = value;
+					this.SendPropertyChanged("insID");
+					this.OninsIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(255)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this.OnAddressChanging(value);
+					this.SendPropertyChanging();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_InsEmail", DbType="NVarChar(100)")]
+		public string InsEmail
+		{
+			get
+			{
+				return this._InsEmail;
+			}
+			set
+			{
+				if ((this._InsEmail != value))
+				{
+					this.OnInsEmailChanging(value);
+					this.SendPropertyChanging();
+					this._InsEmail = value;
+					this.SendPropertyChanged("InsEmail");
+					this.OnInsEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrokerName", DbType="NVarChar(255)")]
+		public string BrokerName
+		{
+			get
+			{
+				return this._BrokerName;
+			}
+			set
+			{
+				if ((this._BrokerName != value))
+				{
+					this.OnBrokerNameChanging(value);
+					this.SendPropertyChanging();
+					this._BrokerName = value;
+					this.SendPropertyChanged("BrokerName");
+					this.OnBrokerNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrokerID", DbType="Int")]
+		public System.Nullable<int> BrokerID
+		{
+			get
+			{
+				return this._BrokerID;
+			}
+			set
+			{
+				if ((this._BrokerID != value))
+				{
+					if (this._InsuranceBroker.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBrokerIDChanging(value);
+					this.SendPropertyChanging();
+					this._BrokerID = value;
+					this.SendPropertyChanged("BrokerID");
+					this.OnBrokerIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrokerEmailID", DbType="Int")]
+		public System.Nullable<int> BrokerEmailID
+		{
+			get
+			{
+				return this._BrokerEmailID;
+			}
+			set
+			{
+				if ((this._BrokerEmailID != value))
+				{
+					if (this._InsuranceBrokerEmail.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnBrokerEmailIDChanging(value);
+					this.SendPropertyChanging();
+					this._BrokerEmailID = value;
+					this.SendPropertyChanged("BrokerEmailID");
+					this.OnBrokerEmailIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrokerAddress", DbType="NVarChar(255)")]
+		public string BrokerAddress
+		{
+			get
+			{
+				return this._BrokerAddress;
+			}
+			set
+			{
+				if ((this._BrokerAddress != value))
+				{
+					this.OnBrokerAddressChanging(value);
+					this.SendPropertyChanging();
+					this._BrokerAddress = value;
+					this.SendPropertyChanged("BrokerAddress");
+					this.OnBrokerAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BrokerEmail", DbType="NVarChar(100)")]
+		public string BrokerEmail
+		{
+			get
+			{
+				return this._BrokerEmail;
+			}
+			set
+			{
+				if ((this._BrokerEmail != value))
+				{
+					this.OnBrokerEmailChanging(value);
+					this.SendPropertyChanging();
+					this._BrokerEmail = value;
+					this.SendPropertyChanged("BrokerEmail");
+					this.OnBrokerEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CertSigned", DbType="Bit")]
+		public System.Nullable<bool> CertSigned
+		{
+			get
+			{
+				return this._CertSigned;
+			}
+			set
+			{
+				if ((this._CertSigned != value))
+				{
+					this.OnCertSignedChanging(value);
+					this.SendPropertyChanging();
+					this._CertSigned = value;
+					this.SendPropertyChanged("CertSigned");
+					this.OnCertSignedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TenantsLegalLiability", DbType="Bit")]
+		public System.Nullable<bool> TenantsLegalLiability
+		{
+			get
+			{
+				return this._TenantsLegalLiability;
+			}
+			set
+			{
+				if ((this._TenantsLegalLiability != value))
+				{
+					this.OnTenantsLegalLiabilityChanging(value);
+					this.SendPropertyChanging();
+					this._TenantsLegalLiability = value;
+					this.SendPropertyChanged("TenantsLegalLiability");
+					this.OnTenantsLegalLiabilityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit")]
+		public System.Nullable<bool> Active
+		{
+			get
+			{
+				return this._Active;
+			}
+			set
+			{
+				if ((this._Active != value))
+				{
+					this.OnActiveChanging(value);
+					this.SendPropertyChanging();
+					this._Active = value;
+					this.SendPropertyChanged("Active");
+					this.OnActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InsuranceBroker_InsurancePolicy", Storage="_InsuranceBroker", ThisKey="BrokerID", OtherKey="ID", IsForeignKey=true)]
+		public InsuranceBroker InsuranceBroker
+		{
+			get
+			{
+				return this._InsuranceBroker.Entity;
+			}
+			set
+			{
+				InsuranceBroker previousValue = this._InsuranceBroker.Entity;
+				if (((previousValue != value) 
+							|| (this._InsuranceBroker.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._InsuranceBroker.Entity = null;
+						previousValue.InsurancePolicies.Remove(this);
+					}
+					this._InsuranceBroker.Entity = value;
+					if ((value != null))
+					{
+						value.InsurancePolicies.Add(this);
+						this._BrokerID = value.ID;
+					}
+					else
+					{
+						this._BrokerID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("InsuranceBroker");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_InsurancePolicy", Storage="_Contractor", ThisKey="cID", OtherKey="ID", IsForeignKey=true)]
+		public Contractor Contractor
+		{
+			get
+			{
+				return this._Contractor.Entity;
+			}
+			set
+			{
+				Contractor previousValue = this._Contractor.Entity;
+				if (((previousValue != value) 
+							|| (this._Contractor.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Contractor.Entity = null;
+						previousValue.InsurancePolicies.Remove(this);
+					}
+					this._Contractor.Entity = value;
+					if ((value != null))
+					{
+						value.InsurancePolicies.Add(this);
+						this._cID = value.ID;
+					}
+					else
+					{
+						this._cID = default(int);
+					}
+					this.SendPropertyChanged("Contractor");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InsuranceBrokerEmail_InsurancePolicy", Storage="_InsuranceBrokerEmail", ThisKey="BrokerEmailID", OtherKey="ID", IsForeignKey=true)]
+		public InsuranceBrokerEmail InsuranceBrokerEmail
+		{
+			get
+			{
+				return this._InsuranceBrokerEmail.Entity;
+			}
+			set
+			{
+				InsuranceBrokerEmail previousValue = this._InsuranceBrokerEmail.Entity;
+				if (((previousValue != value) 
+							|| (this._InsuranceBrokerEmail.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._InsuranceBrokerEmail.Entity = null;
+						previousValue.InsurancePolicies.Remove(this);
+					}
+					this._InsuranceBrokerEmail.Entity = value;
+					if ((value != null))
+					{
+						value.InsurancePolicies.Add(this);
+						this._BrokerEmailID = value.ID;
+					}
+					else
+					{
+						this._BrokerEmailID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("InsuranceBrokerEmail");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InsuranceCompany_InsurancePolicy", Storage="_InsuranceCompany1", ThisKey="insID", OtherKey="ID", IsForeignKey=true)]
+		public InsuranceCompany InsuranceCompany1
+		{
+			get
+			{
+				return this._InsuranceCompany1.Entity;
+			}
+			set
+			{
+				InsuranceCompany previousValue = this._InsuranceCompany1.Entity;
+				if (((previousValue != value) 
+							|| (this._InsuranceCompany1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._InsuranceCompany1.Entity = null;
+						previousValue.InsurancePolicies.Remove(this);
+					}
+					this._InsuranceCompany1.Entity = value;
+					if ((value != null))
+					{
+						value.InsurancePolicies.Add(this);
+						this._insID = value.ID;
+					}
+					else
+					{
+						this._insID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("InsuranceCompany1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PolicyLimit_InsurancePolicy", Storage="_PolicyLimit1", ThisKey="PolicyLimit", OtherKey="ID", IsForeignKey=true)]
+		public PolicyLimit PolicyLimit1
+		{
+			get
+			{
+				return this._PolicyLimit1.Entity;
+			}
+			set
+			{
+				PolicyLimit previousValue = this._PolicyLimit1.Entity;
+				if (((previousValue != value) 
+							|| (this._PolicyLimit1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PolicyLimit1.Entity = null;
+						previousValue.InsurancePolicies.Remove(this);
+					}
+					this._PolicyLimit1.Entity = value;
+					if ((value != null))
+					{
+						value.InsurancePolicies.Add(this);
+						this._PolicyLimit = value.ID;
+					}
+					else
+					{
+						this._PolicyLimit = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("PolicyLimit1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TypeOfPolicy_InsurancePolicy", Storage="_TypeOfPolicy1", ThisKey="TypeOfPolicy", OtherKey="ID", IsForeignKey=true)]
+		public TypeOfPolicy TypeOfPolicy1
+		{
+			get
+			{
+				return this._TypeOfPolicy1.Entity;
+			}
+			set
+			{
+				TypeOfPolicy previousValue = this._TypeOfPolicy1.Entity;
+				if (((previousValue != value) 
+							|| (this._TypeOfPolicy1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TypeOfPolicy1.Entity = null;
+						previousValue.InsurancePolicies.Remove(this);
+					}
+					this._TypeOfPolicy1.Entity = value;
+					if ((value != null))
+					{
+						value.InsurancePolicies.Add(this);
+						this._TypeOfPolicy = value.ID;
+					}
+					else
+					{
+						this._TypeOfPolicy = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("TypeOfPolicy1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InsuranceNonOwnedAuto_InsurancePolicy", Storage="_InsuranceNonOwnedAuto", ThisKey="NonOwnedAuto", OtherKey="ID", IsForeignKey=true)]
+		public InsuranceNonOwnedAuto InsuranceNonOwnedAuto
+		{
+			get
+			{
+				return this._InsuranceNonOwnedAuto.Entity;
+			}
+			set
+			{
+				InsuranceNonOwnedAuto previousValue = this._InsuranceNonOwnedAuto.Entity;
+				if (((previousValue != value) 
+							|| (this._InsuranceNonOwnedAuto.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._InsuranceNonOwnedAuto.Entity = null;
+						previousValue.InsurancePolicies.Remove(this);
+					}
+					this._InsuranceNonOwnedAuto.Entity = value;
+					if ((value != null))
+					{
+						value.InsurancePolicies.Add(this);
+						this._NonOwnedAuto = value.ID;
+					}
+					else
+					{
+						this._NonOwnedAuto = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("InsuranceNonOwnedAuto");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.InsuranceNonOwnedAuto")]
+	public partial class InsuranceNonOwnedAuto : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Value;
+		
+		private bool _Active;
+		
+		private EntitySet<InsurancePolicy> _InsurancePolicies;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnValueChanging(string value);
+    partial void OnValueChanged();
+    partial void OnActiveChanging(bool value);
+    partial void OnActiveChanged();
+    #endregion
+		
+		public InsuranceNonOwnedAuto()
+		{
+			this._InsurancePolicies = new EntitySet<InsurancePolicy>(new Action<InsurancePolicy>(this.attach_InsurancePolicies), new Action<InsurancePolicy>(this.detach_InsurancePolicies));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Value", DbType="NVarChar(25) NOT NULL", CanBeNull=false)]
+		public string Value
+		{
+			get
+			{
+				return this._Value;
+			}
+			set
+			{
+				if ((this._Value != value))
+				{
+					this.OnValueChanging(value);
+					this.SendPropertyChanging();
+					this._Value = value;
+					this.SendPropertyChanged("Value");
+					this.OnValueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Active", DbType="Bit NOT NULL")]
+		public bool Active
+		{
+			get
+			{
+				return this._Active;
+			}
+			set
+			{
+				if ((this._Active != value))
+				{
+					this.OnActiveChanging(value);
+					this.SendPropertyChanging();
+					this._Active = value;
+					this.SendPropertyChanged("Active");
+					this.OnActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InsuranceNonOwnedAuto_InsurancePolicy", Storage="_InsurancePolicies", ThisKey="ID", OtherKey="NonOwnedAuto")]
+		public EntitySet<InsurancePolicy> InsurancePolicies
+		{
+			get
+			{
+				return this._InsurancePolicies;
+			}
+			set
+			{
+				this._InsurancePolicies.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_InsurancePolicies(InsurancePolicy entity)
+		{
+			this.SendPropertyChanging();
+			entity.InsuranceNonOwnedAuto = this;
+		}
+		
+		private void detach_InsurancePolicies(InsurancePolicy entity)
+		{
+			this.SendPropertyChanging();
+			entity.InsuranceNonOwnedAuto = null;
 		}
 	}
 }

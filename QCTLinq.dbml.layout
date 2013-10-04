@@ -110,7 +110,7 @@
         <elementListCompartment Id="69cf228e-7da3-4e27-aa3e-0f6a01b14660" absoluteBounds="3.765, 26.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 14.2311763509115); (2.94791916666667 : 14.2311763509115 : JumpStart); (3.20833333333333 : 14.2311763509115 : JumpEnd); (3.5 : 14.2311763509115)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 14.2311763509115); (3.04166666666667 : 14.2311763509115 : JumpStart); (3.20833333333333 : 14.2311763509115 : JumpEnd); (3.5 : 14.2311763509115)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QCTLinqDataContext/Contractor/Contractor_ContractorsPhone" />
       <nodes>
         <classShapeMoniker Id="6d3e4dd6-5d4f-44cf-b79d-c83221b05210" />
@@ -124,21 +124,21 @@
         <classShapeMoniker Id="527f8e52-69e3-4c24-9407-49deca98244b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.71769230769231 : 13.25); (2.97232693490112 : 12.9953653727912 : JumpStart); (3.18392556509888 : 12.7837667425934 : JumpEnd); (3.375 : 12.5926923076923); (3.375 : 11.6262474654948); (3.5 : 11.6262474654948)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.71769230769231 : 13.25); (2.97232693490112 : 12.9953653727912 : JumpStart); (3.24642556509888 : 12.7212667425934 : JumpEnd); (3.375 : 12.5926923076923); (3.375 : 11.6262474654948); (3.5 : 11.6262474654948)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QCTLinqDataContext/Contractor/Contractor_Licence" />
       <nodes>
         <classShapeMoniker Id="6d3e4dd6-5d4f-44cf-b79d-c83221b05210" />
         <classShapeMoniker Id="28caa3da-058c-4717-a380-d3b70760e7ca" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 11.3343972054036); (2.94791916666667 : 11.3343972054036 : JumpStart); (3.11458583333333 : 11.3343972054036 : JumpEnd); (3.5 : 11.3343972054036)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 11.3343972054036); (2.94791916666667 : 11.3343972054036 : JumpStart); (3.27083333333333 : 11.3343972054036 : JumpEnd); (3.5 : 11.3343972054036)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QCTLinqDataContext/Division/Division_Licence" />
       <nodes>
         <classShapeMoniker Id="527f8e52-69e3-4c24-9407-49deca98244b" />
         <classShapeMoniker Id="28caa3da-058c-4717-a380-d3b70760e7ca" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 17); (2.97232693490112 : 16.7776730650989 : JumpStart); (3.20541901712213 : 16.5445809828779 : JumpEnd); (3.375 : 16.375); (3.375 : 15.0829735397135); (3.5 : 15.0829735397135)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 17); (2.97232693490112 : 16.7776730650989 : JumpStart); (3.18392556509888 : 16.5660744349011 : JumpEnd); (3.375 : 16.375); (3.375 : 15.0829735397135); (3.5 : 15.0829735397135)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QCTLinqDataContext/lookupPhoneType/lookupPhoneType_ContractorsPhone" />
       <nodes>
         <classShapeMoniker Id="db4067f3-1be7-457a-880e-3c9603fb2c9d" />
@@ -159,7 +159,7 @@
         <classShapeMoniker Id="5ff62d03-89e1-4d33-9f8f-dad4e5bc4a2c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 20.6931469726563); (2.94791916666667 : 20.6931469726563 : JumpStart); (3.33333333333333 : 20.6931469726563 : JumpEnd); (4.5 : 20.6931469726563); (4.5 : 18.7804996744792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.75 : 20.6931469726563); (3.04166666666667 : 20.6931469726563 : JumpStart); (3.20833333333333 : 20.6931469726563 : JumpEnd); (4.5 : 20.6931469726563); (4.5 : 18.7804996744792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QCTLinqDataContext/TypeOfPermit/TypeOfPermit_Permit" />
       <nodes>
         <classShapeMoniker Id="ea0ef176-f46c-4716-8968-2be6af1e88bb" />
@@ -178,21 +178,21 @@
         <elementListCompartment Id="285e7a1a-c7ff-4f67-9b49-11309a7b4e93" absoluteBounds="7.515, 18.71, 1.9700000000000002, 6.0184326171875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.75 : 29.5681469726563); (8.55728916666667 : 29.5681469726563 : JumpStart); (8.72395583333333 : 29.5681469726563 : JumpEnd); (9.03125 : 29.5681469726563); (9.03125 : 24.8284326171875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(5.75 : 29.5681469726563); (9.03125 : 29.5681469726563); (9.03125 : 24.8284326171875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QCTLinqDataContext/AgreementsSigned/AgreementsSigned_Agreement" />
       <nodes>
         <classShapeMoniker Id="db08436a-4689-482b-9030-39601dc01eb5" />
         <classShapeMoniker Id="3b893ad2-e358-4c8f-ad55-f13fb82d435b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.71769230769234 : 16.1747054036458); (2.79733766272379 : 16.2543507586773 : JumpStart); (2.93392556509888 : 16.3909386610524 : JumpEnd); (2.97232693490112 : 16.4293400308546 : JumpStart); (3.18392556509888 : 16.6409386610524 : JumpEnd); (3.25 : 16.7070130959535); (3.25 : 21.8465724863281); (5.57291666666667 : 21.8465724863281 : JumpStart); (5.73958333333333 : 21.8465724863281 : JumpEnd); (7.5 : 21.8465724863281)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.71769230769234 : 16.1747054036458); (2.97232693490112 : 16.4293400308546 : JumpStart); (3.18392556509888 : 16.6409386610524 : JumpEnd); (3.25 : 16.7070130959535); (3.25 : 21.8465724863281); (5.57291666666667 : 21.8465724863281 : JumpStart); (5.73958333333333 : 21.8465724863281 : JumpEnd); (7.5 : 21.8465724863281)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QCTLinqDataContext/Contractor/Contractor_Agreement" />
       <nodes>
         <classShapeMoniker Id="6d3e4dd6-5d4f-44cf-b79d-c83221b05210" />
         <classShapeMoniker Id="3b893ad2-e358-4c8f-ad55-f13fb82d435b" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 11.4535953776042); (2.97232693490112 : 11.6759223125053 : JumpStart); (3.09017806509888 : 11.793773442703 : JumpEnd); (3.125 : 11.8285953776042); (3.125 : 21.8465724863281); (5.57291666666667 : 21.8465724863281 : JumpStart); (5.73958333333333 : 21.8465724863281 : JumpEnd); (7.5 : 21.8465724863281)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 11.4535953776042); (2.97232693490112 : 11.6759223125053 : JumpStart); (3.09017806509888 : 11.7937734427031 : JumpEnd); (3.125 : 11.8285953776042); (3.125 : 21.8465724863281); (5.57291666666667 : 21.8465724863281 : JumpStart); (5.73958333333333 : 21.8465724863281 : JumpEnd); (7.5 : 21.8465724863281)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QCTLinqDataContext/Division/Division_Agreement" />
       <nodes>
         <classShapeMoniker Id="527f8e52-69e3-4c24-9407-49deca98244b" />
@@ -206,60 +206,12 @@
         <classShapeMoniker Id="3b893ad2-e358-4c8f-ad55-f13fb82d435b" />
       </nodes>
     </associationConnector>
-    <classShape Id="72154a80-9e02-4159-a1dc-3e136c26738e" absoluteBounds="6.875, 5.25, 2, 5.8092268880208326">
-      <DataClassMoniker Name="/QCTLinqDataContext/InsurancePolicy" />
-      <nestedChildShapes>
-        <elementListCompartment Id="a3495c45-22b7-4d73-8682-2905e77e61df" absoluteBounds="6.89, 5.71, 1.9700000000000002, 5.249226888020833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <associationConnector edgePoints="[(5.75 : 5.63064697265625); (6.875 : 5.63064697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/QCTLinqDataContext/InsuranceBroker/InsuranceBroker_InsurancePolicy" />
-      <nodes>
-        <classShapeMoniker Id="eddf6556-3a08-4359-ab88-d892a4b3b0e8" />
-        <classShapeMoniker Id="72154a80-9e02-4159-a1dc-3e136c26738e" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 13.46875); (2.94791916666667 : 13.46875 : JumpStart); (3.20833333333333 : 13.46875 : JumpEnd); (8.84375 : 13.46875); (8.84375 : 11.0592268880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
-      <AssociationMoniker Name="/QCTLinqDataContext/Contractor/Contractor_InsurancePolicy" />
-      <nodes>
-        <classShapeMoniker Id="6d3e4dd6-5d4f-44cf-b79d-c83221b05210" />
-        <classShapeMoniker Id="72154a80-9e02-4159-a1dc-3e136c26738e" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(9.375 : 10.0392976888021); (8.875 : 10.0392976888021)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/QCTLinqDataContext/InsuranceCompany/InsuranceCompany_InsurancePolicy" />
-      <nodes>
-        <classShapeMoniker Id="cbea116a-8533-45e1-9e7b-60b2fde2d1a0" />
-        <classShapeMoniker Id="72154a80-9e02-4159-a1dc-3e136c26738e" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 7.44314697265625); (6.875 : 7.44314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/QCTLinqDataContext/PolicyLimit/PolicyLimit_InsurancePolicy" />
-      <nodes>
-        <classShapeMoniker Id="4892d059-00d5-4b0c-987a-21a046ea676e" />
-        <classShapeMoniker Id="72154a80-9e02-4159-a1dc-3e136c26738e" />
-      </nodes>
-    </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 2.7925439453125); (8.84375 : 2.7925439453125); (8.84375 : 5.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/QCTLinqDataContext/TypeOfPolicy/TypeOfPolicy_InsurancePolicy" />
-      <nodes>
-        <classShapeMoniker Id="655822f9-02d0-45ca-8ab2-c31981a32728" />
-        <classShapeMoniker Id="72154a80-9e02-4159-a1dc-3e136c26738e" />
-      </nodes>
-    </associationConnector>
     <classShape Id="300376fe-0862-4c33-b544-6adca79c7af2" absoluteBounds="1.375, 3.75, 2, 1.5785953776041666">
       <DataClassMoniker Name="/QCTLinqDataContext/InsuranceBrokerEmail" />
       <nestedChildShapes>
         <elementListCompartment Id="f5f3a997-8994-4495-9272-5fc6441dae75" absoluteBounds="1.3900000000000001, 4.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3.375 : 4.15625); (7.8281225 : 4.15625); (7.8281225 : 5.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/QCTLinqDataContext/InsuranceBrokerEmail/InsuranceBrokerEmail_InsurancePolicy" />
-      <nodes>
-        <classShapeMoniker Id="300376fe-0862-4c33-b544-6adca79c7af2" />
-        <classShapeMoniker Id="72154a80-9e02-4159-a1dc-3e136c26738e" />
-      </nodes>
-    </associationConnector>
     <associationConnector edgePoints="[(3.75 : 4.97679768880208); (3.375 : 4.97679768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QCTLinqDataContext/InsuranceBroker/InsuranceBroker_InsuranceBrokerEmail" />
       <nodes>
@@ -273,18 +225,79 @@
         <elementListCompartment Id="92b86459-e4ef-4e4c-8e9f-d2d2b56e1a10" absoluteBounds="6.765, 14.21, 1.9700000000000002, 3.1339111328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 15.845400390625); (2.94791916666667 : 15.845400390625 : JumpStart); (3.20833333333333 : 15.845400390625 : JumpEnd); (3.29166666666667 : 15.845400390625 : JumpStart); (3.45833333333333 : 15.845400390625 : JumpEnd); (6.75 : 15.845400390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 15.845400390625); (2.94791916666667 : 15.845400390625 : JumpStart); (3.20833333333333 : 15.845400390625 : JumpEnd); (3.29166666666667 : 15.845400390625 : JumpStart); (3.45833333333333 : 15.845400390625 : JumpEnd); (6.75 : 15.845400390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QCTLinqDataContext/Contractor/Contractor_WSIB" />
       <nodes>
         <classShapeMoniker Id="6d3e4dd6-5d4f-44cf-b79d-c83221b05210" />
         <classShapeMoniker Id="f7367bd1-1e07-4db2-8887-bc76ebf9a629" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.65625 : 26); (5.65625 : 16.2352026953125); (6.75 : 16.2352026953125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.65625 : 26); (5.65625 : 16.2352026953125); (6.75 : 16.2352026953125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/QCTLinqDataContext/TypeOfWSIB/TypeOfWSIB_WSIB" />
       <nodes>
         <classShapeMoniker Id="90a01a00-b71a-46d6-8b46-01775e9fcba3" />
         <classShapeMoniker Id="f7367bd1-1e07-4db2-8887-bc76ebf9a629" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="71028b51-a966-4aae-b71e-bccf39b06c47" absoluteBounds="6.75, 5.75, 2, 5.8092268880208326">
+      <DataClassMoniker Name="/QCTLinqDataContext/InsurancePolicy" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c4bdeee-c3cb-4134-9bb6-a6d99632de3c" absoluteBounds="6.765, 6.21, 1.9700000000000002, 5.249226888020833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.75 : 5.1874995); (6.04166666666667 : 5.1874995 : JumpStart); (6.20833333333333 : 5.1874995 : JumpEnd); (7.13541416666667 : 5.1874995 : JumpStart); (7.30208083333333 : 5.1874995 : JumpEnd); (7.75 : 5.1874995); (7.75 : 5.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QCTLinqDataContext/InsuranceBroker/InsuranceBroker_InsurancePolicy" />
+      <nodes>
+        <classShapeMoniker Id="eddf6556-3a08-4359-ab88-d892a4b3b0e8" />
+        <classShapeMoniker Id="71028b51-a966-4aae-b71e-bccf39b06c47" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 13.3130759230769); (2.97232693490112 : 13.0907489881758 : JumpStart); (3.18392556509888 : 12.879150357978 : JumpEnd); (3.1875 : 12.8755759230769); (3.1875 : 9.38064697265625); (6.04166666666667 : 9.38064697265625 : JumpStart); (6.20833333333333 : 9.38064697265625 : JumpEnd); (6.75 : 9.38064697265625)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QCTLinqDataContext/Contractor/Contractor_InsurancePolicy" />
+      <nodes>
+        <classShapeMoniker Id="6d3e4dd6-5d4f-44cf-b79d-c83221b05210" />
+        <classShapeMoniker Id="71028b51-a966-4aae-b71e-bccf39b06c47" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.375 : 4.15625); (6.04166666666667 : 4.15625 : JumpStart); (6.20833333333333 : 4.15625 : JumpEnd); (7.2187475 : 4.15625); (7.2187475 : 5.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QCTLinqDataContext/InsuranceBrokerEmail/InsuranceBrokerEmail_InsurancePolicy" />
+      <nodes>
+        <classShapeMoniker Id="300376fe-0862-4c33-b544-6adca79c7af2" />
+        <classShapeMoniker Id="71028b51-a966-4aae-b71e-bccf39b06c47" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.375 : 10.0392976888021); (8.75 : 10.0392976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QCTLinqDataContext/InsuranceCompany/InsuranceCompany_InsurancePolicy" />
+      <nodes>
+        <classShapeMoniker Id="cbea116a-8533-45e1-9e7b-60b2fde2d1a0" />
+        <classShapeMoniker Id="71028b51-a966-4aae-b71e-bccf39b06c47" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 7.44314697265625); (6.04166666666667 : 7.44314697265625 : JumpStart); (6.20833333333333 : 7.44314697265625 : JumpEnd); (6.75 : 7.44314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QCTLinqDataContext/PolicyLimit/PolicyLimit_InsurancePolicy" />
+      <nodes>
+        <classShapeMoniker Id="4892d059-00d5-4b0c-987a-21a046ea676e" />
+        <classShapeMoniker Id="71028b51-a966-4aae-b71e-bccf39b06c47" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.75 : 3.2612939453125); (6.125 : 3.6362939453125); (6.125 : 10.5011889303385); (6.75 : 10.5011889303385)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QCTLinqDataContext/TypeOfPolicy/TypeOfPolicy_InsurancePolicy" />
+      <nodes>
+        <classShapeMoniker Id="655822f9-02d0-45ca-8ab2-c31981a32728" />
+        <classShapeMoniker Id="71028b51-a966-4aae-b71e-bccf39b06c47" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="157342b6-398f-43ce-b94f-36c61fdefe92" absoluteBounds="10, 6.125, 2, 1.3862939453125">
+      <DataClassMoniker Name="/QCTLinqDataContext/InsuranceNonOwnedAuto" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f56d02ac-096d-48f0-9d65-a8f3fc48808f" absoluteBounds="10.015, 6.585, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(10 : 6.81814697265625); (8.75 : 6.81814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QCTLinqDataContext/InsuranceNonOwnedAuto/InsuranceNonOwnedAuto_InsurancePolicy" />
+      <nodes>
+        <classShapeMoniker Id="157342b6-398f-43ce-b94f-36c61fdefe92" />
+        <classShapeMoniker Id="71028b51-a966-4aae-b71e-bccf39b06c47" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

@@ -25,7 +25,7 @@ namespace Qualified_Contractor_Tracking.InsurancePolicies
                     lblTenantsLegalLiability.Text = ins.TenantsLegalLiability.ToYesNoString();
                     lblPerOccurance.Text = ins.PerOccurance.ToYesNoString();
                     lblProductsCompletedOps.Text = ins.ProductsCompletedOps.ToYesNoString();
-                    lblNonOwnedAuto.Text = ins.NonOwnedAuto.ToYesNoString();
+                    lblNonOwnedAuto.Text = ins.NonOwnedAuto.HasValue ? ins.InsuranceNonOwnedAuto.Value : String.Empty;
                     lblCrossLiability.Text = ins.CrossLiability.ToYesNoString();
                     lblNorCountAddIns.Text = ins.NCasAddIns.ToYesNoString();
                     lblPolicyNumber.Text = ins.PolicyNumber;
@@ -33,8 +33,8 @@ namespace Qualified_Contractor_Tracking.InsurancePolicies
                     lblExpiryDate.Text = ins.ExpiryDate.DisplayDate();
                     lblInsComp.Text = ins.InsuranceCompany1.Name;
                     lblInsEmail.Text = "<a href='"+ ins.InsuranceCompany1.Email + "'>" + ins.InsuranceCompany1.Email + "</a>";
-                    lblBroker.Text = ins.InsuranceBroker.Name;
-                    lblBrokerEmail.Text = ins.BrokerEmailID.HasValue ? ins.InsuranceBrokerEmail.Email : "No email address";
+                    lblBroker.Text = ins.BrokerID.HasValue ? ins.InsuranceBroker.Name : String.Empty;
+                    lblBrokerEmail.Text = ins.BrokerEmailID.HasValue ? ins.InsuranceBrokerEmail.Email : String.Empty;
                     lblCertSigned.Text = ins.CertSigned.ToYesNoString();
 
                     // build the paths for the file and the link to it.

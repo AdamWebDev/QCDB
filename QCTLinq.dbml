@@ -25,8 +25,8 @@
       <Association Name="Contractor_Licence" Member="Licences" ThisKey="ID" OtherKey="cID" Type="Licence" />
       <Association Name="Contractor_Permit" Member="Permits" ThisKey="ID" OtherKey="cID" Type="Permit" />
       <Association Name="Contractor_Agreement" Member="Agreements" ThisKey="ID" OtherKey="cID" Type="Agreement" />
-      <Association Name="Contractor_InsurancePolicy" Member="InsurancePolicies" Storage="_Insurances" ThisKey="ID" OtherKey="cID" Type="InsurancePolicy" />
       <Association Name="Contractor_WSIB" Member="WSIBs" ThisKey="ID" OtherKey="cID" Type="WSIB" />
+      <Association Name="Contractor_InsurancePolicy" Member="InsurancePolicies" ThisKey="ID" OtherKey="cID" Type="InsurancePolicy" />
     </Type>
   </Table>
   <Table Name="dbo.ContractorsPhone" Member="ContractorsPhones">
@@ -63,8 +63,8 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
       <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="InsuranceBroker_InsurancePolicy" Member="InsurancePolicies" Storage="_Insurances" ThisKey="ID" OtherKey="BrokerID" Type="InsurancePolicy" />
       <Association Name="InsuranceBroker_InsuranceBrokerEmail" Member="InsuranceBrokerEmails" ThisKey="ID" OtherKey="bID" Type="InsuranceBrokerEmail" />
+      <Association Name="InsuranceBroker_InsurancePolicy" Member="InsurancePolicies" ThisKey="ID" OtherKey="BrokerID" Type="InsurancePolicy" />
     </Type>
   </Table>
   <Table Name="dbo.InsuranceCompanies" Member="InsuranceCompanies">
@@ -73,7 +73,7 @@
       <Column Name="Name" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="InsuranceCompany_InsurancePolicy" Member="InsurancePolicies" Storage="_Insurances" ThisKey="ID" OtherKey="insID" Type="InsurancePolicy" />
+      <Association Name="InsuranceCompany_InsurancePolicy" Member="InsurancePolicies" ThisKey="ID" OtherKey="insID" Type="InsurancePolicy" />
     </Type>
   </Table>
   <Table Name="dbo.Licences" Member="Licences">
@@ -122,7 +122,7 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Value" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="PolicyLimit_InsurancePolicy" Member="InsurancePolicies" Storage="_Insurances" ThisKey="ID" OtherKey="PolicyLimit" Type="InsurancePolicy" />
+      <Association Name="PolicyLimit_InsurancePolicy" Member="InsurancePolicies" ThisKey="ID" OtherKey="PolicyLimit" Type="InsurancePolicy" />
     </Type>
   </Table>
   <Table Name="dbo.Securities" Member="Securities">
@@ -161,7 +161,7 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Type" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
       <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="TypeOfPolicy_InsurancePolicy" Member="InsurancePolicies" Storage="_Insurances" ThisKey="ID" OtherKey="TypeOfPolicy" Type="InsurancePolicy" />
+      <Association Name="TypeOfPolicy_InsurancePolicy" Member="InsurancePolicies" ThisKey="ID" OtherKey="TypeOfPolicy" Type="InsurancePolicy" />
     </Type>
   </Table>
   <Table Name="dbo.TypeOfWSIBs" Member="TypeOfWSIBs">
@@ -227,42 +227,6 @@
       <Association Name="TypeOfAgreement_Agreement" Member="TypeOfAgreement1" ThisKey="TypeOfAgreement" OtherKey="ID" Type="TypeOfAgreement" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Insurance" Member="InsurancePolicies">
-    <Type Name="InsurancePolicy">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="cID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="CertReqFor" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="TypeOfPolicy" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ExemptFromAuto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="PerOccurance" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="ProductsCompletedOps" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="NonOwnedAuto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="CrossLiability" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="NCasAddIns" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="PolicyNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="PolicyLimit" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PolicyLimitOther" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
-      <Column Name="ExpiryDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="InsuranceCompany" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="insID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="InsEmail" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="BrokerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="BrokerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BrokerEmailID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BrokerAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="BrokerEmail" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="CertSigned" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="TenantsLegalLiability" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="InsuranceBroker_InsurancePolicy" Member="InsuranceBroker" ThisKey="BrokerID" OtherKey="ID" Type="InsuranceBroker" IsForeignKey="true" />
-      <Association Name="Contractor_InsurancePolicy" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
-      <Association Name="InsuranceCompany_InsurancePolicy" Member="InsuranceCompany1" ThisKey="insID" OtherKey="ID" Type="InsuranceCompany" IsForeignKey="true" />
-      <Association Name="PolicyLimit_InsurancePolicy" Member="PolicyLimit1" ThisKey="PolicyLimit" OtherKey="ID" Type="PolicyLimit" IsForeignKey="true" />
-      <Association Name="TypeOfPolicy_InsurancePolicy" Member="TypeOfPolicy1" ThisKey="TypeOfPolicy" OtherKey="ID" Type="TypeOfPolicy" IsForeignKey="true" />
-      <Association Name="InsuranceBrokerEmail_InsurancePolicy" Member="InsuranceBrokerEmail" ThisKey="BrokerEmailID" OtherKey="ID" Type="InsuranceBrokerEmail" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.InsuranceBrokerEmails" Member="InsuranceBrokerEmails">
     <Type Name="InsuranceBrokerEmail">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -292,6 +256,51 @@
       <Column Name="HSPolicy" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
       <Association Name="Contractor_WSIB" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
       <Association Name="TypeOfWSIB_WSIB" Member="TypeOfWSIB" ThisKey="WSIBCoverage" OtherKey="ID" Type="TypeOfWSIB" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Insurance" Member="InsurancePolicies">
+    <Type Name="InsurancePolicy">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CertReqFor" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TypeOfPolicy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExemptFromAuto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PerOccurance" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ProductsCompletedOps" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NonOwnedAuto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CrossLiability" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NCasAddIns" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PolicyNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PolicyLimit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PolicyLimitOther" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="ExpiryDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="InsuranceCompany" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="insID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="InsEmail" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="BrokerName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BrokerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BrokerEmailID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BrokerAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BrokerEmail" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CertSigned" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TenantsLegalLiability" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="InsuranceBroker_InsurancePolicy" Member="InsuranceBroker" ThisKey="BrokerID" OtherKey="ID" Type="InsuranceBroker" IsForeignKey="true" />
+      <Association Name="Contractor_InsurancePolicy" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
+      <Association Name="InsuranceBrokerEmail_InsurancePolicy" Member="InsuranceBrokerEmail" ThisKey="BrokerEmailID" OtherKey="ID" Type="InsuranceBrokerEmail" IsForeignKey="true" />
+      <Association Name="InsuranceCompany_InsurancePolicy" Member="InsuranceCompany1" ThisKey="insID" OtherKey="ID" Type="InsuranceCompany" IsForeignKey="true" />
+      <Association Name="PolicyLimit_InsurancePolicy" Member="PolicyLimit1" ThisKey="PolicyLimit" OtherKey="ID" Type="PolicyLimit" IsForeignKey="true" />
+      <Association Name="TypeOfPolicy_InsurancePolicy" Member="TypeOfPolicy1" ThisKey="TypeOfPolicy" OtherKey="ID" Type="TypeOfPolicy" IsForeignKey="true" />
+      <Association Name="InsuranceNonOwnedAuto_InsurancePolicy" Member="InsuranceNonOwnedAuto" ThisKey="NonOwnedAuto" OtherKey="ID" Type="InsuranceNonOwnedAuto" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.InsuranceNonOwnedAuto" Member="InsuranceNonOwnedAutos">
+    <Type Name="InsuranceNonOwnedAuto">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="InsuranceNonOwnedAuto_InsurancePolicy" Member="InsurancePolicies" ThisKey="ID" OtherKey="NonOwnedAuto" Type="InsurancePolicy" />
     </Type>
   </Table>
 </Database>

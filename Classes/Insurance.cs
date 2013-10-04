@@ -29,6 +29,12 @@ namespace Qualified_Contractor_Tracking.Classes
             return db.PolicyLimits.ToList();
         }
 
+        public static List<InsuranceNonOwnedAuto> GetNonOwnedAuto()
+        {
+            QCTLinqDataContext db = new QCTLinqDataContext();
+            return db.InsuranceNonOwnedAutos.ToList();
+        }
+
         /// <summary>
         ///  Get a specific Insurance Policy 
         /// </summary>
