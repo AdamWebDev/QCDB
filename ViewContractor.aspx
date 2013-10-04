@@ -78,13 +78,21 @@ Contractor Details
     </asp:Repeater>
     <br /><br />
     <h4>Services Available</h4>
+    <div class="services-available">
     <asp:Repeater ID="rptJobs" runat="server">
         <ItemTemplate>
             <span class="tag">
             <asp:Label ID="lblJob" runat="server" Text='<%# Eval("JobTitle") %>'></asp:Label>
             </span>
+            
         </ItemTemplate>
     </asp:Repeater>
+    </div>
+    <div class="clear"></div>
+    <br /><br />
+    <h4>Contractor Notes</h4>
+    <asp:Label ID="lblContractorNotes" runat="server"></asp:Label>
+
     </div>
     <div class="clear"></div>
     

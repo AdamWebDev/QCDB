@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditContractor.aspx.cs" Inherits="Qualified_Contractor_Tracking.EditContractor" %>
+﻿<%@ Page Title="Edit Contractor" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditContractor.aspx.cs" Inherits="Qualified_Contractor_Tracking.EditContractor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">Qualified Contractor Database</asp:Content>
 <asp:Content ID="Button" ContentPlaceHolderID="Buttons" runat="server">
     <uc3:NavButton ID="btnCancel" runat="server" Icon="~/resources/images/icons/back.png" AltText="Back" Text="Back to View Contractor" />
@@ -115,6 +115,17 @@
                 </ContentTemplate>
                 <Triggers>
                     <asp:AsyncPostBackTrigger ControlID="btnSaveJobs" EventName="Click" />
+                </Triggers>
+            </asp:UpdatePanel>
+
+            <asp:UpdatePanel ID="UpdatePanelNotes" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <h4>Contactor Notes</h4>
+                    <asp:TextBox ID="txtContratorNotes" runat="server" TextMode="MultiLine" Rows="6" ></asp:TextBox>
+                    <asp:Button ID="btnSaveNotes" runat="server" Text="Save Notes" CssClass="button" OnClick="btnSaveNotes_Click"/> <asp:Label ID="lblNotesSaved" runat="server" Text="Saved!" Visible="false"></asp:Label>
+                </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="btnSaveNotes" EventName="Click" />
                 </Triggers>
             </asp:UpdatePanel>
             

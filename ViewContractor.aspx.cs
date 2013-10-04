@@ -36,6 +36,7 @@ namespace Qualified_Contractor_Tracking
                 ltNCContact.Text = c.NCContact;
                 notExemptFromAuto.Visible = c.ExemptFromAuto == true ? true : false;
                 notExemptFromAuto.Message = c.ExemptFromAuto == true ? "This contractor is exempt from auto insurance: " + c.ExemptFromAutoComments : String.Empty;
+                lblContractorNotes.Text = (c.Notes == null || c.Notes.Equals(String.Empty)) ? "No notes for this contractor." : c.Notes;
 
                 rptPhones.DataSource = Contractors.GetPhoneNumbers(ID);
                 rptPhones.DataBind();

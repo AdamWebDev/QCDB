@@ -130,6 +130,15 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.WebControls.Repeater rptJobs;
         
         /// <summary>
+        /// lblContractorNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContractorNotes;
+        
+        /// <summary>
         /// notExemptFromAuto control.
         /// </summary>
         /// <remarks>

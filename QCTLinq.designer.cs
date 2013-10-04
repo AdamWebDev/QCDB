@@ -33,9 +33,6 @@ namespace Qualified_Contractor_Tracking
     partial void InsertAgreementsSigned(AgreementsSigned instance);
     partial void UpdateAgreementsSigned(AgreementsSigned instance);
     partial void DeleteAgreementsSigned(AgreementsSigned instance);
-    partial void InsertContractor(Contractor instance);
-    partial void UpdateContractor(Contractor instance);
-    partial void DeleteContractor(Contractor instance);
     partial void InsertContractorsPhone(ContractorsPhone instance);
     partial void UpdateContractorsPhone(ContractorsPhone instance);
     partial void DeleteContractorsPhone(ContractorsPhone instance);
@@ -99,6 +96,9 @@ namespace Qualified_Contractor_Tracking
     partial void InsertInsuranceNonOwnedAuto(InsuranceNonOwnedAuto instance);
     partial void UpdateInsuranceNonOwnedAuto(InsuranceNonOwnedAuto instance);
     partial void DeleteInsuranceNonOwnedAuto(InsuranceNonOwnedAuto instance);
+    partial void InsertContractor(Contractor instance);
+    partial void UpdateContractor(Contractor instance);
+    partial void DeleteContractor(Contractor instance);
     #endregion
 		
 		public QCTLinqDataContext() : 
@@ -136,14 +136,6 @@ namespace Qualified_Contractor_Tracking
 			get
 			{
 				return this.GetTable<AgreementsSigned>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Contractor> Contractors
-		{
-			get
-			{
-				return this.GetTable<Contractor>();
 			}
 		}
 		
@@ -322,6 +314,14 @@ namespace Qualified_Contractor_Tracking
 				return this.GetTable<InsuranceNonOwnedAuto>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Contractor> Contractors
+		{
+			get
+			{
+				return this.GetTable<Contractor>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AgreementsSigned")]
@@ -462,476 +462,6 @@ namespace Qualified_Contractor_Tracking
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Contractors")]
-	public partial class Contractor : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _Company;
-		
-		private string _VendorNumber;
-		
-		private string _ContactName;
-		
-		private string _MailingAddress;
-		
-		private string _Town;
-		
-		private string _PostalCode;
-		
-		private string _Email;
-		
-		private string _NCContact;
-		
-		private System.Nullable<bool> _ExemptFromAuto;
-		
-		private string _ExemptFromAutoComments;
-		
-		private EntitySet<ContractorsPhone> _ContractorsPhones;
-		
-		private EntitySet<Licence> _Licences;
-		
-		private EntitySet<Permit> _Permits;
-		
-		private EntitySet<Agreement> _Agreements;
-		
-		private EntitySet<WSIB> _WSIBs;
-		
-		private EntitySet<InsurancePolicy> _InsurancePolicies;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnCompanyChanging(string value);
-    partial void OnCompanyChanged();
-    partial void OnVendorNumberChanging(string value);
-    partial void OnVendorNumberChanged();
-    partial void OnContactNameChanging(string value);
-    partial void OnContactNameChanged();
-    partial void OnMailingAddressChanging(string value);
-    partial void OnMailingAddressChanged();
-    partial void OnTownChanging(string value);
-    partial void OnTownChanged();
-    partial void OnPostalCodeChanging(string value);
-    partial void OnPostalCodeChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnNCContactChanging(string value);
-    partial void OnNCContactChanged();
-    partial void OnExemptFromAutoChanging(System.Nullable<bool> value);
-    partial void OnExemptFromAutoChanged();
-    partial void OnExemptFromAutoCommentsChanging(string value);
-    partial void OnExemptFromAutoCommentsChanged();
-    #endregion
-		
-		public Contractor()
-		{
-			this._ContractorsPhones = new EntitySet<ContractorsPhone>(new Action<ContractorsPhone>(this.attach_ContractorsPhones), new Action<ContractorsPhone>(this.detach_ContractorsPhones));
-			this._Licences = new EntitySet<Licence>(new Action<Licence>(this.attach_Licences), new Action<Licence>(this.detach_Licences));
-			this._Permits = new EntitySet<Permit>(new Action<Permit>(this.attach_Permits), new Action<Permit>(this.detach_Permits));
-			this._Agreements = new EntitySet<Agreement>(new Action<Agreement>(this.attach_Agreements), new Action<Agreement>(this.detach_Agreements));
-			this._WSIBs = new EntitySet<WSIB>(new Action<WSIB>(this.attach_WSIBs), new Action<WSIB>(this.detach_WSIBs));
-			this._InsurancePolicies = new EntitySet<InsurancePolicy>(new Action<InsurancePolicy>(this.attach_InsurancePolicies), new Action<InsurancePolicy>(this.detach_InsurancePolicies));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Company", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string Company
-		{
-			get
-			{
-				return this._Company;
-			}
-			set
-			{
-				if ((this._Company != value))
-				{
-					this.OnCompanyChanging(value);
-					this.SendPropertyChanging();
-					this._Company = value;
-					this.SendPropertyChanged("Company");
-					this.OnCompanyChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VendorNumber", DbType="NVarChar(50)")]
-		public string VendorNumber
-		{
-			get
-			{
-				return this._VendorNumber;
-			}
-			set
-			{
-				if ((this._VendorNumber != value))
-				{
-					this.OnVendorNumberChanging(value);
-					this.SendPropertyChanging();
-					this._VendorNumber = value;
-					this.SendPropertyChanged("VendorNumber");
-					this.OnVendorNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactName", DbType="NVarChar(100)")]
-		public string ContactName
-		{
-			get
-			{
-				return this._ContactName;
-			}
-			set
-			{
-				if ((this._ContactName != value))
-				{
-					this.OnContactNameChanging(value);
-					this.SendPropertyChanging();
-					this._ContactName = value;
-					this.SendPropertyChanged("ContactName");
-					this.OnContactNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailingAddress", DbType="NVarChar(255)")]
-		public string MailingAddress
-		{
-			get
-			{
-				return this._MailingAddress;
-			}
-			set
-			{
-				if ((this._MailingAddress != value))
-				{
-					this.OnMailingAddressChanging(value);
-					this.SendPropertyChanging();
-					this._MailingAddress = value;
-					this.SendPropertyChanged("MailingAddress");
-					this.OnMailingAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Town", DbType="NVarChar(50)")]
-		public string Town
-		{
-			get
-			{
-				return this._Town;
-			}
-			set
-			{
-				if ((this._Town != value))
-				{
-					this.OnTownChanging(value);
-					this.SendPropertyChanging();
-					this._Town = value;
-					this.SendPropertyChanged("Town");
-					this.OnTownChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostalCode", DbType="NVarChar(10)")]
-		public string PostalCode
-		{
-			get
-			{
-				return this._PostalCode;
-			}
-			set
-			{
-				if ((this._PostalCode != value))
-				{
-					this.OnPostalCodeChanging(value);
-					this.SendPropertyChanging();
-					this._PostalCode = value;
-					this.SendPropertyChanged("PostalCode");
-					this.OnPostalCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(255)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NCContact", DbType="NVarChar(100)")]
-		public string NCContact
-		{
-			get
-			{
-				return this._NCContact;
-			}
-			set
-			{
-				if ((this._NCContact != value))
-				{
-					this.OnNCContactChanging(value);
-					this.SendPropertyChanging();
-					this._NCContact = value;
-					this.SendPropertyChanged("NCContact");
-					this.OnNCContactChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExemptFromAuto", DbType="Bit")]
-		public System.Nullable<bool> ExemptFromAuto
-		{
-			get
-			{
-				return this._ExemptFromAuto;
-			}
-			set
-			{
-				if ((this._ExemptFromAuto != value))
-				{
-					this.OnExemptFromAutoChanging(value);
-					this.SendPropertyChanging();
-					this._ExemptFromAuto = value;
-					this.SendPropertyChanged("ExemptFromAuto");
-					this.OnExemptFromAutoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExemptFromAutoComments", DbType="Text", UpdateCheck=UpdateCheck.Never)]
-		public string ExemptFromAutoComments
-		{
-			get
-			{
-				return this._ExemptFromAutoComments;
-			}
-			set
-			{
-				if ((this._ExemptFromAutoComments != value))
-				{
-					this.OnExemptFromAutoCommentsChanging(value);
-					this.SendPropertyChanging();
-					this._ExemptFromAutoComments = value;
-					this.SendPropertyChanged("ExemptFromAutoComments");
-					this.OnExemptFromAutoCommentsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_ContractorsPhone", Storage="_ContractorsPhones", ThisKey="ID", OtherKey="cID")]
-		public EntitySet<ContractorsPhone> ContractorsPhones
-		{
-			get
-			{
-				return this._ContractorsPhones;
-			}
-			set
-			{
-				this._ContractorsPhones.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_Licence", Storage="_Licences", ThisKey="ID", OtherKey="cID")]
-		public EntitySet<Licence> Licences
-		{
-			get
-			{
-				return this._Licences;
-			}
-			set
-			{
-				this._Licences.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_Permit", Storage="_Permits", ThisKey="ID", OtherKey="cID")]
-		public EntitySet<Permit> Permits
-		{
-			get
-			{
-				return this._Permits;
-			}
-			set
-			{
-				this._Permits.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_Agreement", Storage="_Agreements", ThisKey="ID", OtherKey="cID")]
-		public EntitySet<Agreement> Agreements
-		{
-			get
-			{
-				return this._Agreements;
-			}
-			set
-			{
-				this._Agreements.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_WSIB", Storage="_WSIBs", ThisKey="ID", OtherKey="cID")]
-		public EntitySet<WSIB> WSIBs
-		{
-			get
-			{
-				return this._WSIBs;
-			}
-			set
-			{
-				this._WSIBs.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_InsurancePolicy", Storage="_InsurancePolicies", ThisKey="ID", OtherKey="cID")]
-		public EntitySet<InsurancePolicy> InsurancePolicies
-		{
-			get
-			{
-				return this._InsurancePolicies;
-			}
-			set
-			{
-				this._InsurancePolicies.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_ContractorsPhones(ContractorsPhone entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contractor = this;
-		}
-		
-		private void detach_ContractorsPhones(ContractorsPhone entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contractor = null;
-		}
-		
-		private void attach_Licences(Licence entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contractor = this;
-		}
-		
-		private void detach_Licences(Licence entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contractor = null;
-		}
-		
-		private void attach_Permits(Permit entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contractor = this;
-		}
-		
-		private void detach_Permits(Permit entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contractor = null;
-		}
-		
-		private void attach_Agreements(Agreement entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contractor = this;
-		}
-		
-		private void detach_Agreements(Agreement entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contractor = null;
-		}
-		
-		private void attach_WSIBs(WSIB entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contractor = this;
-		}
-		
-		private void detach_WSIBs(WSIB entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contractor = null;
-		}
-		
-		private void attach_InsurancePolicies(InsurancePolicy entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contractor = this;
-		}
-		
-		private void detach_InsurancePolicies(InsurancePolicy entity)
-		{
-			this.SendPropertyChanging();
-			entity.Contractor = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ContractorsPhone")]
 	public partial class ContractorsPhone : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -946,9 +476,9 @@ namespace Qualified_Contractor_Tracking
 		
 		private string _PhoneNumber;
 		
-		private EntityRef<Contractor> _Contractor;
-		
 		private EntityRef<lookupPhoneType> _lookupPhoneType;
+		
+		private EntityRef<Contractor> _Contractor;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -966,8 +496,8 @@ namespace Qualified_Contractor_Tracking
 		
 		public ContractorsPhone()
 		{
-			this._Contractor = default(EntityRef<Contractor>);
 			this._lookupPhoneType = default(EntityRef<lookupPhoneType>);
+			this._Contractor = default(EntityRef<Contractor>);
 			OnCreated();
 		}
 		
@@ -1059,40 +589,6 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_ContractorsPhone", Storage="_Contractor", ThisKey="cID", OtherKey="ID", IsForeignKey=true)]
-		public Contractor Contractor
-		{
-			get
-			{
-				return this._Contractor.Entity;
-			}
-			set
-			{
-				Contractor previousValue = this._Contractor.Entity;
-				if (((previousValue != value) 
-							|| (this._Contractor.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Contractor.Entity = null;
-						previousValue.ContractorsPhones.Remove(this);
-					}
-					this._Contractor.Entity = value;
-					if ((value != null))
-					{
-						value.ContractorsPhones.Add(this);
-						this._cID = value.ID;
-					}
-					else
-					{
-						this._cID = default(int);
-					}
-					this.SendPropertyChanged("Contractor");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="lookupPhoneType_ContractorsPhone", Storage="_lookupPhoneType", ThisKey="PhoneType", OtherKey="ID", IsForeignKey=true)]
 		public lookupPhoneType lookupPhoneType
 		{
@@ -1123,6 +619,40 @@ namespace Qualified_Contractor_Tracking
 						this._PhoneType = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("lookupPhoneType");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_ContractorsPhone", Storage="_Contractor", ThisKey="cID", OtherKey="ID", IsForeignKey=true)]
+		public Contractor Contractor
+		{
+			get
+			{
+				return this._Contractor.Entity;
+			}
+			set
+			{
+				Contractor previousValue = this._Contractor.Entity;
+				if (((previousValue != value) 
+							|| (this._Contractor.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Contractor.Entity = null;
+						previousValue.ContractorsPhones.Remove(this);
+					}
+					this._Contractor.Entity = value;
+					if ((value != null))
+					{
+						value.ContractorsPhones.Add(this);
+						this._cID = value.ID;
+					}
+					else
+					{
+						this._cID = default(int);
+					}
+					this.SendPropertyChanged("Contractor");
 				}
 			}
 		}
@@ -1863,9 +1393,9 @@ namespace Qualified_Contractor_Tracking
 		
 		private System.Nullable<int> _Dept;
 		
-		private EntityRef<Contractor> _Contractor;
-		
 		private EntityRef<Division> _Division;
+		
+		private EntityRef<Contractor> _Contractor;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1887,8 +1417,8 @@ namespace Qualified_Contractor_Tracking
 		
 		public Licence()
 		{
-			this._Contractor = default(EntityRef<Contractor>);
 			this._Division = default(EntityRef<Division>);
+			this._Contractor = default(EntityRef<Contractor>);
 			OnCreated();
 		}
 		
@@ -2020,40 +1550,6 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_Licence", Storage="_Contractor", ThisKey="cID", OtherKey="ID", IsForeignKey=true)]
-		public Contractor Contractor
-		{
-			get
-			{
-				return this._Contractor.Entity;
-			}
-			set
-			{
-				Contractor previousValue = this._Contractor.Entity;
-				if (((previousValue != value) 
-							|| (this._Contractor.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Contractor.Entity = null;
-						previousValue.Licences.Remove(this);
-					}
-					this._Contractor.Entity = value;
-					if ((value != null))
-					{
-						value.Licences.Add(this);
-						this._cID = value.ID;
-					}
-					else
-					{
-						this._cID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Contractor");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Division_Licence", Storage="_Division", ThisKey="Dept", OtherKey="ID", IsForeignKey=true)]
 		public Division Division
 		{
@@ -2084,6 +1580,40 @@ namespace Qualified_Contractor_Tracking
 						this._Dept = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Division");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_Licence", Storage="_Contractor", ThisKey="cID", OtherKey="ID", IsForeignKey=true)]
+		public Contractor Contractor
+		{
+			get
+			{
+				return this._Contractor.Entity;
+			}
+			set
+			{
+				Contractor previousValue = this._Contractor.Entity;
+				if (((previousValue != value) 
+							|| (this._Contractor.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Contractor.Entity = null;
+						previousValue.Licences.Remove(this);
+					}
+					this._Contractor.Entity = value;
+					if ((value != null))
+					{
+						value.Licences.Add(this);
+						this._cID = value.ID;
+					}
+					else
+					{
+						this._cID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Contractor");
 				}
 			}
 		}
@@ -2405,9 +1935,9 @@ namespace Qualified_Contractor_Tracking
 		
 		private System.Nullable<System.DateTime> _ExpDate;
 		
-		private EntityRef<Contractor> _Contractor;
-		
 		private EntityRef<TypeOfPermit> _TypeOfPermit1;
+		
+		private EntityRef<Contractor> _Contractor;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2431,8 +1961,8 @@ namespace Qualified_Contractor_Tracking
 		
 		public Permit()
 		{
-			this._Contractor = default(EntityRef<Contractor>);
 			this._TypeOfPermit1 = default(EntityRef<TypeOfPermit>);
+			this._Contractor = default(EntityRef<Contractor>);
 			OnCreated();
 		}
 		
@@ -2584,40 +2114,6 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_Permit", Storage="_Contractor", ThisKey="cID", OtherKey="ID", IsForeignKey=true)]
-		public Contractor Contractor
-		{
-			get
-			{
-				return this._Contractor.Entity;
-			}
-			set
-			{
-				Contractor previousValue = this._Contractor.Entity;
-				if (((previousValue != value) 
-							|| (this._Contractor.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Contractor.Entity = null;
-						previousValue.Permits.Remove(this);
-					}
-					this._Contractor.Entity = value;
-					if ((value != null))
-					{
-						value.Permits.Add(this);
-						this._cID = value.ID;
-					}
-					else
-					{
-						this._cID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Contractor");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TypeOfPermit_Permit", Storage="_TypeOfPermit1", ThisKey="TypeOfPermit", OtherKey="ID", IsForeignKey=true)]
 		public TypeOfPermit TypeOfPermit1
 		{
@@ -2648,6 +2144,40 @@ namespace Qualified_Contractor_Tracking
 						this._TypeOfPermit = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("TypeOfPermit1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_Permit", Storage="_Contractor", ThisKey="cID", OtherKey="ID", IsForeignKey=true)]
+		public Contractor Contractor
+		{
+			get
+			{
+				return this._Contractor.Entity;
+			}
+			set
+			{
+				Contractor previousValue = this._Contractor.Entity;
+				if (((previousValue != value) 
+							|| (this._Contractor.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Contractor.Entity = null;
+						previousValue.Permits.Remove(this);
+					}
+					this._Contractor.Entity = value;
+					if ((value != null))
+					{
+						value.Permits.Add(this);
+						this._cID = value.ID;
+					}
+					else
+					{
+						this._cID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Contractor");
 				}
 			}
 		}
@@ -3935,11 +3465,11 @@ namespace Qualified_Contractor_Tracking
 		
 		private EntityRef<AgreementsSigned> _AgreementsSigned;
 		
-		private EntityRef<Contractor> _Contractor;
-		
 		private EntityRef<Division> _Division;
 		
 		private EntityRef<TypeOfAgreement> _TypeOfAgreement1;
+		
+		private EntityRef<Contractor> _Contractor;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -4010,9 +3540,9 @@ namespace Qualified_Contractor_Tracking
 		public Agreement()
 		{
 			this._AgreementsSigned = default(EntityRef<AgreementsSigned>);
-			this._Contractor = default(EntityRef<Contractor>);
 			this._Division = default(EntityRef<Division>);
 			this._TypeOfAgreement1 = default(EntityRef<TypeOfAgreement>);
+			this._Contractor = default(EntityRef<Contractor>);
 			OnCreated();
 		}
 		
@@ -4666,40 +4196,6 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_Agreement", Storage="_Contractor", ThisKey="cID", OtherKey="ID", IsForeignKey=true)]
-		public Contractor Contractor
-		{
-			get
-			{
-				return this._Contractor.Entity;
-			}
-			set
-			{
-				Contractor previousValue = this._Contractor.Entity;
-				if (((previousValue != value) 
-							|| (this._Contractor.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Contractor.Entity = null;
-						previousValue.Agreements.Remove(this);
-					}
-					this._Contractor.Entity = value;
-					if ((value != null))
-					{
-						value.Agreements.Add(this);
-						this._cID = value.ID;
-					}
-					else
-					{
-						this._cID = default(int);
-					}
-					this.SendPropertyChanged("Contractor");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Division_Agreement", Storage="_Division", ThisKey="CRCDept", OtherKey="ID", IsForeignKey=true)]
 		public Division Division
 		{
@@ -4764,6 +4260,40 @@ namespace Qualified_Contractor_Tracking
 						this._TypeOfAgreement = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("TypeOfAgreement1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_Agreement", Storage="_Contractor", ThisKey="cID", OtherKey="ID", IsForeignKey=true)]
+		public Contractor Contractor
+		{
+			get
+			{
+				return this._Contractor.Entity;
+			}
+			set
+			{
+				Contractor previousValue = this._Contractor.Entity;
+				if (((previousValue != value) 
+							|| (this._Contractor.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Contractor.Entity = null;
+						previousValue.Agreements.Remove(this);
+					}
+					this._Contractor.Entity = value;
+					if ((value != null))
+					{
+						value.Agreements.Add(this);
+						this._cID = value.ID;
+					}
+					else
+					{
+						this._cID = default(int);
+					}
+					this.SendPropertyChanged("Contractor");
 				}
 			}
 		}
@@ -5028,9 +4558,9 @@ namespace Qualified_Contractor_Tracking
 		
 		private string _HSPolicy;
 		
-		private EntityRef<Contractor> _Contractor;
-		
 		private EntityRef<TypeOfWSIB> _TypeOfWSIB;
+		
+		private EntityRef<Contractor> _Contractor;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -5070,8 +4600,8 @@ namespace Qualified_Contractor_Tracking
 		
 		public WSIB()
 		{
-			this._Contractor = default(EntityRef<Contractor>);
 			this._TypeOfWSIB = default(EntityRef<TypeOfWSIB>);
+			this._Contractor = default(EntityRef<Contractor>);
 			OnCreated();
 		}
 		
@@ -5383,40 +4913,6 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_WSIB", Storage="_Contractor", ThisKey="cID", OtherKey="ID", IsForeignKey=true)]
-		public Contractor Contractor
-		{
-			get
-			{
-				return this._Contractor.Entity;
-			}
-			set
-			{
-				Contractor previousValue = this._Contractor.Entity;
-				if (((previousValue != value) 
-							|| (this._Contractor.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Contractor.Entity = null;
-						previousValue.WSIBs.Remove(this);
-					}
-					this._Contractor.Entity = value;
-					if ((value != null))
-					{
-						value.WSIBs.Add(this);
-						this._cID = value.ID;
-					}
-					else
-					{
-						this._cID = default(Nullable<int>);
-					}
-					this.SendPropertyChanged("Contractor");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TypeOfWSIB_WSIB", Storage="_TypeOfWSIB", ThisKey="WSIBCoverage", OtherKey="ID", IsForeignKey=true)]
 		public TypeOfWSIB TypeOfWSIB
 		{
@@ -5447,6 +4943,40 @@ namespace Qualified_Contractor_Tracking
 						this._WSIBCoverage = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("TypeOfWSIB");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_WSIB", Storage="_Contractor", ThisKey="cID", OtherKey="ID", IsForeignKey=true)]
+		public Contractor Contractor
+		{
+			get
+			{
+				return this._Contractor.Entity;
+			}
+			set
+			{
+				Contractor previousValue = this._Contractor.Entity;
+				if (((previousValue != value) 
+							|| (this._Contractor.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Contractor.Entity = null;
+						previousValue.WSIBs.Remove(this);
+					}
+					this._Contractor.Entity = value;
+					if ((value != null))
+					{
+						value.WSIBs.Add(this);
+						this._cID = value.ID;
+					}
+					else
+					{
+						this._cID = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Contractor");
 				}
 			}
 		}
@@ -5532,8 +5062,6 @@ namespace Qualified_Contractor_Tracking
 		
 		private EntityRef<InsuranceBroker> _InsuranceBroker;
 		
-		private EntityRef<Contractor> _Contractor;
-		
 		private EntityRef<InsuranceBrokerEmail> _InsuranceBrokerEmail;
 		
 		private EntityRef<InsuranceCompany> _InsuranceCompany1;
@@ -5543,6 +5071,8 @@ namespace Qualified_Contractor_Tracking
 		private EntityRef<TypeOfPolicy> _TypeOfPolicy1;
 		
 		private EntityRef<InsuranceNonOwnedAuto> _InsuranceNonOwnedAuto;
+		
+		private EntityRef<Contractor> _Contractor;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -5605,12 +5135,12 @@ namespace Qualified_Contractor_Tracking
 		public InsurancePolicy()
 		{
 			this._InsuranceBroker = default(EntityRef<InsuranceBroker>);
-			this._Contractor = default(EntityRef<Contractor>);
 			this._InsuranceBrokerEmail = default(EntityRef<InsuranceBrokerEmail>);
 			this._InsuranceCompany1 = default(EntityRef<InsuranceCompany>);
 			this._PolicyLimit1 = default(EntityRef<PolicyLimit>);
 			this._TypeOfPolicy1 = default(EntityRef<TypeOfPolicy>);
 			this._InsuranceNonOwnedAuto = default(EntityRef<InsuranceNonOwnedAuto>);
+			this._Contractor = default(EntityRef<Contractor>);
 			OnCreated();
 		}
 		
@@ -6196,40 +5726,6 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_InsurancePolicy", Storage="_Contractor", ThisKey="cID", OtherKey="ID", IsForeignKey=true)]
-		public Contractor Contractor
-		{
-			get
-			{
-				return this._Contractor.Entity;
-			}
-			set
-			{
-				Contractor previousValue = this._Contractor.Entity;
-				if (((previousValue != value) 
-							|| (this._Contractor.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Contractor.Entity = null;
-						previousValue.InsurancePolicies.Remove(this);
-					}
-					this._Contractor.Entity = value;
-					if ((value != null))
-					{
-						value.InsurancePolicies.Add(this);
-						this._cID = value.ID;
-					}
-					else
-					{
-						this._cID = default(int);
-					}
-					this.SendPropertyChanged("Contractor");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="InsuranceBrokerEmail_InsurancePolicy", Storage="_InsuranceBrokerEmail", ThisKey="BrokerEmailID", OtherKey="ID", IsForeignKey=true)]
 		public InsuranceBrokerEmail InsuranceBrokerEmail
 		{
@@ -6400,6 +5896,40 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_InsurancePolicy", Storage="_Contractor", ThisKey="cID", OtherKey="ID", IsForeignKey=true)]
+		public Contractor Contractor
+		{
+			get
+			{
+				return this._Contractor.Entity;
+			}
+			set
+			{
+				Contractor previousValue = this._Contractor.Entity;
+				if (((previousValue != value) 
+							|| (this._Contractor.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Contractor.Entity = null;
+						previousValue.InsurancePolicies.Remove(this);
+					}
+					this._Contractor.Entity = value;
+					if ((value != null))
+					{
+						value.InsurancePolicies.Add(this);
+						this._cID = value.ID;
+					}
+					else
+					{
+						this._cID = default(int);
+					}
+					this.SendPropertyChanged("Contractor");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -6556,6 +6086,500 @@ namespace Qualified_Contractor_Tracking
 		{
 			this.SendPropertyChanging();
 			entity.InsuranceNonOwnedAuto = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Contractors")]
+	public partial class Contractor : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Company;
+		
+		private string _VendorNumber;
+		
+		private string _ContactName;
+		
+		private string _MailingAddress;
+		
+		private string _Town;
+		
+		private string _PostalCode;
+		
+		private string _Email;
+		
+		private string _NCContact;
+		
+		private System.Nullable<bool> _ExemptFromAuto;
+		
+		private string _ExemptFromAutoComments;
+		
+		private string _Notes;
+		
+		private EntitySet<ContractorsPhone> _ContractorsPhones;
+		
+		private EntitySet<Licence> _Licences;
+		
+		private EntitySet<Permit> _Permits;
+		
+		private EntitySet<Agreement> _Agreements;
+		
+		private EntitySet<WSIB> _WSIBs;
+		
+		private EntitySet<InsurancePolicy> _InsurancePolicies;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnCompanyChanging(string value);
+    partial void OnCompanyChanged();
+    partial void OnVendorNumberChanging(string value);
+    partial void OnVendorNumberChanged();
+    partial void OnContactNameChanging(string value);
+    partial void OnContactNameChanged();
+    partial void OnMailingAddressChanging(string value);
+    partial void OnMailingAddressChanged();
+    partial void OnTownChanging(string value);
+    partial void OnTownChanged();
+    partial void OnPostalCodeChanging(string value);
+    partial void OnPostalCodeChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnNCContactChanging(string value);
+    partial void OnNCContactChanged();
+    partial void OnExemptFromAutoChanging(System.Nullable<bool> value);
+    partial void OnExemptFromAutoChanged();
+    partial void OnExemptFromAutoCommentsChanging(string value);
+    partial void OnExemptFromAutoCommentsChanged();
+    partial void OnNotesChanging(string value);
+    partial void OnNotesChanged();
+    #endregion
+		
+		public Contractor()
+		{
+			this._ContractorsPhones = new EntitySet<ContractorsPhone>(new Action<ContractorsPhone>(this.attach_ContractorsPhones), new Action<ContractorsPhone>(this.detach_ContractorsPhones));
+			this._Licences = new EntitySet<Licence>(new Action<Licence>(this.attach_Licences), new Action<Licence>(this.detach_Licences));
+			this._Permits = new EntitySet<Permit>(new Action<Permit>(this.attach_Permits), new Action<Permit>(this.detach_Permits));
+			this._Agreements = new EntitySet<Agreement>(new Action<Agreement>(this.attach_Agreements), new Action<Agreement>(this.detach_Agreements));
+			this._WSIBs = new EntitySet<WSIB>(new Action<WSIB>(this.attach_WSIBs), new Action<WSIB>(this.detach_WSIBs));
+			this._InsurancePolicies = new EntitySet<InsurancePolicy>(new Action<InsurancePolicy>(this.attach_InsurancePolicies), new Action<InsurancePolicy>(this.detach_InsurancePolicies));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Company", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string Company
+		{
+			get
+			{
+				return this._Company;
+			}
+			set
+			{
+				if ((this._Company != value))
+				{
+					this.OnCompanyChanging(value);
+					this.SendPropertyChanging();
+					this._Company = value;
+					this.SendPropertyChanged("Company");
+					this.OnCompanyChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VendorNumber", DbType="NVarChar(50)")]
+		public string VendorNumber
+		{
+			get
+			{
+				return this._VendorNumber;
+			}
+			set
+			{
+				if ((this._VendorNumber != value))
+				{
+					this.OnVendorNumberChanging(value);
+					this.SendPropertyChanging();
+					this._VendorNumber = value;
+					this.SendPropertyChanged("VendorNumber");
+					this.OnVendorNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactName", DbType="NVarChar(100)")]
+		public string ContactName
+		{
+			get
+			{
+				return this._ContactName;
+			}
+			set
+			{
+				if ((this._ContactName != value))
+				{
+					this.OnContactNameChanging(value);
+					this.SendPropertyChanging();
+					this._ContactName = value;
+					this.SendPropertyChanged("ContactName");
+					this.OnContactNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MailingAddress", DbType="NVarChar(255)")]
+		public string MailingAddress
+		{
+			get
+			{
+				return this._MailingAddress;
+			}
+			set
+			{
+				if ((this._MailingAddress != value))
+				{
+					this.OnMailingAddressChanging(value);
+					this.SendPropertyChanging();
+					this._MailingAddress = value;
+					this.SendPropertyChanged("MailingAddress");
+					this.OnMailingAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Town", DbType="NVarChar(50)")]
+		public string Town
+		{
+			get
+			{
+				return this._Town;
+			}
+			set
+			{
+				if ((this._Town != value))
+				{
+					this.OnTownChanging(value);
+					this.SendPropertyChanging();
+					this._Town = value;
+					this.SendPropertyChanged("Town");
+					this.OnTownChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostalCode", DbType="NVarChar(10)")]
+		public string PostalCode
+		{
+			get
+			{
+				return this._PostalCode;
+			}
+			set
+			{
+				if ((this._PostalCode != value))
+				{
+					this.OnPostalCodeChanging(value);
+					this.SendPropertyChanging();
+					this._PostalCode = value;
+					this.SendPropertyChanged("PostalCode");
+					this.OnPostalCodeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(255)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NCContact", DbType="NVarChar(100)")]
+		public string NCContact
+		{
+			get
+			{
+				return this._NCContact;
+			}
+			set
+			{
+				if ((this._NCContact != value))
+				{
+					this.OnNCContactChanging(value);
+					this.SendPropertyChanging();
+					this._NCContact = value;
+					this.SendPropertyChanged("NCContact");
+					this.OnNCContactChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExemptFromAuto", DbType="Bit")]
+		public System.Nullable<bool> ExemptFromAuto
+		{
+			get
+			{
+				return this._ExemptFromAuto;
+			}
+			set
+			{
+				if ((this._ExemptFromAuto != value))
+				{
+					this.OnExemptFromAutoChanging(value);
+					this.SendPropertyChanging();
+					this._ExemptFromAuto = value;
+					this.SendPropertyChanged("ExemptFromAuto");
+					this.OnExemptFromAutoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExemptFromAutoComments", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string ExemptFromAutoComments
+		{
+			get
+			{
+				return this._ExemptFromAutoComments;
+			}
+			set
+			{
+				if ((this._ExemptFromAutoComments != value))
+				{
+					this.OnExemptFromAutoCommentsChanging(value);
+					this.SendPropertyChanging();
+					this._ExemptFromAutoComments = value;
+					this.SendPropertyChanged("ExemptFromAutoComments");
+					this.OnExemptFromAutoCommentsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Notes", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string Notes
+		{
+			get
+			{
+				return this._Notes;
+			}
+			set
+			{
+				if ((this._Notes != value))
+				{
+					this.OnNotesChanging(value);
+					this.SendPropertyChanging();
+					this._Notes = value;
+					this.SendPropertyChanged("Notes");
+					this.OnNotesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_ContractorsPhone", Storage="_ContractorsPhones", ThisKey="ID", OtherKey="cID")]
+		public EntitySet<ContractorsPhone> ContractorsPhones
+		{
+			get
+			{
+				return this._ContractorsPhones;
+			}
+			set
+			{
+				this._ContractorsPhones.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_Licence", Storage="_Licences", ThisKey="ID", OtherKey="cID")]
+		public EntitySet<Licence> Licences
+		{
+			get
+			{
+				return this._Licences;
+			}
+			set
+			{
+				this._Licences.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_Permit", Storage="_Permits", ThisKey="ID", OtherKey="cID")]
+		public EntitySet<Permit> Permits
+		{
+			get
+			{
+				return this._Permits;
+			}
+			set
+			{
+				this._Permits.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_Agreement", Storage="_Agreements", ThisKey="ID", OtherKey="cID")]
+		public EntitySet<Agreement> Agreements
+		{
+			get
+			{
+				return this._Agreements;
+			}
+			set
+			{
+				this._Agreements.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_WSIB", Storage="_WSIBs", ThisKey="ID", OtherKey="cID")]
+		public EntitySet<WSIB> WSIBs
+		{
+			get
+			{
+				return this._WSIBs;
+			}
+			set
+			{
+				this._WSIBs.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Contractor_InsurancePolicy", Storage="_InsurancePolicies", ThisKey="ID", OtherKey="cID")]
+		public EntitySet<InsurancePolicy> InsurancePolicies
+		{
+			get
+			{
+				return this._InsurancePolicies;
+			}
+			set
+			{
+				this._InsurancePolicies.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ContractorsPhones(ContractorsPhone entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contractor = this;
+		}
+		
+		private void detach_ContractorsPhones(ContractorsPhone entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contractor = null;
+		}
+		
+		private void attach_Licences(Licence entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contractor = this;
+		}
+		
+		private void detach_Licences(Licence entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contractor = null;
+		}
+		
+		private void attach_Permits(Permit entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contractor = this;
+		}
+		
+		private void detach_Permits(Permit entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contractor = null;
+		}
+		
+		private void attach_Agreements(Agreement entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contractor = this;
+		}
+		
+		private void detach_Agreements(Agreement entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contractor = null;
+		}
+		
+		private void attach_WSIBs(WSIB entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contractor = this;
+		}
+		
+		private void detach_WSIBs(WSIB entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contractor = null;
+		}
+		
+		private void attach_InsurancePolicies(InsurancePolicy entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contractor = this;
+		}
+		
+		private void detach_InsurancePolicies(InsurancePolicy entity)
+		{
+			this.SendPropertyChanging();
+			entity.Contractor = null;
 		}
 	}
 }

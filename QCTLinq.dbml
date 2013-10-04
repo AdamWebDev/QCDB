@@ -8,35 +8,14 @@
       <Association Name="AgreementsSigned_Agreement" Member="Agreements" ThisKey="ID" OtherKey="AgreementSigned" Type="Agreement" />
     </Type>
   </Table>
-  <Table Name="dbo.Contractors" Member="Contractors">
-    <Type Name="Contractor">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Company" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="VendorNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ContactName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="MailingAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="Town" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="PostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="NCContact" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="ExemptFromAuto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="ExemptFromAutoComments" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Contractor_ContractorsPhone" Member="ContractorsPhones" ThisKey="ID" OtherKey="cID" Type="ContractorsPhone" />
-      <Association Name="Contractor_Licence" Member="Licences" ThisKey="ID" OtherKey="cID" Type="Licence" />
-      <Association Name="Contractor_Permit" Member="Permits" ThisKey="ID" OtherKey="cID" Type="Permit" />
-      <Association Name="Contractor_Agreement" Member="Agreements" ThisKey="ID" OtherKey="cID" Type="Agreement" />
-      <Association Name="Contractor_WSIB" Member="WSIBs" ThisKey="ID" OtherKey="cID" Type="WSIB" />
-      <Association Name="Contractor_InsurancePolicy" Member="InsurancePolicies" ThisKey="ID" OtherKey="cID" Type="InsurancePolicy" />
-    </Type>
-  </Table>
   <Table Name="dbo.ContractorsPhone" Member="ContractorsPhones">
     <Type Name="ContractorsPhone">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="cID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="PhoneType" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PhoneNumber" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
-      <Association Name="Contractor_ContractorsPhone" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
       <Association Name="lookupPhoneType_ContractorsPhone" Member="lookupPhoneType" ThisKey="PhoneType" OtherKey="ID" Type="lookupPhoneType" IsForeignKey="true" />
+      <Association Name="Contractor_ContractorsPhone" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Departments" Member="Departments">
@@ -84,8 +63,8 @@
       <Column Name="CopyReceived" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="LicFiledWith" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
       <Column Name="Dept" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="Contractor_Licence" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
       <Association Name="Division_Licence" Member="Division" ThisKey="Dept" OtherKey="ID" Type="Division" IsForeignKey="true" />
+      <Association Name="Contractor_Licence" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.lookupPhoneTypes" Member="lookupPhoneTypes">
@@ -113,8 +92,8 @@
       <Column Name="AutoIns" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="TypeOfSecurity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ExpDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Association Name="Contractor_Permit" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
       <Association Name="TypeOfPermit_Permit" Member="TypeOfPermit1" ThisKey="TypeOfPermit" OtherKey="ID" Type="TypeOfPermit" IsForeignKey="true" />
+      <Association Name="Contractor_Permit" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PolicyLimits" Member="PolicyLimits">
@@ -222,9 +201,9 @@
       <Column Name="CRCFiledWith" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="CRCDept" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="AgreementsSigned_Agreement" Member="AgreementsSigned" ThisKey="AgreementSigned" OtherKey="ID" Type="AgreementsSigned" IsForeignKey="true" />
-      <Association Name="Contractor_Agreement" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
       <Association Name="Division_Agreement" Member="Division" ThisKey="CRCDept" OtherKey="ID" Type="Division" IsForeignKey="true" />
       <Association Name="TypeOfAgreement_Agreement" Member="TypeOfAgreement1" ThisKey="TypeOfAgreement" OtherKey="ID" Type="TypeOfAgreement" IsForeignKey="true" />
+      <Association Name="Contractor_Agreement" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.InsuranceBrokerEmails" Member="InsuranceBrokerEmails">
@@ -254,8 +233,8 @@
       <Column Name="AODAStandardsCompliance" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="NCHSPolicy" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="HSPolicy" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
-      <Association Name="Contractor_WSIB" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
       <Association Name="TypeOfWSIB_WSIB" Member="TypeOfWSIB" ThisKey="WSIBCoverage" OtherKey="ID" Type="TypeOfWSIB" IsForeignKey="true" />
+      <Association Name="Contractor_WSIB" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Insurance" Member="InsurancePolicies">
@@ -287,12 +266,12 @@
       <Column Name="TenantsLegalLiability" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Association Name="InsuranceBroker_InsurancePolicy" Member="InsuranceBroker" ThisKey="BrokerID" OtherKey="ID" Type="InsuranceBroker" IsForeignKey="true" />
-      <Association Name="Contractor_InsurancePolicy" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
       <Association Name="InsuranceBrokerEmail_InsurancePolicy" Member="InsuranceBrokerEmail" ThisKey="BrokerEmailID" OtherKey="ID" Type="InsuranceBrokerEmail" IsForeignKey="true" />
       <Association Name="InsuranceCompany_InsurancePolicy" Member="InsuranceCompany1" ThisKey="insID" OtherKey="ID" Type="InsuranceCompany" IsForeignKey="true" />
       <Association Name="PolicyLimit_InsurancePolicy" Member="PolicyLimit1" ThisKey="PolicyLimit" OtherKey="ID" Type="PolicyLimit" IsForeignKey="true" />
       <Association Name="TypeOfPolicy_InsurancePolicy" Member="TypeOfPolicy1" ThisKey="TypeOfPolicy" OtherKey="ID" Type="TypeOfPolicy" IsForeignKey="true" />
       <Association Name="InsuranceNonOwnedAuto_InsurancePolicy" Member="InsuranceNonOwnedAuto" ThisKey="NonOwnedAuto" OtherKey="ID" Type="InsuranceNonOwnedAuto" IsForeignKey="true" />
+      <Association Name="Contractor_InsurancePolicy" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.InsuranceNonOwnedAuto" Member="InsuranceNonOwnedAutos">
@@ -301,6 +280,28 @@
       <Column Name="Value" Type="System.String" DbType="NVarChar(25) NOT NULL" CanBeNull="false" />
       <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="InsuranceNonOwnedAuto_InsurancePolicy" Member="InsurancePolicies" ThisKey="ID" OtherKey="NonOwnedAuto" Type="InsurancePolicy" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Contractors" Member="Contractors">
+    <Type Name="Contractor">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Company" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="VendorNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ContactName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MailingAddress" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Town" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NCContact" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ExemptFromAuto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ExemptFromAutoComments" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Notes" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Contractor_ContractorsPhone" Member="ContractorsPhones" ThisKey="ID" OtherKey="cID" Type="ContractorsPhone" />
+      <Association Name="Contractor_Licence" Member="Licences" ThisKey="ID" OtherKey="cID" Type="Licence" />
+      <Association Name="Contractor_Permit" Member="Permits" ThisKey="ID" OtherKey="cID" Type="Permit" />
+      <Association Name="Contractor_Agreement" Member="Agreements" ThisKey="ID" OtherKey="cID" Type="Agreement" />
+      <Association Name="Contractor_WSIB" Member="WSIBs" ThisKey="ID" OtherKey="cID" Type="WSIB" />
+      <Association Name="Contractor_InsurancePolicy" Member="InsurancePolicies" ThisKey="ID" OtherKey="cID" Type="InsurancePolicy" />
     </Type>
   </Table>
 </Database>

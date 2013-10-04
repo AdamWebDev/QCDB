@@ -92,6 +92,7 @@ namespace Qualified_Contractor_Tracking
                     ddExemptFromAuto.Value = c.ExemptFromAuto;
                     phExemptFromAutoComments.Visible = c.ExemptFromAuto == true;
                     txtExemptFromAutoComments.Text = c.ExemptFromAutoComments;
+                    txtContratorNotes.Text = c.Notes;
 
                     rptPhones.DataSource = Contractors.GetPhoneNumbers(cID);
                     rptPhones.DataBind();
@@ -291,6 +292,17 @@ namespace Qualified_Contractor_Tracking
             btnSavePhone.Visible = false;
             btnAddPhone.Visible = true;
             
+        }
+
+        protected void btnSaveNotes_Click(object sender, EventArgs e)
+        {
+            lblNotesSaved.Visible = false;
+            int cID = Int32.Parse(Request.QueryString["ID"]);
+            QCTLinqDataContext db = new QCTLinqDataContext();
+            Contractor c = db.Contractors.Single(u => u.ID == cID);
+            c.Notes = txtContratorNotes.Text;
+            db.SubmitChanges();
+            lblNotesSaved.Visible = true;
         }
 
         protected void btnSaveJobs_Click(object sender, EventArgs e)

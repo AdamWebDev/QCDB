@@ -274,6 +274,42 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.WebControls.Button btnSaveJobs;
         
         /// <summary>
+        /// UpdatePanelNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelNotes;
+        
+        /// <summary>
+        /// txtContratorNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtContratorNotes;
+        
+        /// <summary>
+        /// btnSaveNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveNotes;
+        
+        /// <summary>
+        /// lblNotesSaved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNotesSaved;
+        
+        /// <summary>
         /// phDeleteSummary control.
         /// </summary>
         /// <remarks>
