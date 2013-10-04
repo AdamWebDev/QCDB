@@ -31,8 +31,8 @@ namespace Qualified_Contractor_Tracking.InsurancePolicies
                     lblPolicyNumber.Text = ins.PolicyNumber;
                     lblPolicyLimit.Text = ins.PolicyLimit1.Value.Equals("Other") ? ins.PolicyLimitOther : ins.PolicyLimit1.Value;
                     lblExpiryDate.Text = ins.ExpiryDate.DisplayDate();
-                    lblInsComp.Text = ins.InsuranceCompany1.Name;
-                    lblInsEmail.Text = "<a href='"+ ins.InsuranceCompany1.Email + "'>" + ins.InsuranceCompany1.Email + "</a>";
+                    lblInsComp.Text = ins.insID.HasValue ? ins.InsuranceCompany1.Name : String.Empty;
+                    lblInsEmail.Text = ins.insID.HasValue ? "<a href='"+ ins.InsuranceCompany1.Email + "'>" + ins.InsuranceCompany1.Email + "</a>" : String.Empty;
                     lblBroker.Text = ins.BrokerID.HasValue ? ins.InsuranceBroker.Name : String.Empty;
                     lblBrokerEmail.Text = ins.BrokerEmailID.HasValue ? ins.InsuranceBrokerEmail.Email : String.Empty;
                     lblCertSigned.Text = ins.CertSigned.ToYesNoString();

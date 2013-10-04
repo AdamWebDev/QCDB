@@ -7,6 +7,7 @@ function pageLoad(sender, args) {
     $('.content-box .content-box-content div.tab-content').hide(); // Hide the content divs
 
     // managing hashes and showing/hiding content
+
     if (document.location.hash != '') {
         var tabname = window.location.hash;
         $('ul.content-box-tabs li a[href=' + tabname + ']').addClass('current'); // Add the class "current" to the default tab

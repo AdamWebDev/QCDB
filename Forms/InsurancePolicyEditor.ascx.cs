@@ -187,7 +187,7 @@ namespace Qualified_Contractor_Tracking.UserControls
             ddInsuranceCompanies.SelectedValue = ins.insID.HasValue ? ins.insID.ToString() : String.Empty;
             if (ddInsuranceCompanies.SelectedIndex > 0) lnkEditIns.Visible = true;
             
-            txtInsEmail.Text = ins.InsuranceCompany1.Email;
+            txtInsEmail.Text = ins.insID.HasValue ? ins.InsuranceCompany1.Email : String.Empty;
             ddBroker.SelectedValue = ins.BrokerID.HasValue ? ins.BrokerID.ToString() : String.Empty;
 
             // populate broker dropdown based on broker... 
