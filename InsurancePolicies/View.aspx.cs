@@ -32,9 +32,9 @@ namespace Qualified_Contractor_Tracking.InsurancePolicies
                     lblPolicyLimit.Text = ins.PolicyLimit1.Value.Equals("Other") ? ins.PolicyLimitOther : ins.PolicyLimit1.Value;
                     lblExpiryDate.Text = ins.ExpiryDate.DisplayDate();
                     lblInsComp.Text = ins.insID.HasValue ? ins.InsuranceCompany1.Name : String.Empty;
-                    lblInsEmail.Text = ins.insID.HasValue ? "<a href='"+ ins.InsuranceCompany1.Email + "'>" + ins.InsuranceCompany1.Email + "</a>" : String.Empty;
+                    lblInsEmail.Text = ins.insID.HasValue ? "<a href='mailto:"+ ins.InsuranceCompany1.Email + "'>" + ins.InsuranceCompany1.Email + "</a>" : String.Empty;
                     lblBroker.Text = ins.BrokerID.HasValue ? ins.InsuranceBroker.Name : String.Empty;
-                    lblBrokerEmail.Text = ins.BrokerEmailID.HasValue ? ins.InsuranceBrokerEmail.Email : String.Empty;
+                    lblBrokerEmail.Text = ins.BrokerEmailID.HasValue ? "<a href='mailto:" + ins.InsuranceBrokerEmail.Email + "'>" + ins.InsuranceBrokerEmail.Email + "</a>" : String.Empty;
                     lblCertSigned.Text = ins.CertSigned.ToYesNoString();
 
                     // build the paths for the file and the link to it.
@@ -46,7 +46,8 @@ namespace Qualified_Contractor_Tracking.InsurancePolicies
                         lnkFiles.NavigateUrl = filelnk;
                         lnkFiles.Text = "View attachment";
                     }
-                    ltContractorName.Text = ins.Contractor.ContactName;
+                    ltContractorName.Text = Contractors.GetContractorName(ins.cID);
+
                     
 
                 }
