@@ -267,14 +267,6 @@ namespace Qualified_Contractor_Tracking
 			}
 		}
 		
-		public System.Data.Linq.Table<AvailableContractor> AvailableContractors
-		{
-			get
-			{
-				return this.GetTable<AvailableContractor>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Agreement> Agreements
 		{
 			get
@@ -320,6 +312,14 @@ namespace Qualified_Contractor_Tracking
 			get
 			{
 				return this.GetTable<WSIB>();
+			}
+		}
+		
+		public System.Data.Linq.Table<AvailableContractor> AvailableContractors
+		{
+			get
+			{
+				return this.GetTable<AvailableContractor>();
 			}
 		}
 	}
@@ -3151,249 +3151,6 @@ namespace Qualified_Contractor_Tracking
 		{
 			this.SendPropertyChanging();
 			entity.TypeOfWSIB = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AvailableContractors")]
-	public partial class AvailableContractor
-	{
-		
-		private int _ID;
-		
-		private string _Company;
-		
-		private string _VendorNumber;
-		
-		private string _Town;
-		
-		private string _Email;
-		
-		private System.Nullable<int> _HasValidCGL;
-		
-		private System.Nullable<int> _HasHSPolicy;
-		
-		private System.Nullable<int> _HasAODA;
-		
-		private System.Nullable<int> _ValidWSIB;
-		
-		private System.Nullable<int> _ValidAuto;
-		
-		private System.Nullable<bool> _ExemptFromAuto;
-		
-		private string _ContactName;
-		
-		private string _PostalCode;
-		
-		public AvailableContractor()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this._ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Company", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string Company
-		{
-			get
-			{
-				return this._Company;
-			}
-			set
-			{
-				if ((this._Company != value))
-				{
-					this._Company = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VendorNumber", DbType="NVarChar(50)")]
-		public string VendorNumber
-		{
-			get
-			{
-				return this._VendorNumber;
-			}
-			set
-			{
-				if ((this._VendorNumber != value))
-				{
-					this._VendorNumber = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Town", DbType="NVarChar(50)")]
-		public string Town
-		{
-			get
-			{
-				return this._Town;
-			}
-			set
-			{
-				if ((this._Town != value))
-				{
-					this._Town = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(255)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HasValidCGL", DbType="Int")]
-		public System.Nullable<int> HasValidCGL
-		{
-			get
-			{
-				return this._HasValidCGL;
-			}
-			set
-			{
-				if ((this._HasValidCGL != value))
-				{
-					this._HasValidCGL = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HasHSPolicy", DbType="Int")]
-		public System.Nullable<int> HasHSPolicy
-		{
-			get
-			{
-				return this._HasHSPolicy;
-			}
-			set
-			{
-				if ((this._HasHSPolicy != value))
-				{
-					this._HasHSPolicy = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HasAODA", DbType="Int")]
-		public System.Nullable<int> HasAODA
-		{
-			get
-			{
-				return this._HasAODA;
-			}
-			set
-			{
-				if ((this._HasAODA != value))
-				{
-					this._HasAODA = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValidWSIB", DbType="Int")]
-		public System.Nullable<int> ValidWSIB
-		{
-			get
-			{
-				return this._ValidWSIB;
-			}
-			set
-			{
-				if ((this._ValidWSIB != value))
-				{
-					this._ValidWSIB = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValidAuto", DbType="Int")]
-		public System.Nullable<int> ValidAuto
-		{
-			get
-			{
-				return this._ValidAuto;
-			}
-			set
-			{
-				if ((this._ValidAuto != value))
-				{
-					this._ValidAuto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExemptFromAuto", DbType="Bit")]
-		public System.Nullable<bool> ExemptFromAuto
-		{
-			get
-			{
-				return this._ExemptFromAuto;
-			}
-			set
-			{
-				if ((this._ExemptFromAuto != value))
-				{
-					this._ExemptFromAuto = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactName", DbType="NVarChar(100)")]
-		public string ContactName
-		{
-			get
-			{
-				return this._ContactName;
-			}
-			set
-			{
-				if ((this._ContactName != value))
-				{
-					this._ContactName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostalCode", DbType="NVarChar(10)")]
-		public string PostalCode
-		{
-			get
-			{
-				return this._PostalCode;
-			}
-			set
-			{
-				if ((this._PostalCode != value))
-				{
-					this._PostalCode = value;
-				}
-			}
 		}
 	}
 	
@@ -6531,6 +6288,267 @@ namespace Qualified_Contractor_Tracking
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.AvailableContractors")]
+	public partial class AvailableContractor
+	{
+		
+		private int _ID;
+		
+		private string _Company;
+		
+		private string _VendorNumber;
+		
+		private string _Town;
+		
+		private string _Email;
+		
+		private System.Nullable<int> _HasValidCGL;
+		
+		private System.Nullable<int> _HasHSPolicy;
+		
+		private System.Nullable<int> _HasAODA;
+		
+		private System.Nullable<int> _ValidWSIB;
+		
+		private System.Nullable<int> _ValidAuto;
+		
+		private System.Nullable<int> _HSPolicyNotReqd;
+		
+		private System.Nullable<bool> _ExemptFromAuto;
+		
+		private string _ContactName;
+		
+		private string _PostalCode;
+		
+		public AvailableContractor()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Company", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string Company
+		{
+			get
+			{
+				return this._Company;
+			}
+			set
+			{
+				if ((this._Company != value))
+				{
+					this._Company = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VendorNumber", DbType="NVarChar(50)")]
+		public string VendorNumber
+		{
+			get
+			{
+				return this._VendorNumber;
+			}
+			set
+			{
+				if ((this._VendorNumber != value))
+				{
+					this._VendorNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Town", DbType="NVarChar(50)")]
+		public string Town
+		{
+			get
+			{
+				return this._Town;
+			}
+			set
+			{
+				if ((this._Town != value))
+				{
+					this._Town = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="NVarChar(255)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HasValidCGL", DbType="Int")]
+		public System.Nullable<int> HasValidCGL
+		{
+			get
+			{
+				return this._HasValidCGL;
+			}
+			set
+			{
+				if ((this._HasValidCGL != value))
+				{
+					this._HasValidCGL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HasHSPolicy", DbType="Int")]
+		public System.Nullable<int> HasHSPolicy
+		{
+			get
+			{
+				return this._HasHSPolicy;
+			}
+			set
+			{
+				if ((this._HasHSPolicy != value))
+				{
+					this._HasHSPolicy = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HasAODA", DbType="Int")]
+		public System.Nullable<int> HasAODA
+		{
+			get
+			{
+				return this._HasAODA;
+			}
+			set
+			{
+				if ((this._HasAODA != value))
+				{
+					this._HasAODA = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValidWSIB", DbType="Int")]
+		public System.Nullable<int> ValidWSIB
+		{
+			get
+			{
+				return this._ValidWSIB;
+			}
+			set
+			{
+				if ((this._ValidWSIB != value))
+				{
+					this._ValidWSIB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ValidAuto", DbType="Int")]
+		public System.Nullable<int> ValidAuto
+		{
+			get
+			{
+				return this._ValidAuto;
+			}
+			set
+			{
+				if ((this._ValidAuto != value))
+				{
+					this._ValidAuto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HSPolicyNotReqd", DbType="Int")]
+		public System.Nullable<int> HSPolicyNotReqd
+		{
+			get
+			{
+				return this._HSPolicyNotReqd;
+			}
+			set
+			{
+				if ((this._HSPolicyNotReqd != value))
+				{
+					this._HSPolicyNotReqd = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExemptFromAuto", DbType="Bit")]
+		public System.Nullable<bool> ExemptFromAuto
+		{
+			get
+			{
+				return this._ExemptFromAuto;
+			}
+			set
+			{
+				if ((this._ExemptFromAuto != value))
+				{
+					this._ExemptFromAuto = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ContactName", DbType="NVarChar(100)")]
+		public string ContactName
+		{
+			get
+			{
+				return this._ContactName;
+			}
+			set
+			{
+				if ((this._ContactName != value))
+				{
+					this._ContactName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostalCode", DbType="NVarChar(10)")]
+		public string PostalCode
+		{
+			get
+			{
+				return this._PostalCode;
+			}
+			set
+			{
+				if ((this._PostalCode != value))
+				{
+					this._PostalCode = value;
+				}
 			}
 		}
 	}

@@ -151,23 +151,6 @@
       <Association Name="TypeOfWSIB_WSIB" Member="WSIBs" ThisKey="ID" OtherKey="WSIBCoverage" Type="WSIB" />
     </Type>
   </Table>
-  <Table Name="dbo.AvailableContractors" Member="AvailableContractors">
-    <Type Name="AvailableContractor">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Company" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="VendorNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Town" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="HasValidCGL" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="HasHSPolicy" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="HasAODA" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ValidWSIB" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ValidAuto" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ExemptFromAuto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="ContactName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="PostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Agreements" Member="Agreements">
     <Type Name="Agreement">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -300,6 +283,24 @@
       <Column Name="HSPolicy" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
       <Association Name="Contractor_WSIB" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
       <Association Name="TypeOfWSIB_WSIB" Member="TypeOfWSIB" ThisKey="WSIBCoverage" OtherKey="ID" Type="TypeOfWSIB" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AvailableContractors" Member="AvailableContractors">
+    <Type Name="AvailableContractor">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Company" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="VendorNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Town" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="HasValidCGL" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HasHSPolicy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HasAODA" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ValidWSIB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ValidAuto" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="HSPolicyNotReqd" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExemptFromAuto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ContactName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PostalCode" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
