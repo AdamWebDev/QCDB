@@ -274,6 +274,42 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.WebControls.Button btnSaveJobs;
         
         /// <summary>
+        /// UpdatePanelNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanelNotes;
+        
+        /// <summary>
+        /// txtContratorNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtContratorNotes;
+        
+        /// <summary>
+        /// btnSaveNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSaveNotes;
+        
+        /// <summary>
+        /// lblNotesSaved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNotesSaved;
+        
+        /// <summary>
         /// phDeleteSummary control.
         /// </summary>
         /// <remarks>
@@ -481,42 +517,6 @@ namespace Qualified_Contractor_Tracking {
         protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddCertRecd;
         
         /// <summary>
-        /// txtCertNum control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCertNum;
-        
-        /// <summary>
-        /// dddCertEff control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Qualified_Contractor_Tracking.DateDropDown dddCertEff;
-        
-        /// <summary>
-        /// dddCertExp control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Qualified_Contractor_Tracking.DateDropDown dddCertExp;
-        
-        /// <summary>
-        /// txtCertDesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCertDesc;
-        
-        /// <summary>
         /// phIndOp control.
         /// </summary>
         /// <remarks>
@@ -589,6 +589,15 @@ namespace Qualified_Contractor_Tracking {
         protected global::Qualified_Contractor_Tracking.Notification notAODA;
         
         /// <summary>
+        /// ddAODAStandardsCompliance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddAODAStandardsCompliance;
+        
+        /// <summary>
         /// phHealthSafety control.
         /// </summary>
         /// <remarks>
@@ -598,13 +607,40 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.WebControls.PlaceHolder phHealthSafety;
         
         /// <summary>
-        /// ddNCHS control.
+        /// ddNCHSReqd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddNCHS;
+        protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddNCHSReqd;
+        
+        /// <summary>
+        /// phNCHSPolicyRecd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phNCHSPolicyRecd;
+        
+        /// <summary>
+        /// ddNCHSReceived control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddNCHSReceived;
+        
+        /// <summary>
+        /// ddMoL100 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddMoL100;
         
         /// <summary>
         /// ddContHS control.

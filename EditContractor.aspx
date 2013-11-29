@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditContractor.aspx.cs" Inherits="Qualified_Contractor_Tracking.EditContractor" %>
+﻿<%@ Page Title="Edit Contractor" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditContractor.aspx.cs" Inherits="Qualified_Contractor_Tracking.EditContractor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">Qualified Contractor Database</asp:Content>
 <asp:Content ID="Button" ContentPlaceHolderID="Buttons" runat="server">
     <uc3:NavButton ID="btnCancel" runat="server" Icon="~/resources/images/icons/back.png" AltText="Back" Text="Back to View Contractor" />
@@ -117,6 +117,17 @@
                     <asp:AsyncPostBackTrigger ControlID="btnSaveJobs" EventName="Click" />
                 </Triggers>
             </asp:UpdatePanel>
+
+            <asp:UpdatePanel ID="UpdatePanelNotes" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <h4>Contactor Notes</h4>
+                    <asp:TextBox ID="txtContratorNotes" runat="server" TextMode="MultiLine" Rows="6" ></asp:TextBox>
+                    <asp:Button ID="btnSaveNotes" runat="server" Text="Save Notes" CssClass="button" OnClick="btnSaveNotes_Click"/> <asp:Label ID="lblNotesSaved" runat="server" Text="Saved!" Visible="false"></asp:Label>
+                </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="btnSaveNotes" EventName="Click" />
+                </Triggers>
+            </asp:UpdatePanel>
             
         </div>
         <div class="clear"></div>
@@ -159,12 +170,12 @@
         </HeaderTemplate>
         <ItemTemplate>
             <tr>
-                <td><asp:Literal ID="ltRequested" runat="server" Text='<%# Eval("Insurance.CertReqFor") %>'></asp:Literal></td>
+                <td><asp:Literal ID="ltRequested" runat="server" Text='<%# Eval("InsurancePolicy.CertReqFor") %>'></asp:Literal></td>
                 <td><asp:Literal ID="ltType" runat="server" Text='<%# Eval("Type") %>'></asp:Literal></td>
-                <td><asp:Literal ID="ltPolicyNumber" runat="server" Text='<%# Eval("Insurance.PolicyNumber") %>'></asp:Literal></td>
+                <td><asp:Literal ID="ltPolicyNumber" runat="server" Text='<%# Eval("InsurancePolicy.PolicyNumber") %>'></asp:Literal></td>
                 <td><asp:Literal ID="ltPolicyLimit" runat="server" Text='<%# Eval("Value") %>'></asp:Literal></td>
-                <td><asp:Literal ID="ltExpiryDate" runat="server" Text='<%# Eval("Insurance.ExpiryDate","{0:MMMM d, yyyy}") %>'></asp:Literal></td>
-                <td><asp:HyperLink ID="lnkMore" runat="server" NavigateUrl='<%# String.Format("InsurancePolicy.aspx?ID={0}&cID={1}&mode=edit",Eval("Insurance.ID"),Request.QueryString["ID"]) %>'>View/Edit Details</asp:HyperLink></td>
+                <td><asp:Literal ID="ltExpiryDate" runat="server" Text='<%# Eval("InsurancePolicy.ExpiryDate","{0:MMMM d, yyyy}") %>'></asp:Literal></td>
+                <td><asp:HyperLink ID="lnkMore" runat="server" NavigateUrl='<%# String.Format("InsurancePolicies/Edit.aspx?ID={0}&cID={1}",Eval("InsurancePolicy.ID"), Eval("InsurancePolicy.cID")) %>'>View/Edit Details</asp:HyperLink></td>
             </tr>                
         </ItemTemplate>
         <FooterTemplate>
@@ -284,17 +295,6 @@
         <label>Certificate Received</label>
         <uc2:TrueFalseDropDown ID="ddCertRecd" CssClass="small-input" runat="server" />
     
-        <label>Certificate Number</label>
-        <asp:TextBox ID="txtCertNum" runat="server" CssClass="text-input small-input"></asp:TextBox>
-
-        <label>Certificate Effective Date</label>
-        <uc1:DateDropDown runat="server" ID="dddCertEff" />
-    
-        <label>Certificate Expiry Date</label>
-        <uc1:DateDropDown runat="server" ID="dddCertExp" />
-
-        <label>Certificate Descriptions</label>
-        <asp:TextBox runat="server" ID="txtCertDesc" CssClass="text-input small-input"></asp:TextBox>
     </asp:PlaceHolder>
 
 
@@ -315,15 +315,31 @@
 
     <asp:PlaceHolder ID="phAODA" runat="server">
     <h4>A.O.D.A.</h4>
-        <label>Compliance Form Submitted</label>
+        <label>Customer Service Compliance Form Submitted</label>
         <uc2:TrueFalseDropDown ID="ddAODASubmitted" CssClass="small-input" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddAODASubmitted_SelectedIndexChanged" />
         <uc4:Notification ID="notAODA" runat="server" Type="attention" Message="Please note that contractors MUST have their AODA Compliance Form submitted before they can be used. There are no exceptions." Visible="false" />
+
+        <label>Integrated Accessibility Standards Compliance Form Submitted</label>
+        <uc2:TrueFalseDropDown ID="ddAODAStandardsCompliance" CssClass="small-input" runat="server" />
     </asp:PlaceHolder>
 
     <asp:PlaceHolder ID="phHealthSafety" runat="server">
         <h4>Health & Safety</h4>
-        <label>Norfolk County's H&S Policy</label>
-        <uc2:TrueFalseDropDown ID="ddNCHS" CssClass="small-input" runat="server" />
+        <label>Norfolk County's H&S Policy Form Required</label>
+        <uc2:TrueFalseDropDown ID="ddNCHSReqd" CssClass="small-input" runat="server" OnSelectedIndexChanged="ddNCHS_SelectedIndexChanged" AutoPostBack="true" />
+
+        <asp:PlaceHolder ID="phNCHSPolicyRecd" runat="server" Visible="false">
+            <label>Norfolk County's H&S Policy Form Received</label>
+            <uc2:TrueFalseDropDown ID="ddNCHSReceived" CssClass="small-input" runat="server" />
+        </asp:PlaceHolder>
+
+        <label>Ministry of Labour Form 100 Received</label>
+        <asp:DropDownList ID="ddMoL100" runat="server" CssClass="small-input">
+            <asp:ListItem Value="">--Select--</asp:ListItem>
+            <asp:ListItem Value="No">No</asp:ListItem>
+            <asp:ListItem Value="Yes">Yes</asp:ListItem>
+            <asp:ListItem Value="N/A">N/A</asp:ListItem>
+        </asp:DropDownList>
 
         <label>Contractor's H&S Policy</label>
         <asp:DropDownList ID="ddContHS" runat="server" AppendDataBoundItems="true" CssClass="small-input">
@@ -335,9 +351,11 @@
     </asp:PlaceHolder>
     <br />
     <asp:Button ID="btnSaveWSIB" runat="server" Text="Save" CssClass="button" onclick="btnSaveWSIB_Click" />
+
     </ContentTemplate>
     <Triggers>
         <asp:AsyncPostBackTrigger ControlID="ddWSIBCoverage" />
+        <asp:AsyncPostBackTrigger ControlID="ddNCHSReqd" />
         <asp:AsyncPostBackTrigger ControlID="ddAODASubmitted" EventName="SelectedIndexChanged" />
     </Triggers>
     </asp:UpdatePanel>

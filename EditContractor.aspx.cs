@@ -66,15 +66,15 @@ namespace Qualified_Contractor_Tracking
                         else if (ddWSIBCoverage.SelectedValue.Equals("3"))
                             phWSIBExempt.Visible = true;
                         ddCertRecd.Value = w.WSIBCertRecd;
-                        txtCertNum.Text = w.WSIBCertNum;
-                        dddCertEff.Date = w.WSIBEffDate;
-                        dddCertExp.Date = w.WSIBExpDate;
-                        txtCertDesc.Text = w.CertDescr;
                         ddIndOpLetter.Value = w.IndOpLetterRecd;
                         txtIDNum.Text = w.IndOpIDNum;
                         ddWSIBExempt.Value = w.WSIBExemptFormRecd;
                         ddAODASubmitted.Value = w.AODAFormSubmit;
-                        ddNCHS.Value = w.NCHSPolicy;
+                        ddAODAStandardsCompliance.Value = w.AODAStandardsCompliance;
+                        ddNCHSReqd.Value = w.NCHSPolicyReqd;
+                        phNCHSPolicyRecd.Visible = ddNCHSReqd.Value == null ? false : (bool)ddNCHSReqd.Value;
+                        ddNCHSReceived.Value = w.NCHSPolicyRecd;
+                        ddMoL100.SelectedValue = w.MoL100Recd;
                         ddContHS.SelectedValue = w.HSPolicy;
                     }
                     
@@ -91,6 +91,7 @@ namespace Qualified_Contractor_Tracking
                     ddExemptFromAuto.Value = c.ExemptFromAuto;
                     phExemptFromAutoComments.Visible = c.ExemptFromAuto == true;
                     txtExemptFromAutoComments.Text = c.ExemptFromAutoComments;
+                    txtContratorNotes.Text = c.Notes;
 
                     rptPhones.DataSource = Contractors.GetPhoneNumbers(cID);
                     rptPhones.DataBind();
@@ -103,6 +104,12 @@ namespace Qualified_Contractor_Tracking
                             case "insadded":
                                 notInsurance.Type = "success";
                                 notInsurance.Message = "Insurance Policy added!";
+                                notInsurance.Visible = true;
+                                break;
+                            case "insedited":
+                                notInsurance.Type = "success";
+                                notInsurance.Message = "Insurance Policy updated!";
+                                notInsurance.Visible = true;
                                 break;
                         }
                     }
@@ -129,10 +136,18 @@ namespace Qualified_Contractor_Tracking
 
         protected void ddAODASubmitted_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddAODASubmitted.Value == false)
-                notAODA.Visible = true;
+            notAODA.Visible = ddAODASubmitted.Value == false;
+        }
+
+        protected void ddNCHS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddNCHSReqd.Value == true)
+                phNCHSPolicyRecd.Visible = true;
             else
-                notAODA.Visible = false;
+            {
+                phNCHSPolicyRecd.Visible = false;
+                Functions.ClearControls(phNCHSPolicyRecd);
+            }
         }
 
         protected void ddWSIBCoverage_SelectedIndexChanged(object sender, EventArgs e)
@@ -175,32 +190,39 @@ namespace Qualified_Contractor_Tracking
         protected void btnSaveWSIB_Click(object sender, EventArgs e)
         {
             int cID = Int32.Parse(Request.QueryString["ID"]);
+            bool newWSIB = false;
             QCTLinqDataContext db = new QCTLinqDataContext();
             WSIB w = (from a in db.WSIBs
                             where a.cID == cID
                             select a).SingleOrDefault();
 
-            if (w != null)
-            {
+            if (w == null)  { 
+                w = new WSIB();
+                w.cID = cID;
+                newWSIB = true;
+            }
+
                 w.WSIBCoverage = ddWSIBCoverage.SelectedIndex > 0 ? int.Parse(ddWSIBCoverage.SelectedValue) : (int?)null;
                 w.WSIBCertRecd = ddCertRecd.Value;
-                w.WSIBCertNum = txtCertNum.Text;
-                w.WSIBEffDate = dddCertEff.Date;
-                w.WSIBExpDate = dddCertExp.Date;
-                w.CertDescr = txtCertDesc.Text;
                 w.IndOpLetterRecd = ddIndOpLetter.Value;
                 w.IndOpIDNum = txtIDNum.Text;
                 w.WSIBExemptFormRecd = ddWSIBExempt.Value;
                 w.AODAFormSubmit = ddAODASubmitted.Value;
-                w.NCHSPolicy = ddNCHS.Value;
+                w.AODAStandardsCompliance = ddAODAStandardsCompliance.Value;
+                w.NCHSPolicyReqd = ddNCHSReqd.Value;
+                w.NCHSPolicyRecd = ddNCHSReceived.Value;
+                w.MoL100Recd = ddMoL100.SelectedValue;
                 w.HSPolicy = ddContHS.SelectedValue;
+
+                if (newWSIB) db.WSIBs.InsertOnSubmit(w);
+
                 db.SubmitChanges();
                 
                 notWSIB.Type = "success";
                 notWSIB.Message = "Changes have been saved!";
                 notWSIB.Visible = true;
                 
-            }
+            
         }
 
         protected void UpdateButton_Click(object sender, EventArgs e)
@@ -263,7 +285,7 @@ namespace Qualified_Contractor_Tracking
             QCTLinqDataContext db = new QCTLinqDataContext();
             ContractorsPhone phone = new ContractorsPhone { 
                 cID = cID,
-                PhoneType = ddPhoneType.SelectedIndex > 0 ? int.Parse(ddPhoneType.SelectedValue) : (int?)null,
+                PhoneType = int.Parse(ddPhoneType.SelectedValue),
                 PhoneNumber = txtPhoneNumber.Text
             };
             db.ContractorsPhones.InsertOnSubmit(phone);
@@ -278,6 +300,17 @@ namespace Qualified_Contractor_Tracking
             btnSavePhone.Visible = false;
             btnAddPhone.Visible = true;
             
+        }
+
+        protected void btnSaveNotes_Click(object sender, EventArgs e)
+        {
+            lblNotesSaved.Visible = false;
+            int cID = Int32.Parse(Request.QueryString["ID"]);
+            QCTLinqDataContext db = new QCTLinqDataContext();
+            Contractor c = db.Contractors.Single(u => u.ID == cID);
+            c.Notes = txtContratorNotes.Text;
+            db.SubmitChanges();
+            lblNotesSaved.Visible = true;
         }
 
         protected void btnSaveJobs_Click(object sender, EventArgs e)

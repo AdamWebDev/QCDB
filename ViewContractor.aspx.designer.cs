@@ -130,6 +130,15 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.WebControls.Repeater rptJobs;
         
         /// <summary>
+        /// lblContractorNotes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContractorNotes;
+        
+        /// <summary>
         /// notExemptFromAuto control.
         /// </summary>
         /// <remarks>
@@ -202,42 +211,6 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.WebControls.Literal ltlWSIBCert;
         
         /// <summary>
-        /// ltCertNum control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltCertNum;
-        
-        /// <summary>
-        /// ltCertEffDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltCertEffDate;
-        
-        /// <summary>
-        /// ltCertExpDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltCertExpDate;
-        
-        /// <summary>
-        /// ltCertDesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltCertDesc;
-        
-        /// <summary>
         /// phIndOp control.
         /// </summary>
         /// <remarks>
@@ -301,6 +274,15 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.WebControls.Literal ltCompSub;
         
         /// <summary>
+        /// ltAODAStandards control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltAODAStandards;
+        
+        /// <summary>
         /// phHealthSafety control.
         /// </summary>
         /// <remarks>
@@ -310,13 +292,40 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.WebControls.PlaceHolder phHealthSafety;
         
         /// <summary>
-        /// ltNCHS control.
+        /// ltNCHSReqd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltNCHS;
+        protected global::System.Web.UI.WebControls.Literal ltNCHSReqd;
+        
+        /// <summary>
+        /// phNCHS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder phNCHS;
+        
+        /// <summary>
+        /// ltNCHSRecd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltNCHSRecd;
+        
+        /// <summary>
+        /// ltMoL100Recd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltMoL100Recd;
         
         /// <summary>
         /// ltConHS control.

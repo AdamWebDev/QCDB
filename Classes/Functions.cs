@@ -174,28 +174,17 @@ namespace Qualified_Contractor_Tracking.Classes
 
         public static void SecurePage()
         {
-            String username = HttpContext.Current.User.Identity.Name.ToString();
-            username = username.Replace("NORFOLK\\","");
-            String usernames = ConfigurationManager.AppSettings["AuthenticatedUsers"];
-            if (!usernames.Contains(username))
-            {
-                HttpContext.Current.Response.Redirect("~/Default.aspx");
-            }
-
+            /*if (!HttpContext.Current.User.IsInRole(System.Configuration.ConfigurationManager.AppSettings["AuthenticatedGroup"]))
+                HttpContext.Current.Response.Redirect("~/Default.aspx");*/
         }
+
         public static bool CanEdit()
         {
-            String username = HttpContext.Current.User.Identity.Name.ToString();
-            username = username.Replace("NORFOLK\\", "");
-            String usernames = ConfigurationManager.AppSettings["AuthenticatedUsers"];
-            if (usernames.Contains(username))
-            {
+            return true;
+            /*if (HttpContext.Current.User.IsInRole(System.Configuration.ConfigurationManager.AppSettings["AuthenticatedGroup"]))
                 return true;
-            }
             else
-            {
-                return false;
-            }
+                return false;*/
         }
 
     }

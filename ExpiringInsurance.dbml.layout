@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ExpiringInsurance">
+  <DataContextMoniker Name="/ExpiringInsuranceDataContext" />
+  <nestedChildShapes>
+    <classShape Id="d77d2d95-b7ea-4078-b00a-d5f49e12bde3" absoluteBounds="4, 2.25, 2, 2.9247054036458331">
+      <DataClassMoniker Name="/ExpiringInsuranceDataContext/ExpiringInsurancePolicy" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5fb8de99-8e6b-4131-a54a-9ab437910a36" absoluteBounds="4.015, 2.71, 1.9700000000000002, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

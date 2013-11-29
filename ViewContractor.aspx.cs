@@ -36,6 +36,7 @@ namespace Qualified_Contractor_Tracking
                 ltNCContact.Text = c.NCContact;
                 notExemptFromAuto.Visible = c.ExemptFromAuto == true ? true : false;
                 notExemptFromAuto.Message = c.ExemptFromAuto == true ? "This contractor is exempt from auto insurance: " + c.ExemptFromAutoComments : String.Empty;
+                lblContractorNotes.Text = (c.Notes == null || c.Notes.Equals(String.Empty)) ? "No notes for this contractor." : c.Notes;
 
                 rptPhones.DataSource = Contractors.GetPhoneNumbers(ID);
                 rptPhones.DataBind();
@@ -59,7 +60,7 @@ namespace Qualified_Contractor_Tracking
 
                 if (w != null)
                 {
-                    ltWSIBCoverage.Text = w.TypeOfWSIB.Value;
+                    ltWSIBCoverage.Text = w.WSIBCoverage.HasValue ? w.TypeOfWSIB.Value : "---";
                     if (ltWSIBCoverage.Text.Equals("WSIB Clearance Certificate"))
                         phClearance.Visible = true;
                     else if (ltWSIBCoverage.Text.Equals("Independant Operator Letter"))
@@ -67,17 +68,16 @@ namespace Qualified_Contractor_Tracking
                     else if (ltWSIBCoverage.Text.Equals("WSIB Exemption"))
                         phWSIBExempt.Visible = true;
                     ltlWSIBCert.Text = w.WSIBCertRecd.ToYesNoString();
-                    ltCertNum.Text = w.WSIBCertNum;
-                    ltCertEffDate.Text = w.WSIBEffDate.DisplayDate();
-                    ltCertExpDate.Text = w.WSIBExpDate.DisplayDate();
-                    ltCertDesc.Text = w.CertDescr;
                     ltIndOp.Text = w.IndOpLetterRecd.ToYesNoString();
                     ltIDNum.Text = w.IndOpIDNum;
                     ltExemptionRecd.Text = w.WSIBExemptFormRecd.ToYesNoString();
                     ltCompSub.Text = w.AODAFormSubmit.ToYesNoString();
-                    ltNCHS.Text = w.NCHSPolicy.ToYesNoString();
-                    ltConHS.Text = w.HSPolicy;
-
+                    ltAODAStandards.Text = w.AODAStandardsCompliance.ToYesNoString();
+                    ltNCHSReqd.Text = w.NCHSPolicyReqd.ToYesNoString();
+                    phNCHS.Visible = w.NCHSPolicyReqd == null ? false : w.NCHSPolicyReqd.Value;
+                    ltNCHSRecd.Text = w.NCHSPolicyRecd.ToYesNoString();
+                    ltMoL100Recd.Text = (w.MoL100Recd == null || w.MoL100Recd.Equals(String.Empty)) ? "---" : w.MoL100Recd;
+                    ltConHS.Text = (w.HSPolicy == null || w.HSPolicy.Equals(String.Empty)) ? "---" : w.HSPolicy;
                 }
             }
         }

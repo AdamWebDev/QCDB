@@ -7,100 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Qualified_Contractor_Tracking {
+namespace Qualified_Contractor_Tracking.UserControls {
     
     
-    public partial class AddInsurancePolicy1 {
+    public partial class InsurancePolicyEditor {
         
         /// <summary>
-        /// ltTitle control.
+        /// lblCertReq control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltTitle;
-        
-        /// <summary>
-        /// ltSubTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltSubTitle;
-        
-        /// <summary>
-        /// btnCancel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Qualified_Contractor_Tracking.NavButton btnCancel;
-        
-        /// <summary>
-        /// btnDelete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Qualified_Contractor_Tracking.NavButton btnDelete;
-        
-        /// <summary>
-        /// notIns control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Qualified_Contractor_Tracking.Notification notIns;
-        
-        /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
-        /// pnDelete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnDelete;
-        
-        /// <summary>
-        /// lnkCancelDelete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCancelDelete;
-        
-        /// <summary>
-        /// lnkConfirmDelete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkConfirmDelete;
-        
-        /// <summary>
-        /// pnDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnDetails;
+        protected global::System.Web.UI.WebControls.Label lblCertReq;
         
         /// <summary>
         /// txtCertReq control.
@@ -112,6 +31,15 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.WebControls.TextBox txtCertReq;
         
         /// <summary>
+        /// lblTypeOfPolicy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTypeOfPolicy;
+        
+        /// <summary>
         /// ddTypeOfPolicy control.
         /// </summary>
         /// <remarks>
@@ -119,6 +47,24 @@ namespace Qualified_Contractor_Tracking {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddTypeOfPolicy;
+        
+        /// <summary>
+        /// lblPerOccurance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPerOccurance;
+        
+        /// <summary>
+        /// ddPerOccurance control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddPerOccurance;
         
         /// <summary>
         /// lblTenantsLiability control.
@@ -139,13 +85,13 @@ namespace Qualified_Contractor_Tracking {
         protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddTenantsLiability;
         
         /// <summary>
-        /// ddPerOccurance control.
+        /// lblProductsCompletedOps control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddPerOccurance;
+        protected global::System.Web.UI.WebControls.Label lblProductsCompletedOps;
         
         /// <summary>
         /// ddProductsCompletedOps control.
@@ -157,13 +103,31 @@ namespace Qualified_Contractor_Tracking {
         protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddProductsCompletedOps;
         
         /// <summary>
+        /// lblNonOwnedAuto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNonOwnedAuto;
+        
+        /// <summary>
         /// ddNonOwnedAuto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddNonOwnedAuto;
+        protected global::System.Web.UI.WebControls.DropDownList ddNonOwnedAuto;
+        
+        /// <summary>
+        /// lblCrossLiability control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCrossLiability;
         
         /// <summary>
         /// ddCrossLiability control.
@@ -175,6 +139,15 @@ namespace Qualified_Contractor_Tracking {
         protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddCrossLiability;
         
         /// <summary>
+        /// lblNCasAddIns control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNCasAddIns;
+        
+        /// <summary>
         /// ddNCasAddIns control.
         /// </summary>
         /// <remarks>
@@ -184,6 +157,15 @@ namespace Qualified_Contractor_Tracking {
         protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddNCasAddIns;
         
         /// <summary>
+        /// lblPolicyNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPolicyNumber;
+        
+        /// <summary>
         /// txtPolicyNumber control.
         /// </summary>
         /// <remarks>
@@ -191,6 +173,15 @@ namespace Qualified_Contractor_Tracking {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPolicyNumber;
+        
+        /// <summary>
+        /// lblPolicyLimit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPolicyLimit;
         
         /// <summary>
         /// ddPolicyLimit control.
@@ -211,6 +202,15 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.WebControls.TextBox txtPolicyLimitOther;
         
         /// <summary>
+        /// lblExpirtyDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblExpirtyDate;
+        
+        /// <summary>
         /// dddExpiryDate control.
         /// </summary>
         /// <remarks>
@@ -220,13 +220,22 @@ namespace Qualified_Contractor_Tracking {
         protected global::Qualified_Contractor_Tracking.DateDropDown dddExpiryDate;
         
         /// <summary>
-        /// UpdatePanel1 control.
+        /// upnlInsuranceCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        protected global::System.Web.UI.UpdatePanel upnlInsuranceCompany;
+        
+        /// <summary>
+        /// lnlInsuranceCompanies control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lnlInsuranceCompanies;
         
         /// <summary>
         /// ddInsuranceCompanies control.
@@ -292,24 +301,6 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.WebControls.Button btnEditIns;
         
         /// <summary>
-        /// hdnInsName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnInsName;
-        
-        /// <summary>
-        /// hdnInsEmail control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnInsEmail;
-        
-        /// <summary>
         /// lnkEditIns control.
         /// </summary>
         /// <remarks>
@@ -317,6 +308,15 @@ namespace Qualified_Contractor_Tracking {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkEditIns;
+        
+        /// <summary>
+        /// lblInsEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblInsEmail;
         
         /// <summary>
         /// txtInsEmail control.
@@ -328,13 +328,22 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.WebControls.TextBox txtInsEmail;
         
         /// <summary>
-        /// UpdatePanel2 control.
+        /// upnlInsuranceBroker control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        protected global::System.Web.UI.UpdatePanel upnlInsuranceBroker;
+        
+        /// <summary>
+        /// lblBroker control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBroker;
         
         /// <summary>
         /// ddBroker control.
@@ -346,6 +355,60 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.WebControls.DropDownList ddBroker;
         
         /// <summary>
+        /// lblNewBrokerName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNewBrokerName;
+        
+        /// <summary>
+        /// txtNewBroker control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNewBroker;
+        
+        /// <summary>
+        /// bnSubmitNewBroker control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bnSubmitNewBroker;
+        
+        /// <summary>
+        /// btnEditBroker control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditBroker;
+        
+        /// <summary>
+        /// lnkEditBroker control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkEditBroker;
+        
+        /// <summary>
+        /// lblBrokerEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblBrokerEmail;
+        
+        /// <summary>
         /// ddBrokerEmail control.
         /// </summary>
         /// <remarks>
@@ -353,6 +416,60 @@ namespace Qualified_Contractor_Tracking {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddBrokerEmail;
+        
+        /// <summary>
+        /// lblNewBrokerEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNewBrokerEmail;
+        
+        /// <summary>
+        /// txtNewBrokerEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNewBrokerEmail;
+        
+        /// <summary>
+        /// btnSubmitNewBrokerEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSubmitNewBrokerEmail;
+        
+        /// <summary>
+        /// btnEditBrokerEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditBrokerEmail;
+        
+        /// <summary>
+        /// lnkEditBrokeEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkEditBrokeEmail;
+        
+        /// <summary>
+        /// lblCertSigned control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCertSigned;
         
         /// <summary>
         /// ddCertSigned control.
@@ -382,6 +499,15 @@ namespace Qualified_Contractor_Tracking {
         protected global::Qualified_Contractor_Tracking.TrueFalseDropDown ddActive;
         
         /// <summary>
+        /// lblFiles control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFiles;
+        
+        /// <summary>
         /// lnkFiles control.
         /// </summary>
         /// <remarks>
@@ -391,15 +517,6 @@ namespace Qualified_Contractor_Tracking {
         protected global::System.Web.UI.WebControls.HyperLink lnkFiles;
         
         /// <summary>
-        /// phFiles control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phFiles;
-        
-        /// <summary>
         /// uploadCert control.
         /// </summary>
         /// <remarks>
@@ -407,14 +524,5 @@ namespace Qualified_Contractor_Tracking {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadUpload uploadCert;
-        
-        /// <summary>
-        /// btnSubmit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmit;
     }
 }

@@ -32,6 +32,14 @@ namespace Qualified_Contractor_Tracking
             db.Contractors.InsertOnSubmit(c);
             db.SubmitChanges();
             int ID = c.ID;
+
+            WSIB w = new WSIB
+            {
+                cID = ID
+            };
+            db.WSIBs.InsertOnSubmit(w);
+            db.SubmitChanges();
+
             Response.Redirect("~/EditContractor.aspx?ID=" + ID);
         }
     }

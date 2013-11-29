@@ -480,3 +480,8 @@ ul.content-box-tabs li a:hover {
 .action-button span:hover {
   color: #bb0000; }
 
+.fancybox-inner #main-content ul li {
+    background-image: none;
+    list-style-type: none;
+    margin-bottom: 0em;
+}

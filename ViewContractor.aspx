@@ -5,7 +5,7 @@ Qualified Contractor Database
 </asp:Content>
 <asp:Content ID="Buttons" ContentPlaceHolderID="Buttons" runat="server">
     <uc3:NavButton ID="btnCancel" runat="server" Icon="~/resources/images/icons/back.png" AltText="Back" Text="View All Contractors" NavURL="~/Default.aspx" />
-    <uc3:NavButton ID="btnEdit" runat="server" Icon="~/resources/images/icons/page_edit.png" AltText="Edit" Text="Edit this Contractor" />
+    <uc3:NavButton ID="btnEdit" ClientIDMode="Static" runat="server" Icon="~/resources/images/icons/page_edit.png" AltText="Edit" Text="Edit this Contractor" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentBoxHeader" runat="server">
@@ -78,13 +78,21 @@ Contractor Details
     </asp:Repeater>
     <br /><br />
     <h4>Services Available</h4>
+    <div class="services-available">
     <asp:Repeater ID="rptJobs" runat="server">
         <ItemTemplate>
             <span class="tag">
             <asp:Label ID="lblJob" runat="server" Text='<%# Eval("JobTitle") %>'></asp:Label>
             </span>
+            
         </ItemTemplate>
     </asp:Repeater>
+    </div>
+    <div class="clear"></div>
+    <br /><br />
+    <h4>Contractor Notes</h4>
+    <asp:Label ID="lblContractorNotes" runat="server"></asp:Label>
+
     </div>
     <div class="clear"></div>
     
@@ -115,7 +123,7 @@ Contractor Details
                 <td><asp:Literal ID="ltPolicyNumber" runat="server" Text='<%# Eval("InsurancePolicy.PolicyNumber") %>'></asp:Literal></td>
                 <td><asp:Literal ID="ltPolicyLimit" runat="server" Text='<%# Eval("Value") %>'></asp:Literal></td>
                 <td><asp:Literal ID="ltExpiryDate" runat="server" Text='<%# Eval("InsurancePolicy.ExpiryDate","{0:MMMM d, yyyy}") %>'></asp:Literal></td>
-                <td><asp:HyperLink ID="lnkMore" runat="server" NavigateUrl='<%# String.Format("InsurancePolicy.aspx?ID={0}&cID={1}&mode=read",Eval("InsurancePolicy.ID"),Request.QueryString["ID"]) %>' rel="insurance" CssClass="fancybox fancybox.ajax">View Details</asp:HyperLink></td>
+                <td><asp:HyperLink ID="lnkMore" runat="server" NavigateUrl='<%# String.Format("InsurancePolicies/View.aspx?ID={0}",Eval("InsurancePolicy.ID"),Request.QueryString["ID"]) %>' rel="insurance" CssClass="fancybox fancybox.ajax">View Details</asp:HyperLink></td>
             </tr>                
         </ItemTemplate>
         <FooterTemplate>
@@ -217,21 +225,10 @@ Contractor Details
         <span><asp:Literal ID="ltWSIBCoverage" runat="server"></asp:Literal></span>
     
     <asp:PlaceHolder ID="phClearance" runat="server" Visible="false">
-        <h4>WSIB Clearance Certificate (<a href="http://net3/services/contractors/Shared%20Documents/Clearance%20Certificate%20Example.pdf" target="_blank">What does this look like?</a>)</h4>
+        <h4>Eligible for WSIB (<a href="http://net3/services/contractors/Shared%20Documents/Clearance%20Certificate%20Example.pdf" target="_blank">What does this look like?</a>)</h4>
         <label>Certificate Received</label>
             <span><asp:Literal ID="ltlWSIBCert" runat="server"></asp:Literal></span>
     
-        <label>Certificate Number</label>
-        <span><asp:Literal ID="ltCertNum" runat="server"></asp:Literal></span>
-
-        <label>Certificate Effective Date</label>
-        <span><asp:Literal ID="ltCertEffDate" runat="server"></asp:Literal></span>
-    
-        <label>Certificate Expiry Date</label>
-        <span><asp:Literal ID="ltCertExpDate" runat="server"></asp:Literal></span>
-
-        <label>Certificate Descriptions</label>
-        <span><asp:Literal ID="ltCertDesc" runat="server"></asp:Literal></span>
     </asp:PlaceHolder>
 
 
@@ -254,12 +251,23 @@ Contractor Details
     <h4>A.O.D.A.</h4>
         <label>Compliance Form Submitted</label>
         <span><asp:Literal ID="ltCompSub" runat="server"></asp:Literal></span>
+
+        <label>Integrated Accessibility Standards Compliance Form Submitted</label>
+        <span><asp:Literal ID="ltAODAStandards" runat="server"></asp:Literal></span>
     </asp:PlaceHolder>
 
     <asp:PlaceHolder ID="phHealthSafety" runat="server">
         <h4>Health & Safety</h4>
-        <label>Norfolk County's H&S Policy</label>
-        <span><asp:Literal ID="ltNCHS" runat="server"></asp:Literal></span>
+        <label>Norfolk County's H&S Policy Form Required</label>
+        <span><asp:Literal ID="ltNCHSReqd" runat="server"></asp:Literal></span>
+
+        <asp:PlaceHolder ID="phNCHS" runat="server" Visible="false">
+            <label>Norfolk County's H&S Policy Form Received</label>
+            <span><asp:Literal ID="ltNCHSRecd" runat="server"></asp:Literal></span>
+        </asp:PlaceHolder>
+
+        <label>Ministry of Labour Form 100 Received</label>
+        <span><asp:Literal ID="ltMoL100Recd" runat="server"></asp:Literal></span>
 
         <label>Contractor's H&S Policy</label>
         <span><asp:Literal ID="ltConHS" runat="server"></asp:Literal></span>

@@ -17,6 +17,12 @@ namespace Qualified_Contractor_Tracking.Classes
             return db.Contractors.Single(c => c.ID == ID);
         }
 
+        public static string GetContractorName(int ID)
+        {
+            QCTLinqDataContext db = new QCTLinqDataContext();
+            return db.Contractors.Where(u => u.ID == ID).Select(u => u.Company).Single();
+        }
+
         public static List<lookupPhoneType> GetPhoneTypes()
         {
             QCTLinqDataContext db = new QCTLinqDataContext();
