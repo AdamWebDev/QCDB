@@ -295,17 +295,6 @@
         <label>Certificate Received</label>
         <uc2:TrueFalseDropDown ID="ddCertRecd" CssClass="small-input" runat="server" />
     
-        <label>Certificate Number</label>
-        <asp:TextBox ID="txtCertNum" runat="server" CssClass="text-input small-input"></asp:TextBox>
-
-        <label>Certificate Effective Date</label>
-        <uc1:DateDropDown runat="server" ID="dddCertEff" />
-    
-        <label>Certificate Expiry Date</label>
-        <uc1:DateDropDown runat="server" ID="dddCertExp" />
-
-        <label>Certificate Descriptions</label>
-        <asp:TextBox runat="server" ID="txtCertDesc" CssClass="text-input small-input"></asp:TextBox>
     </asp:PlaceHolder>
 
 
@@ -336,8 +325,21 @@
 
     <asp:PlaceHolder ID="phHealthSafety" runat="server">
         <h4>Health & Safety</h4>
-        <label>Norfolk County's H&S Policy</label>
-        <uc2:TrueFalseDropDown ID="ddNCHS" CssClass="small-input" runat="server" />
+        <label>Norfolk County's H&S Policy Form Required</label>
+        <uc2:TrueFalseDropDown ID="ddNCHSReqd" CssClass="small-input" runat="server" OnSelectedIndexChanged="ddNCHS_SelectedIndexChanged" AutoPostBack="true" />
+
+        <asp:PlaceHolder ID="phNCHSPolicyRecd" runat="server" Visible="false">
+            <label>Norfolk County's H&S Policy Form Received</label>
+            <uc2:TrueFalseDropDown ID="ddNCHSReceived" CssClass="small-input" runat="server" />
+        </asp:PlaceHolder>
+
+        <label>Ministry of Labour Form 100 Received</label>
+        <asp:DropDownList ID="ddMoL100" runat="server" CssClass="small-input">
+            <asp:ListItem Value="">--Select--</asp:ListItem>
+            <asp:ListItem Value="No">No</asp:ListItem>
+            <asp:ListItem Value="Yes">Yes</asp:ListItem>
+            <asp:ListItem Value="N/A">N/A</asp:ListItem>
+        </asp:DropDownList>
 
         <label>Contractor's H&S Policy</label>
         <asp:DropDownList ID="ddContHS" runat="server" AppendDataBoundItems="true" CssClass="small-input">
@@ -353,6 +355,7 @@
     </ContentTemplate>
     <Triggers>
         <asp:AsyncPostBackTrigger ControlID="ddWSIBCoverage" />
+        <asp:AsyncPostBackTrigger ControlID="ddNCHSReqd" />
         <asp:AsyncPostBackTrigger ControlID="ddAODASubmitted" EventName="SelectedIndexChanged" />
     </Triggers>
     </asp:UpdatePanel>

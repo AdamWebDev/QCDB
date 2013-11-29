@@ -225,21 +225,10 @@ Contractor Details
         <span><asp:Literal ID="ltWSIBCoverage" runat="server"></asp:Literal></span>
     
     <asp:PlaceHolder ID="phClearance" runat="server" Visible="false">
-        <h4>WSIB Clearance Certificate (<a href="http://net3/services/contractors/Shared%20Documents/Clearance%20Certificate%20Example.pdf" target="_blank">What does this look like?</a>)</h4>
+        <h4>Eligible for WSIB (<a href="http://net3/services/contractors/Shared%20Documents/Clearance%20Certificate%20Example.pdf" target="_blank">What does this look like?</a>)</h4>
         <label>Certificate Received</label>
             <span><asp:Literal ID="ltlWSIBCert" runat="server"></asp:Literal></span>
     
-        <label>Certificate Number</label>
-        <span><asp:Literal ID="ltCertNum" runat="server"></asp:Literal></span>
-
-        <label>Certificate Effective Date</label>
-        <span><asp:Literal ID="ltCertEffDate" runat="server"></asp:Literal></span>
-    
-        <label>Certificate Expiry Date</label>
-        <span><asp:Literal ID="ltCertExpDate" runat="server"></asp:Literal></span>
-
-        <label>Certificate Descriptions</label>
-        <span><asp:Literal ID="ltCertDesc" runat="server"></asp:Literal></span>
     </asp:PlaceHolder>
 
 
@@ -269,8 +258,16 @@ Contractor Details
 
     <asp:PlaceHolder ID="phHealthSafety" runat="server">
         <h4>Health & Safety</h4>
-        <label>Norfolk County's H&S Policy</label>
-        <span><asp:Literal ID="ltNCHS" runat="server"></asp:Literal></span>
+        <label>Norfolk County's H&S Policy Form Required</label>
+        <span><asp:Literal ID="ltNCHSReqd" runat="server"></asp:Literal></span>
+
+        <asp:PlaceHolder ID="phNCHS" runat="server" Visible="false">
+            <label>Norfolk County's H&S Policy Form Received</label>
+            <span><asp:Literal ID="ltNCHSRecd" runat="server"></asp:Literal></span>
+        </asp:PlaceHolder>
+
+        <label>Ministry of Labour Form 100 Received</label>
+        <span><asp:Literal ID="ltMoL100Recd" runat="server"></asp:Literal></span>
 
         <label>Contractor's H&S Policy</label>
         <span><asp:Literal ID="ltConHS" runat="server"></asp:Literal></span>

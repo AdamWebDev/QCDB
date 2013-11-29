@@ -216,27 +216,6 @@
       <Association Name="InsuranceBroker_InsuranceBrokerEmail" Member="InsuranceBroker" ThisKey="bID" OtherKey="ID" Type="InsuranceBroker" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.WSIB" Member="WSIBs">
-    <Type Name="WSIB">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="cID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="WSIBCoverage" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="WSIBCertRecd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="WSIBCertNum" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="WSIBEffDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="WSIBExpDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="CertDescr" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="IndOpLetterRecd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="IndOpIDNum" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
-      <Column Name="WSIBExemptFormRecd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="AODAFormSubmit" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="AODAStandardsCompliance" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="NCHSPolicy" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="HSPolicy" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
-      <Association Name="TypeOfWSIB_WSIB" Member="TypeOfWSIB" ThisKey="WSIBCoverage" OtherKey="ID" Type="TypeOfWSIB" IsForeignKey="true" />
-      <Association Name="Contractor_WSIB" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Insurance" Member="InsurancePolicies">
     <Type Name="InsurancePolicy">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -300,8 +279,27 @@
       <Association Name="Contractor_Licence" Member="Licences" ThisKey="ID" OtherKey="cID" Type="Licence" />
       <Association Name="Contractor_Permit" Member="Permits" ThisKey="ID" OtherKey="cID" Type="Permit" />
       <Association Name="Contractor_Agreement" Member="Agreements" ThisKey="ID" OtherKey="cID" Type="Agreement" />
-      <Association Name="Contractor_WSIB" Member="WSIBs" ThisKey="ID" OtherKey="cID" Type="WSIB" />
       <Association Name="Contractor_InsurancePolicy" Member="InsurancePolicies" ThisKey="ID" OtherKey="cID" Type="InsurancePolicy" />
+      <Association Name="Contractor_WSIB" Member="WSIBs" ThisKey="ID" OtherKey="cID" Type="WSIB" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WSIB" Member="WSIBs">
+    <Type Name="WSIB">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="cID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WSIBCoverage" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="WSIBCertRecd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IndOpLetterRecd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IndOpIDNum" Type="System.String" DbType="NVarChar(25)" CanBeNull="true" />
+      <Column Name="WSIBExemptFormRecd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AODAFormSubmit" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AODAStandardsCompliance" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NCHSPolicyReqd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="NCHSPolicyRecd" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="MoL100Recd" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="HSPolicy" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Association Name="Contractor_WSIB" Member="Contractor" ThisKey="cID" OtherKey="ID" Type="Contractor" IsForeignKey="true" />
+      <Association Name="TypeOfWSIB_WSIB" Member="TypeOfWSIB" ThisKey="WSIBCoverage" OtherKey="ID" Type="TypeOfWSIB" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

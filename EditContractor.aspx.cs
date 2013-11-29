@@ -66,16 +66,15 @@ namespace Qualified_Contractor_Tracking
                         else if (ddWSIBCoverage.SelectedValue.Equals("3"))
                             phWSIBExempt.Visible = true;
                         ddCertRecd.Value = w.WSIBCertRecd;
-                        txtCertNum.Text = w.WSIBCertNum;
-                        dddCertEff.Date = w.WSIBEffDate;
-                        dddCertExp.Date = w.WSIBExpDate;
-                        txtCertDesc.Text = w.CertDescr;
                         ddIndOpLetter.Value = w.IndOpLetterRecd;
                         txtIDNum.Text = w.IndOpIDNum;
                         ddWSIBExempt.Value = w.WSIBExemptFormRecd;
                         ddAODASubmitted.Value = w.AODAFormSubmit;
                         ddAODAStandardsCompliance.Value = w.AODAStandardsCompliance;
-                        ddNCHS.Value = w.NCHSPolicy;
+                        ddNCHSReqd.Value = w.NCHSPolicyReqd;
+                        phNCHSPolicyRecd.Visible = ddNCHSReqd.Value == null ? false : (bool)ddNCHSReqd.Value;
+                        ddNCHSReceived.Value = w.NCHSPolicyRecd;
+                        ddMoL100.SelectedValue = w.MoL100Recd;
                         ddContHS.SelectedValue = w.HSPolicy;
                     }
                     
@@ -140,6 +139,17 @@ namespace Qualified_Contractor_Tracking
             notAODA.Visible = ddAODASubmitted.Value == false;
         }
 
+        protected void ddNCHS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddNCHSReqd.Value == true)
+                phNCHSPolicyRecd.Visible = true;
+            else
+            {
+                phNCHSPolicyRecd.Visible = false;
+                Functions.ClearControls(phNCHSPolicyRecd);
+            }
+        }
+
         protected void ddWSIBCoverage_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ddWSIBCoverage.SelectedValue.Equals("1"))
@@ -194,16 +204,14 @@ namespace Qualified_Contractor_Tracking
 
                 w.WSIBCoverage = ddWSIBCoverage.SelectedIndex > 0 ? int.Parse(ddWSIBCoverage.SelectedValue) : (int?)null;
                 w.WSIBCertRecd = ddCertRecd.Value;
-                w.WSIBCertNum = txtCertNum.Text;
-                w.WSIBEffDate = dddCertEff.Date;
-                w.WSIBExpDate = dddCertExp.Date;
-                w.CertDescr = txtCertDesc.Text;
                 w.IndOpLetterRecd = ddIndOpLetter.Value;
                 w.IndOpIDNum = txtIDNum.Text;
                 w.WSIBExemptFormRecd = ddWSIBExempt.Value;
                 w.AODAFormSubmit = ddAODASubmitted.Value;
                 w.AODAStandardsCompliance = ddAODAStandardsCompliance.Value;
-                w.NCHSPolicy = ddNCHS.Value;
+                w.NCHSPolicyReqd = ddNCHSReqd.Value;
+                w.NCHSPolicyRecd = ddNCHSReceived.Value;
+                w.MoL100Recd = ddMoL100.SelectedValue;
                 w.HSPolicy = ddContHS.SelectedValue;
 
                 if (newWSIB) db.WSIBs.InsertOnSubmit(w);

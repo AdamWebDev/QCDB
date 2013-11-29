@@ -68,18 +68,16 @@ namespace Qualified_Contractor_Tracking
                     else if (ltWSIBCoverage.Text.Equals("WSIB Exemption"))
                         phWSIBExempt.Visible = true;
                     ltlWSIBCert.Text = w.WSIBCertRecd.ToYesNoString();
-                    ltCertNum.Text = w.WSIBCertNum;
-                    ltCertEffDate.Text = w.WSIBEffDate.DisplayDate();
-                    ltCertExpDate.Text = w.WSIBExpDate.DisplayDate();
-                    ltCertDesc.Text = w.CertDescr;
                     ltIndOp.Text = w.IndOpLetterRecd.ToYesNoString();
                     ltIDNum.Text = w.IndOpIDNum;
                     ltExemptionRecd.Text = w.WSIBExemptFormRecd.ToYesNoString();
                     ltCompSub.Text = w.AODAFormSubmit.ToYesNoString();
                     ltAODAStandards.Text = w.AODAStandardsCompliance.ToYesNoString();
-                    ltNCHS.Text = w.NCHSPolicy.ToYesNoString();
-                    ltConHS.Text = w.HSPolicy == null ? "---" : w.HSPolicy;
-
+                    ltNCHSReqd.Text = w.NCHSPolicyReqd.ToYesNoString();
+                    phNCHS.Visible = w.NCHSPolicyReqd == null ? false : w.NCHSPolicyReqd.Value;
+                    ltNCHSRecd.Text = w.NCHSPolicyRecd.ToYesNoString();
+                    ltMoL100Recd.Text = (w.MoL100Recd == null || w.MoL100Recd.Equals(String.Empty)) ? "---" : w.MoL100Recd;
+                    ltConHS.Text = (w.HSPolicy == null || w.HSPolicy.Equals(String.Empty)) ? "---" : w.HSPolicy;
                 }
             }
         }
