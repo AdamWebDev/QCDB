@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15.125, 32.625" name="QCTLinq">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 15.375, 32.625" name="QCTLinq">
   <DataContextMoniker Name="/QCTLinqDataContext" />
   <nestedChildShapes>
     <classShape Id="db08436a-4689-482b-9030-39601dc01eb5" absoluteBounds="3.75, 28.875, 2, 1.3862939453125023">
@@ -139,12 +139,6 @@
         <classShapeMoniker Id="65cc018a-55da-49c6-8748-57790ce99b8b" />
       </nodes>
     </associationConnector>
-    <classShape Id="45b7668f-fe19-4ff4-9a1a-b32ac712d98e" absoluteBounds="12.875, 7.375, 2, 3.3093082682291666">
-      <DataClassMoniker Name="/QCTLinqDataContext/AvailableContractor" />
-      <nestedChildShapes>
-        <elementListCompartment Id="2c13f013-c04d-4eba-bc4e-f373222738ad" absoluteBounds="12.89, 7.8350000000000009, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="3b893ad2-e358-4c8f-ad55-f13fb82d435b" absoluteBounds="7.5, 18.25, 2, 6.5784326171875">
       <DataClassMoniker Name="/QCTLinqDataContext/Agreement" />
       <nestedChildShapes>
@@ -300,5 +294,11 @@
         <classShapeMoniker Id="75e4a322-9e54-47d3-b501-0d986ae32c96" />
       </nodes>
     </associationConnector>
+    <classShape Id="3f9d13e9-8859-4c31-9e1a-dcc2e505928a" absoluteBounds="13.125, 7.875, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/QCTLinqDataContext/AvailableContractor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0f6d2bf5-4e17-494f-af11-8ad262d8ae31" absoluteBounds="13.14, 8.335, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

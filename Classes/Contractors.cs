@@ -195,7 +195,8 @@ namespace Qualified_Contractor_Tracking.Classes
                         ValidWSIB = c.ValidWSIB,
                         ValidAuto = c.ValidAuto,
                         ExemptFromAuto = c.ExemptFromAuto,
-                        IsValid = (c.HasValidCGL == 1 && c.HasHSPolicy == 1 && c.HasAODA == 1 && (c.ValidAuto == 1 || c.ExemptFromAuto == true)),
+                        IsValid = (c.HSPolicyNotReqd == 1) || (c.HasHSPolicy == 1),
+                        //IsValid = (c.HasValidCGL == 1 && c.HasHSPolicy == 1 && c.HasAODA == 1 && (c.ValidAuto == 1 || c.ExemptFromAuto == true)),
                         //IsValid = true,
                         ContactName = c.ContactName,
                         PostalCode = c.PostalCode
